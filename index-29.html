@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="theme-color" content="#1a2e4a"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="NeoKit"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22NeoKit%22,%22short_name%22:%22NeoKit%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%231a2e4a%22,%22theme_color%22:%22%231a2e4a%22,%22icons%22:[{%22src%22:%22data:image/png;base64,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%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}"/>
+<title>NeoKit · UTI HSA</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Inter',system-ui,sans-serif;background:#F7F5F0;min-height:100vh;padding-bottom:24px;}
+input,button,select{font-family:inherit;}
+button{cursor:pointer;transition:all 0.15s;}
+button:active{opacity:0.82;}
+.card{background:#fff;border-radius:18px;border:1px solid #E2DDD6;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:18px;margin-bottom:14px;}
+.lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#D4A04A;margin-bottom:12px;}
+.inp{width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #E2DDD6;background:#FAFAF8;color:#1A202C;font-size:15px;outline:none;}
+.inp:focus{border-color:#3B6EA5;box-shadow:0 0 0 3px #EBF2FC;}
+.inp-sm{font-size:13px;padding:8px 10px;}
+input[type=datetime-local]::-webkit-calendar-picker-indicator{opacity:.5;cursor:pointer;}
+.btnp{padding:13px;background:linear-gradient(135deg,#1a2e4a,#3B6EA5);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;width:100%;}
+.btng{padding:11px 18px;background:transparent;color:#718096;border:1.5px solid #E2DDD6;border-radius:12px;font-size:13px;font-weight:600;}
+.chkrow{display:flex;align-items:flex-start;gap:9px;width:100%;border-radius:10px;padding:9px 11px;cursor:pointer;text-align:left;margin-bottom:5px;border:1.5px solid #E2DDD6;background:#FAFAF8;}
+.chkbox{width:19px;height:19px;border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:2px solid #E2DDD6;background:white;margin-top:1px;}
+svg text{font-family:'Inter',system-ui,sans-serif;}
+</style>
+</head>
+<body><div id="app"></div>
+<script>
+// ════ COLORS ════════════════════════════════════════════════════════════════
+const C={bg:"#F7F5F0",card:"#FFFFFF",border:"#E2DDD6",slate:"#4A5568",muted:"#718096",text:"#1A202C",amber:"#D4A04A",amberL:"#FDF3E0",blue:"#3B6EA5",blueL:"#EBF2FC",green:"#2E7D5C",greenL:"#E8F5EF",red:"#C0392B",redL:"#FDECEA",orange:"#B84A00",orangeL:"#FEF3E2",yellow:"#9A7000",yellowL:"#FFFBEA",purple:"#6B4FA0",purpleL:"#F3EFFF",ice:"#0077B6",iceL:"#E0F4FF"};
+// ════ DATA ════════════════════════════════════════════════════════════════════
+const FENTON={M:{p10:{22:390,23:450,24:530,25:620,26:720,27:840,28:970,29:1100,30:1260,31:1440,32:1630,33:1850,34:2080,35:2310,36:2550,37:2780,38:3000,39:3190,40:3350,41:3470,42:3550,43:3590,44:3590},p50:{22:510,23:590,24:690,25:800,26:930,27:1080,28:1240,29:1420,30:1620,31:1840,32:2080,33:2340,34:2600,35:2870,36:3130,37:3370,38:3590,39:3760,40:3900,41:4000,42:4070,43:4100,44:4090},p90:{22:660,23:760,24:880,25:1020,26:1180,27:1360,28:1570,29:1800,30:2050,31:2320,32:2610,33:2910,34:3220,35:3520,36:3810,37:4070,38:4290,39:4460,40:4580,41:4660,42:4700,43:4700,44:4670}},F:{p10:{22:370,23:430,24:500,25:580,26:680,27:790,28:910,29:1040,30:1190,31:1360,32:1540,33:1740,34:1960,35:2180,36:2410,37:2640,38:2860,39:3060,40:3230,41:3360,42:3450,43:3490,44:3500},p50:{22:490,23:560,24:650,25:760,26:880,27:1020,28:1170,29:1340,30:1530,31:1740,32:1970,33:2210,34:2460,35:2720,36:2970,37:3210,38:3430,39:3610,40:3760,41:3870,42:3940,43:3970,44:3960},p90:{22:630,23:730,24:840,25:970,26:1120,27:1300,28:1490,29:1710,30:1950,31:2210,32:2490,33:2780,34:3080,35:3380,36:3660,37:3920,38:4140,39:4310,40:4430,41:4510,42:4550,43:4550,44:4510}}};
+const CLOHERTY=[{min:22,max:27,d1:[80,100],d2:[100,120],d37:[120,150],d7p:[150,160]},{min:28,max:30,d1:[70,90],d2:[90,110],d37:[110,130],d7p:[140,150]},{min:31,max:36,d1:[60,80],d2:[80,100],d37:[100,120],d7p:[140,150]},{min:37,max:44,d1:[60,80],d2:[80,100],d37:[100,120],d7p:[150,150]}];
+const PTH=[{h:0,lr:5,mr:4,hr:3},{h:12,lr:8,mr:7,hr:6},{h:18,lr:10,mr:8,hr:7},{h:24,lr:12,mr:10,hr:8},{h:36,lr:14,mr:12,hr:10},{h:48,lr:15,mr:13,hr:11},{h:60,lr:17,mr:14,hr:12},{h:72,lr:18,mr:15,hr:13},{h:84,lr:19,mr:16,hr:14},{h:96,lr:20,mr:17,hr:15},{h:108,lr:20,mr:17,hr:15},{h:120,lr:20,mr:17,hr:15},{h:144,lr:20,mr:17,hr:15}];
+const ETH=[{h:0,lr:10,mr:8,hr:6},{h:12,lr:14,mr:12,hr:10},{h:18,lr:16,mr:14,hr:12},{h:24,lr:19,mr:17,hr:15},{h:36,lr:22,mr:19,hr:17},{h:48,lr:24,mr:21,hr:19},{h:60,lr:25,mr:22,hr:20},{h:72,lr:25,mr:22,hr:20},{h:84,lr:25,mr:22,hr:20},{h:96,lr:25,mr:22,hr:20},{h:108,lr:25,mr:22,hr:20},{h:120,lr:25,mr:22,hr:20},{h:144,lr:25,mr:22,hr:20}];
+const STPH=PTH.map(p=>({h:p.h,lr:Math.max(p.lr-2,0),mr:Math.max(p.mr-2,0),hr:Math.max(p.hr-2,0)}));
+const PPH={"22-23":[{h:0,v:4},{h:24,v:5},{h:48,v:6},{h:72,v:6},{h:96,v:6}],"24-25":[{h:0,v:5},{h:24,v:6},{h:48,v:7},{h:72,v:7},{h:96,v:7}],"26-27":[{h:0,v:5},{h:24,v:6},{h:48,v:7},{h:72,v:8},{h:96,v:8}],"28-29":[{h:0,v:6},{h:24,v:8},{h:48,v:9},{h:72,v:10},{h:96,v:10}],"30-31":[{h:0,v:7},{h:24,v:9},{h:48,v:10},{h:72,v:11},{h:96,v:11}],"32-33":[{h:0,v:9},{h:24,v:11},{h:48,v:12},{h:72,v:13},{h:96,v:13}],"34":[{h:0,v:10},{h:24,v:12},{h:48,v:13},{h:72,v:14},{h:96,v:14}]};
+const PPE={"22-23":[{h:0,v:8},{h:24,v:9},{h:48,v:10},{h:72,v:11},{h:96,v:11}],"24-25":[{h:0,v:9},{h:24,v:10},{h:48,v:11},{h:72,v:12},{h:96,v:12}],"26-27":[{h:0,v:10},{h:24,v:12},{h:48,v:13},{h:72,v:14},{h:96,v:14}],"28-29":[{h:0,v:11},{h:24,v:13},{h:48,v:14},{h:72,v:15},{h:96,v:15}],"30-31":[{h:0,v:12},{h:24,v:14},{h:48,v:15},{h:72,v:16},{h:96,v:16}],"32-33":[{h:0,v:14},{h:24,v:16},{h:48,v:17},{h:72,v:18},{h:96,v:18}],"34":[{h:0,v:16},{h:24,v:18},{h:48,v:19},{h:72,v:20},{h:96,v:20}]};
+const PREBANDS=[{label:"22-23s",ga:"22-23"},{label:"24-25s",ga:"24-25"},{label:"26-27s",ga:"26-27"},{label:"28-29s",ga:"28-29"},{label:"30-31s",ga:"30-31"},{label:"32-33s",ga:"32-33"},{label:"34s",ga:"34"}];
+const RTERM=["Doença hemolítica isoimune (Rh, ABO)","Deficiência de G6PD","Asfixia perinatal","Letargia significativa","Instabilidade de temperatura","Sepse / infecção","Acidose","Albumina < 3 g/dL"];
+const RPRE=["Doença hemolítica isoimune (Rh, ABO)","Deficiência de G6PD","Asfixia / Apgar ≤ 3 aos 5 min","Sepse / infecção confirmada","Acidose (pH < 7.15)","Albumina < 2,5 g/dL"];
+const SARNAT=[{id:"consciencia",label:"Nível de consciência",icon:"🧠",opts:[{s:1,l:"Hipervigilante / irritável"},{s:2,l:"Letárgico / obtuso"},{s:3,l:"Estupor / coma"}]},{id:"tono",label:"Tônus muscular",icon:"💪",opts:[{s:1,l:"Normal ou leve hipertonia"},{s:2,l:"Hipotonia leve a moderada"},{s:3,l:"Hipotonia flácida"}]},{id:"postura",label:"Postura",icon:"🤱",opts:[{s:1,l:"Flexão distal leve"},{s:2,l:"Flexão distal forte"},{s:3,l:"Descerebração / decorticação"}]},{id:"moro",label:"Reflexo de Moro",icon:"⚡",opts:[{s:1,l:"Incompleto / exagerado"},{s:2,l:"Incompleto / fraco"},{s:3,l:"Ausente"}]},{id:"succao",label:"Sucção",icon:"👄",opts:[{s:1,l:"Ativa, fraca ou exagerada"},{s:2,l:"Fraca"},{s:3,l:"Ausente"}]},{id:"resp",label:"Respiração",icon:"🫁",opts:[{s:1,l:"Espontânea, normal"},{s:2,l:"Espontânea, irregular"},{s:3,l:"Apneia / VM"}]},{id:"pupila",label:"Pupilas",icon:"👁️",opts:[{s:1,l:"Miose, reativas"},{s:2,l:"Miose, reação lenta"},{s:3,l:"Midríase / arreativas"}]},{id:"conv",label:"Convulsões",icon:"⚠️",opts:[{s:1,l:"Ausentes"},{s:2,l:"Focais / multifocais"},{s:3,l:"Generalizadas / status"}]},{id:"eeg",label:"EEG",icon:"📈",opt:true,opts:[{s:1,l:"Normal / leve anorm."},{s:2,l:"Baixa voltagem / burst-supression"},{s:3,l:"Isoelétrico / plano"}]}];
+const BSYS=[{id:"temp",l:"Instabilidade térmica"},{id:"apnea",l:"Apneia / bradicardia"},{id:"letargy",l:"Letargia"},{id:"thrombo",l:"Trombocitopenia"},{id:"acidosis",l:"Acidose metabólica"},{id:"hemody",l:"Instabilidade hemodinâmica"},{id:"dic",l:"CID"},{id:"oliguria",l:"Oligúria / anúria"},{id:"neutro",l:"Neutropenia"},{id:"shock",l:"Choque séptico"}];
+const BABD=[{id:"residue",l:"Resíduo gástrico aumentado"},{id:"distension",l:"Distensão abdominal"},{id:"bloodocc",l:"Sangue oculto nas fezes"},{id:"bloodfrank",l:"Sangramento retal franco"},{id:"norha",l:"Ausência de RHA"},{id:"tender",l:"Dor à palpação"},{id:"mass",l:"Massa palpável"},{id:"erythema",l:"Eritema / edema de parede"},{id:"periton",l:"Peritonite clínica"},{id:"perforat",l:"Perfuração intestinal"}];
+const BRAD=[{id:"distloop",l:"Distensão de alças"},{id:"pneumat",l:"Pneumatose intestinal"},{id:"portalgas",l:"Pneumoporta"},{id:"ascites",l:"Ascite"},{id:"fixloop",l:"Alças fixas"},{id:"pneumoperiton",l:"Pneumoperitônio"}];
+const BSTAGES=[{sh:"IA",label:"Estágio IA — Suspeita",color:"#9A7000",bg:"#FFFBEA",desc:"Sinais inespecíficos",mgmt:["Suspender dieta 3 dias","Hemocultura","Antibióticos (Amp + Genta)","RX a cada 6–8h"]},{sh:"IB",label:"Estágio IB — Suspeita",color:"#9A7000",bg:"#FFFBEA",desc:"Sangramento retal franco",mgmt:["Suspender dieta 3 dias","Hemocultura","Antibióticos","RX seriado"]},{sh:"IIA",label:"Estágio IIA — Definida leve",color:"#B84A00",bg:"#FEF3E2",desc:"Pneumatose intestinal",mgmt:["Suspender dieta 7–14 dias","NPT","Amp+Genta±Metronidazol","RX a cada 6h"]},{sh:"IIB",label:"Estágio IIB — Moderada",color:"#B84A00",bg:"#FEF3E2",desc:"Toxicidade sistêmica",mgmt:["Suspender dieta 14 dias","NPT completa","ATB amplo espectro","Suporte hemodinâmico","Avaliar cirurgia","RX a cada 6h"]},{sh:"IIIA",label:"Estágio IIIA — Grave",color:"#C0392B",bg:"#FDECEA",desc:"Perfuração iminente",mgmt:["UTI — suporte máximo","NPT + reposição agressiva","ATB amplo espectro","Drogas vasoativas","Cirurgia: drenagem ou laparotomia","Hemoderivados conforme coagulação"]},{sh:"IIIB",label:"Estágio IIIB — Perfuração",color:"#C0392B",bg:"#FDECEA",desc:"Pneumoperitônio confirmado",mgmt:["CIRURGIA DE EMERGÊNCIA","Laparotomia ou drenagem peritoneal","Suporte intensivo máximo","ATB + antifúngico empírico"]}];
+const NOMOPTS=[{dou:8,cuv:5.0,cauA:10.0,cauB:6.8},{dou:9,cuv:5.5,cauA:11.0,cauB:7.4},{dou:10,cuv:6.0,cauA:12.0,cauB:8.0},{dou:11,cuv:6.5,cauA:13.0,cauB:8.6},{dou:12,cuv:7.0,cauA:14.0,cauB:9.2},{dou:13,cuv:7.5,cauA:15.0,cauB:9.8},{dou:14,cuv:8.0,cauA:16.0,cauB:10.4},{dou:15,cuv:8.5,cauA:17.0,cauB:11.0},{dou:16,cuv:9.0,cauA:18.0,cauB:11.6},{dou:17,cuv:9.5,cauA:19.0,cauB:12.2},{dou:18,cuv:10.0,cauA:20.0,cauB:12.8}];
+const HB_THR={"lt28":{critico:{r:11,l:13},moderado:{r:9,l:11},estavel:{r:8,l:10}},"28-31":{critico:{r:10,l:12},moderado:{r:8.5,l:10.5},estavel:{r:8,l:10}},"32-36":{critico:{r:9,l:11},moderado:{r:8,l:10},estavel:{r:7,l:9}},"ge37":{critico:{r:12,l:13},moderado:{r:10,l:12},estavel:{r:8,l:10}}};
+const GA_GROUPS=[{id:"lt28",label:"< 28 semanas",sub:"TOP Trial (NEJM 2020)"},{id:"28-31",label:"28–31 semanas",sub:"BSH 2016 + extrapolação TOP"},{id:"32-36",label:"32–36 semanas",sub:"BSH 2016 / AAP 2021"},{id:"ge37",label:"≥ 37 semanas",sub:"AAP 2021"}];
+const STATUS_OPT=[{id:"critico",icon:"🔴",label:"Crítico",desc:"VM com PAM ≥ 8 cmH₂O ou FiO₂ ≥ 0,35, ou apneia clinicamente significativa"},{id:"moderado",icon:"🟡",label:"Moderado",desc:"Qualquer O₂ suplementar, CPAP ou VM com baixo suporte; apneias controladas"},{id:"estavel",icon:"🟢",label:"Estável",desc:"Ar ambiente, sem apneias significativas, em fase de crescimento"}];
+const PLT_THR=[{id:"estavel",label:"Prematuro estável",sub:"Padrão PlaNeT-2",threshold:25000,color:"#2E7D5C",bg:"#E8F5EF",icon:"🟢",note:"PlaNeT-2: limiar liberal (<50k) causou mais sangramento que restritivo (<25k)"},{id:"pre_proc",label:"Pré-procedimento menor",sub:"PICC, punção lombar, EXT",threshold:50000,color:"#9A7000",bg:"#FFFBEA",icon:"🟡",note:""},{id:"hemolitica",label:"Doença hemolítica / CIVD",sub:"DHRh, incompatibilidade ABO",threshold:50000,color:"#B84A00",bg:"#FEF3E2",icon:"🟠",note:"Individualizar — considerar velocidade de queda"},{id:"sangramento",label:"Sangramento ativo",sub:"HIV graus III–IV",threshold:100000,color:"#C0392B",bg:"#FDECEA",icon:"🔴",note:""},{id:"cirurgia",label:"Pré-cirurgia maior",sub:"Cirurgia abdominal, cardíaca, neurocirurgia",threshold:100000,color:"#C0392B",bg:"#FDECEA",icon:"🔴",note:""}];
+const MODS=[
+  {id:"ig",      icon:"📏",name:"IG + Classificação",   desc:"Fenton 2013 · DUM · USG",          color:"#3B6EA5",bg:"#EBF2FC"},
+  {id:"foto",    icon:"💛",name:"Fototerapia",            desc:"Bhutani · AAP 2022",                color:"#9A7000",bg:"#FFFBEA"},
+  {id:"hidrica", icon:"💧",name:"Oferta Hídrica",         desc:"Cloherty 8ª ed.",                   color:"#2E7D5C",bg:"#E8F5EF"},
+  {id:"transfusao",icon:"🩸",name:"Hemoterapia",          desc:"TOP 2020 · PlaNeT-2 2019",          color:"#C0392B",bg:"#FDECEA"},
+  {id:"ehi",     icon:"🧠",name:"EHI + Hipotermia",       desc:"Sarnat · AAP/NICHD",                color:"#6B4FA0",bg:"#F3EFFF"},
+  {id:"bell",    icon:"🫃",name:"Bell / NEC",              desc:"Walsh & Kliegman 1986",              color:"#B84A00",bg:"#FEF3E2"},
+  {id:"cateteres",icon:"🔵",name:"Cateteres Umbilicais",  desc:"Dunn · Shukla",                     color:"#0077B6",bg:"#E0F4FF"},
+  {id:"capurro", icon:"📐",name:"Capurro Somático",       desc:"Capurro B · Pediatrics 1978",       color:"#6B4FA0",bg:"#F3EFFF"},
+  {id:"ballard", icon:"📊",name:"New Ballard",             desc:"Ballard JL · J Pediatrics 1991",    color:"#0077B6",bg:"#E0F4FF"},
+  {id:"io",      icon:"💨",name:"Índice de O₂",            desc:"OI · OSI · razão P/F",              color:"#2E7D5C",bg:"#E8F5EF"},
+  {id:"renal",   icon:"🧪",name:"Função Renal",            desc:"Schwartz · KDIGO AWAKEN 2017",      color:"#B84A00",bg:"#FEF3E2"},
+  {id:"pressao", icon:"🩺",name:"Pressão Arterial",        desc:"Hipotensão · Choque · HAS",         color:"#C0392B",bg:"#FDECEA"},
+];
+// ════ UTILS ═══════════════════════════════════════════════════════════════════
+// ════ STATE ════════════════════════════════════════════════════════════════════
+const S={
+  screen:"home",pacOpen:true,
+  pac:{nome:"",sexo:"",birthDT:"",igW:"",igD:"",peso:""},
+  ig:{tab:"direta",nasc:"",dum:"",usgDate:"",usgW:"",usgD:"",dirW:"",dirD:"",peso:"",sexo:"",result:null,err:""},
+  foto:{gaMode:"term",pGa:"34",hours:"",hAuto:null,bili:"",tRisks:[],pRisks:[],result:null},
+  hid:{ftAdj:false,ftVal:0,crAdj:false,crVal:20,tubAdj:false,tubVal:-10,pesoM:"",igM:"",dolM:""},
+  ehi:{sc:{consciencia:null,tono:null,postura:null,moro:null,succao:null,resp:null,pupila:null,conv:null,eeg:null},cA:{ig36:false,peso1800:false,idade6h:false},cB:{b1_ph:false,b1_be:false,b2_event:false,b2_ph:false,b2_apgar:false,b2_vpp:false}},
+  bell:{f:Object.fromEntries([...BSYS,...BABD,...BRAD].map(x=>[x.id,false])),manual:null,showM:false},
+  cath:{peso:"",dou:""},
+  tr:{tab:"hemacias",gaGroup:"lt28",gaGroupSet:false,status:null,hb:"",adjHemo:false,adjSurg:false,result:null,pltSit:null,plt:""},
+  capurro:{pele:null,orelha:null,mama:null,mamilo:null,planta:null},
+  ballard:{sexo:"M",postura:null,janela:null,recolhimento:null,popliteo:null,lenco:null,calcaneo:null,pelef:null,lanugem:null,plantaf:null,mamaf:null,olhoorelha:null,genital:null},
+  io:{fio2:"",map:"",pao2:"",spo2:""},
+  renal:{tab:"clcr",ig:"",comp:"",crS:"",crAt:"",crBas:"",du:"",dol:""},
+  pressao:{tab:"hypo",ig:"",peso:"",dol:"",map:"",sbpH:"",dbpH:"",signs:{},shockType:null,pma:"",sbp:"",dbp:""},
+};
+function getS(path){const k=path.split(".");let o=S;for(const p of k)o=o[p];return o;}
+function setS(path,val){const k=path.split(".");let o=S;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;}
+function setState(path,val){setS(path,val);render();}
+function toggleBool(path){setS(path,!getS(path));render();}
+function toggleArr(path,val){const cur=getS(path);setS(path,cur.includes(val)?cur.filter(x=>x!==val):[...cur,val]);render();}
+
+function shukla(dou){return{cuv:+(dou/2+1).toFixed(1),cauA:+(dou+2).toFixed(1),cauB:+(dou*0.6+2).toFixed(1)};}
+function svgTerm(h,b,rk){
+  var W=300,H=168,pL=34,pR=10,pT=10,pB=26,cW=W-pL-pR,cH=H-pT-pB;
+  var tX=function(x){return pL+(x/144)*cW;},tY=function(y){return pT+cH-(y/26)*cH;};
+  var lp=function(t,k){return t.map(function(p,i){return(i===0?'M':'L')+tX(p.h).toFixed(1)+' '+tY(p[k]).toFixed(1);}).join(' ');};
+  var dx=tX(Math.min(h||0,144)),dy=tY(Math.min(b||0,26)),show=h>0&&b>0;
+  var s='<svg width="100%" viewBox="0 0 '+W+' '+H+'" style="display:block">';
+  s+='<rect x="'+pL+'" y="'+pT+'" width="'+cW+'" height="'+cH+'" fill="#f8f4f0" rx="4"/>';
+  [0,5,10,15,20,25].forEach(function(v){s+='<line x1="'+pL+'" y1="'+tY(v)+'" x2="'+(pL+cW)+'" y2="'+tY(v)+'" stroke="#e2d9cf" stroke-width=".5"/><text x="'+(pL-3)+'" y="'+(tY(v)+3)+'" text-anchor="end" font-size="8" fill="#7a6050">'+v+'</text>';});
+  [0,24,48,72,96,120,144].forEach(function(v){s+='<line x1="'+tX(v)+'" y1="'+pT+'" x2="'+tX(v)+'" y2="'+(pT+cH)+'" stroke="#e2d9cf" stroke-width=".5"/><text x="'+tX(v)+'" y="'+(pT+cH+10)+'" text-anchor="middle" font-size="7" fill="#7a6050">'+v+'h</text>';});
+  s+='<path d="'+lp(ETH,'lr')+' L'+tX(144)+' '+tY(26)+' L'+tX(0)+' '+tY(26)+' Z" fill="rgba(220,53,69,.12)"/>';
+  s+='<path d="'+lp(PTH,'lr')+' '+ETH.slice().reverse().map(function(p){return'L'+tX(p.h).toFixed(1)+' '+tY(p.lr).toFixed(1);}).join(' ')+' Z" fill="rgba(255,152,0,.12)"/>';
+  s+='<path d="'+lp(STPH,'lr')+' '+PTH.slice().reverse().map(function(p){return'L'+tX(p.h).toFixed(1)+' '+tY(p.lr).toFixed(1);}).join(' ')+' Z" fill="rgba(42,122,75,.08)"/>';
+  s+='<path d="'+lp(ETH,'lr')+'" fill="none" stroke="#dc3545" stroke-width="1.5" stroke-dasharray="4,2"/>';
+  s+='<path d="'+lp(ETH,'mr')+'" fill="none" stroke="#dc3545" stroke-width="1" stroke-dasharray="3,2" opacity=".6"/>';
+  s+='<path d="'+lp(PTH,'lr')+'" fill="none" stroke="#e67e00" stroke-width="1.5"/>';
+  s+='<path d="'+lp(PTH,'mr')+'" fill="none" stroke="#e67e00" stroke-width="1" opacity=".7"/>';
+  s+='<path d="'+lp(PTH,'hr')+'" fill="none" stroke="#e67e00" stroke-width="1" opacity=".5"/>';
+  s+='<path d="'+lp(STPH,'lr')+'" fill="none" stroke="#2a7a4b" stroke-width="1.5" stroke-dasharray="5,3"/>';
+  s+='<line x1="'+pL+'" y1="'+pT+'" x2="'+pL+'" y2="'+(pT+cH)+'" stroke="#a89070" stroke-width="1"/>';
+  s+='<line x1="'+pL+'" y1="'+(pT+cH)+'" x2="'+(pL+cW)+'" y2="'+(pT+cH)+'" stroke="#a89070" stroke-width="1"/>';
+  if(show)s+='<line x1="'+dx+'" y1="'+pT+'" x2="'+dx+'" y2="'+(pT+cH)+'" stroke="#2c4a8c" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/><line x1="'+pL+'" y1="'+dy+'" x2="'+(pL+cW)+'" y2="'+dy+'" stroke="#2c4a8c" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/><circle cx="'+dx+'" cy="'+dy+'" r="5" fill="#2c4a8c" stroke="white" stroke-width="1.5"/>';
+  return s+'</svg>';
+}
+function svgPre(h,b,gk,ra){
+  var ph=PPH[gk],pe=PPE[gk],W=300,H=153,pL=34,pR=10,pT=10,pB=26,cW=W-pL-pR,cH=H-pT-pB,mH=96,mB=22;
+  var tX=function(x){return pL+(Math.min(x,mH)/mH)*cW;},tY=function(y){return pT+cH-(Math.min(y,mB)/mB)*cH;};
+  var pA=ph.map(function(p){return{h:p.h,v:Math.max(p.v-ra,1)};});
+  var eA=pe.map(function(p){return{h:p.h,v:Math.max(p.v-ra,1)};});
+  var sA=pA.map(function(p){return{h:p.h,v:Math.max(p.v-2,0)};});
+  var lp=function(t){return t.map(function(p,i){return(i===0?'M':'L')+tX(p.h).toFixed(1)+' '+tY(p.v).toFixed(1);}).join(' ');};
+  var dx=tX(Math.min(h||0,mH)),dy=tY(Math.min(b||0,mB)),show=h>0&&b>0;
+  var s='<svg width="100%" viewBox="0 0 '+W+' '+H+'" style="display:block">';
+  s+='<rect x="'+pL+'" y="'+pT+'" width="'+cW+'" height="'+cH+'" fill="#f5f0ff" rx="4"/>';
+  [0,5,10,15,20].forEach(function(v){s+='<line x1="'+pL+'" y1="'+tY(v)+'" x2="'+(pL+cW)+'" y2="'+tY(v)+'" stroke="#ddd0f0" stroke-width=".5"/><text x="'+(pL-3)+'" y="'+(tY(v)+3)+'" text-anchor="end" font-size="8" fill="#7a6090">'+v+'</text>';});
+  [0,24,48,72,96].forEach(function(v){s+='<line x1="'+tX(v)+'" y1="'+pT+'" x2="'+tX(v)+'" y2="'+(pT+cH)+'" stroke="#ddd0f0" stroke-width=".5"/><text x="'+tX(v)+'" y="'+(pT+cH+10)+'" text-anchor="middle" font-size="7" fill="#7a6090">'+v+'h</text>';});
+  s+='<path d="'+lp(eA)+' L'+tX(96)+' '+tY(mB)+' L'+tX(0)+' '+tY(mB)+' Z" fill="rgba(220,53,69,.13)"/>';
+  s+='<path d="'+lp(pA)+' '+eA.slice().reverse().map(function(p){return'L'+tX(p.h).toFixed(1)+' '+tY(p.v).toFixed(1);}).join(' ')+' Z" fill="rgba(255,152,0,.13)"/>';
+  s+='<path d="'+lp(sA)+' '+pA.slice().reverse().map(function(p){return'L'+tX(p.h).toFixed(1)+' '+tY(p.v).toFixed(1);}).join(' ')+' Z" fill="rgba(42,122,75,.09)"/>';
+  s+='<path d="'+lp(eA)+'" fill="none" stroke="#dc3545" stroke-width="1.5" stroke-dasharray="4,2"/>';
+  s+='<path d="'+lp(pA)+'" fill="none" stroke="#e67e00" stroke-width="1.5"/>';
+  s+='<path d="'+lp(sA)+'" fill="none" stroke="#2a7a4b" stroke-width="1.5" stroke-dasharray="5,3"/>';
+  s+='<line x1="'+pL+'" y1="'+pT+'" x2="'+pL+'" y2="'+(pT+cH)+'" stroke="#9080a0" stroke-width="1"/>';
+  s+='<line x1="'+pL+'" y1="'+(pT+cH)+'" x2="'+(pL+cW)+'" y2="'+(pT+cH)+'" stroke="#9080a0" stroke-width="1"/>';
+  if(show)s+='<circle cx="'+dx+'" cy="'+dy+'" r="5" fill="#2c4a8c" stroke="white" stroke-width="1.5"/>';
+  return s+'</svg>';
+}
+function svgCath(dou){
+  var W=300,H=183,pL=34,pR=10,pT=10,pB=28,cW=W-pL-pR,cH=H-pT-pB,minX=8,maxX=18,minY=4,maxY=21;
+  var tX=function(v){return pL+((v-minX)/(maxX-minX))*cW;},tY=function(v){return pT+cH-((v-minY)/(maxY-minY))*cH;};
+  var lp=function(k){return NOMOPTS.map(function(p,i){return(i===0?'M':'L')+tX(p.dou).toFixed(1)+' '+tY(p[k]).toFixed(1);}).join(' ');};
+  var sd=dou>=8&&dou<=18,nr=sd?interpN(dou):null;
+  var s='<svg width="100%" viewBox="0 0 '+W+' '+H+'" style="display:block">';
+  s+='<rect x="'+pL+'" y="'+pT+'" width="'+cW+'" height="'+cH+'" fill="#f8f6ff" rx="4"/>';
+  [5,8,11,14,17,20].forEach(function(v){s+='<line x1="'+pL+'" y1="'+tY(v)+'" x2="'+(pL+cW)+'" y2="'+tY(v)+'" stroke="#e0d8f0" stroke-width=".5"/><text x="'+(pL-3)+'" y="'+(tY(v)+3)+'" text-anchor="end" font-size="8" fill="#7a6090">'+v+'</text>';});
+  [8,10,12,14,16,18].forEach(function(v){s+='<line x1="'+tX(v)+'" y1="'+pT+'" x2="'+tX(v)+'" y2="'+(pT+cH)+'" stroke="#e0d8f0" stroke-width=".5"/><text x="'+tX(v)+'" y="'+(pT+cH+10)+'" text-anchor="middle" font-size="7" fill="#7a6090">'+v+'</text>';});
+  s+='<path d="'+lp('cauA')+'" fill="none" stroke="#C0392B" stroke-width="2"/>';
+  s+='<path d="'+lp('cuv')+'" fill="none" stroke="#3B6EA5" stroke-width="2"/>';
+  s+='<path d="'+lp('cauB')+'" fill="none" stroke="#B84A00" stroke-width="1.5" stroke-dasharray="5,3"/>';
+  s+='<line x1="'+pL+'" y1="'+pT+'" x2="'+pL+'" y2="'+(pT+cH)+'" stroke="#9080b0" stroke-width="1"/>';
+  s+='<line x1="'+pL+'" y1="'+(pT+cH)+'" x2="'+(pL+cW)+'" y2="'+(pT+cH)+'" stroke="#9080b0" stroke-width="1"/>';
+  s+='<text x="'+(pL+cW/2)+'" y="'+(H-2)+'" text-anchor="middle" font-size="8" fill="#7a6090">DOU (cm)</text>';
+  if(sd&&nr)s+='<line x1="'+tX(dou)+'" y1="'+pT+'" x2="'+tX(dou)+'" y2="'+(pT+cH)+'" stroke="#2c4a8c" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/><circle cx="'+tX(dou)+'" cy="'+tY(nr.cauA)+'" r="4" fill="#C0392B" stroke="white" stroke-width="1.5"/><circle cx="'+tX(dou)+'" cy="'+tY(nr.cuv)+'" r="4" fill="#3B6EA5" stroke="white" stroke-width="1.5"/><circle cx="'+tX(dou)+'" cy="'+tY(nr.cauB)+'" r="4" fill="#B84A00" stroke="white" stroke-width="1.5"/>';
+  s+='<g transform="translate('+(pL+4)+','+(pT+4)+')"><rect width="82" height="44" rx="4" fill="white" opacity=".92" stroke="#e0d8f0" stroke-width=".5"/>';
+  s+='<line x1="6" y1="11" x2="18" y2="11" stroke="#C0392B" stroke-width="2"/><text x="22" y="14" font-size="8" fill="#4a5568">CAU alto</text>';
+  s+='<line x1="6" y1="23" x2="18" y2="23" stroke="#3B6EA5" stroke-width="2"/><text x="22" y="26" font-size="8" fill="#4a5568">CUV</text>';
+  s+='<line x1="6" y1="35" x2="18" y2="35" stroke="#B84A00" stroke-width="1.5" stroke-dasharray="4,2"/><text x="22" y="38" font-size="8" fill="#4a5568">CAU baixo</text></g>';
+  return s+'</svg>';
+}
+function svgGA(weeks){
+  var zones=[{f:22,t:28,c:"#FFCDD2"},{f:28,t:32,c:"#FFCCBC"},{f:32,t:34,c:"#FFE0B2"},{f:34,t:37,c:"#FFF9C4"},{f:37,t:42,c:"#C8E6C9"},{f:42,t:44,c:"#BBDEFB"}];
+  var pct=Math.min(100,Math.max(0,((weeks-22)/22)*100));
+  var cls=classGA(weeks);
+  var s='<div style="position:relative;height:14px;border-radius:7px;overflow:hidden;display:flex;border:1px solid #E2DDD6;margin-top:8px">';
+  zones.forEach(function(z){s+='<div style="flex:'+(z.t-z.f)+';background:'+z.c+'"></div>';});
+  s+='<div style="position:absolute;left:calc('+pct+'% - 4px);top:-2px;width:8px;height:18px;background:'+cls.color+';border-radius:3px;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3)"></div></div>';
+  s+='<div style="display:flex;justify-content:space-between;margin-top:3px;font-size:9px;color:#718096">';
+  ["22s","28s","32s","34s","37s","42s","44s"].forEach(function(l){s+='<span>'+l+'</span>';});
+  return s+'</div>';
+}
+
+// ════ PATCH FUNCTIONS (surgical DOM — keyboard stays open) ════════════════════
+function classGA(w){if(w<28)return{l:"PT extremo",color:"#C0392B",bg:"#FDECEA"};if(w<32)return{l:"Muito prem.",color:"#C0392B",bg:"#FDECEA"};if(w<34)return{l:"PT moderado",color:"#B84A00",bg:"#FEF3E2"};if(w<37)return{l:"PT tardio",color:"#9A7000",bg:"#FFFBEA"};if(w<42)return{l:"A termo",color:"#2E7D5C",bg:"#E8F5EF"};return{l:"Pós-termo",color:"#3B6EA5",bg:"#EBF2FC"};}
+function calcAge(bdt){if(!bdt)return null;const d=Date.now()-new Date(bdt).getTime();if(d<0)return null;const tH=d/3600000;return{tH,days:Math.floor(tH/24),hrs:Math.floor(tH%24),dol:tH<24?1:tH<48?2:Math.min(Math.floor(tH/24)+1,90)};}
+function calcIGC(igW,igD,tH){if(!igW||tH==null)return null;const tot=parseInt(igW)*7+(parseInt(igD)||0)+Math.floor(tH/24);return{w:Math.floor(tot/7),d:tot%7};}
+function fmtH(h){if(h==null)return"";const hh=Math.floor(h),mm=Math.round((h-hh)*60);return hh+"h"+(mm>0?" "+mm+"min":"");}
+function iT(t,h,k){if(h<=t[0].h)return t[0][k];if(h>=t[t.length-1].h)return t[t.length-1][k];for(let i=0;i<t.length-1;i++)if(h>=t[i].h&&h<=t[i+1].h){const r=(h-t[i].h)/(t[i+1].h-t[i].h);return t[i][k]+r*(t[i+1][k]-t[i][k]);}return t[0][k];}
+function i1(t,h){if(h<=t[0].h)return t[0].v;if(h>=t[t.length-1].h)return t[t.length-1].v;for(let i=0;i<t.length-1;i++)if(h>=t[i].h&&h<=t[i+1].h){const r=(h-t[i].h)/(t[i+1].h-t[i].h);return t[i].v+r*(t[i+1].v-t[i].v);}return t[0].v;}
+function interpN(dou){const p=NOMOPTS;if(dou<=p[0].dou)return{...p[0]};if(dou>=p[p.length-1].dou)return{...p[p.length-1]};for(let i=0;i<p.length-1;i++)if(dou>=p[i].dou&&dou<=p[i+1].dou){const t=(dou-p[i].dou)/(p[i+1].dou-p[i].dou);return{cuv:+(p[i].cuv+t*(p[i+1].cuv-p[i].cuv)).toFixed(1),cauA:+(p[i].cauA+t*(p[i+1].cauA-p[i].cauA)).toFixed(1),cauB:+(p[i].cauB+t*(p[i+1].cauB-p[i].cauB)).toFixed(1)};}}
+function fentonI(tbl,w,d){const ww=Math.min(44,Math.max(22,Math.floor(w)));const dd=Math.min(6,Math.max(0,d||0));if(dd===0||ww>=44)return tbl[ww];return Math.round(tbl[ww]+(tbl[Math.min(44,ww+1)]-tbl[ww])*dd/7);}
+function bellAuto(f){if(f.perforat||f.pneumoperiton)return 5;if(f.dic||f.shock)return 4;if((f.pneumat||f.portalgas)&&(f.thrombo||f.acidosis||f.hemody))return 3;if(f.portalgas||f.ascites)return 3;if(f.pneumat)return 2;if(f.bloodfrank)return 1;if((f.temp||f.apnea||f.letargy)&&(f.residue||f.distension||f.bloodocc))return 0;return null;}
+function sarnatGrade(sc){const vals=Object.values(sc).filter(v=>v!==null);if(vals.length<4)return null;const cnt=[0,0,0];vals.forEach(v=>{if(v>=1&&v<=3)cnt[v-1]++;});let g;if(cnt[2]>=2||cnt[2]>cnt[1])g=3;else if(cnt[1]>=cnt[0])g=2;else g=1;if(sc.conv>=2&&g<2)g=2;return g;}
+function gradeInfo(g){if(g===1)return{l:"EHI Grau I — Leve",c:"#9A7000",bg:"#FFFBEA"};if(g===2)return{l:"EHI Grau II — Moderada",c:"#B84A00",bg:"#FEF3E2"};if(g===3)return{l:"EHI Grau III — Grave",c:"#C0392B",bg:"#FDECEA"};return null;}
+function dunn(g){const k=g/1000;return{cuv:+(k*1.5+5.5).toFixed(1),cauA:+(k*3+9).toFixed(1),cauB:+(k+7).toFixed(1)};}
+function shuklaFn(dou){return{cuv:+(dou/2+1).toFixed(1),cauA:+(dou+2).toFixed(1),cauB:+(dou*0.6+2).toFixed(1)};}
+function getFluid(igW,dol){const r=CLOHERTY.find(x=>igW>=x.min&&igW<=x.max);if(!r)return null;return dol===1?r.d1:dol===2?r.d2:dol<=7?r.d37:r.d7p;}
+function chip(l,c,bg){return `<span style="display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;background:${bg};color:${c}">${l}</span>`;}
+function ck(){return '<svg width="9" height="7" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>';}
+function getPD(){const p=S.pac,age=calcAge(p.birthDT),igW=parseInt(p.igW),igD=parseInt(p.igD)||0;const igc=(age&&igW)?calcIGC(igW,igD,age.tH):null;return{...p,age,igW:igW||null,igD,igc,cls:igW?classGA(igW):null,igcCls:igc?classGA(igc.w):null};}
+
+// ════ PATIENT STORAGE (localStorage) ═════════════════════════════════════════
+function loadPats(){try{return JSON.parse(localStorage.getItem('neo_patients')||'[]');}catch(e){return[];}}
+function savePats(arr){try{localStorage.setItem('neo_patients',JSON.stringify(arr));}catch(e){}}
+function autoLabel(pac){const parts=[];if(pac.nome)parts.push(pac.nome);if(pac.igW)parts.push(pac.igW+'s'+(pac.igD&&pac.igD!=='0'?'+'+pac.igD+'d':''));if(pac.peso)parts.push(pac.peso+'g');if(pac.sexo)parts.push(pac.sexo==='M'?'Masc':'Fem');if(pac.birthDT){const d=new Date(pac.birthDT);parts.push(d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}));}return parts.join(' · ')||'Paciente';}
+function relTime(iso){const h=Math.floor((Date.now()-new Date(iso).getTime())/3600000);if(h<1)return'agora';if(h<24)return'há '+h+'h';const d=Math.floor(h/24);if(d===1)return'ontem';if(d<7)return'há '+d+' dias';return new Date(iso).toLocaleDateString('pt-BR');}
+function saveCurrentPat(){const pats=loadPats();pats.unshift({id:Date.now().toString(),savedAt:new Date().toISOString(),label:autoLabel(S.pac),pac:{nome:"",...S.pac}});if(pats.length>30)pats.pop();savePats(pats);render();}
+function loadPat(id){const p=loadPats().find(x=>x.id===id);if(p){S.pac={nome:'',...p.pac};S.pacOpen=false;nav('home');}}
+function delPat(id){if(confirm('Apagar este paciente?')){savePats(loadPats().filter(x=>x.id!==id));render();}}
+
+// ════ PATCH FUNCTIONS (surgical DOM updates — keyboard stays open) ══════════
+function buildComputedSection(pd){
+  if(!pd.age&&!pd.igc)return'';
+  return `<div style="background:#F7F5F0;border-radius:12px;padding:12px;margin-top:12px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${pd.age?`<div><div style="font-size:10px;color:#718096;margin-bottom:3px">Idade cronológica</div><div style="font-size:18px;font-weight:800;color:#1A202C">${pd.age.days}d ${pd.age.hrs}h</div><div style="font-size:11px;color:#718096">${Math.floor(pd.age.tH)}h · ${pd.age.dol}º dia</div></div>`:''}${pd.igc?`<div><div style="font-size:10px;color:#718096;margin-bottom:3px">IGC atual</div><div style="font-size:18px;font-weight:800;color:${pd.igcCls.color}">${pd.igc.w}s+${pd.igc.d}d</div>${chip(pd.igcCls.l,pd.igcCls.color,pd.igcCls.bg)}</div>`:''}</div></div>`;
+}
+function pacChips(pd){
+  return (pd.age?chip(pd.age.days+'d '+pd.age.hrs+'h','#90CDF4','rgba(144,205,244,.25)'):'')
+    +(pd.igc?chip('IGC '+pd.igc.w+'s+'+pd.igc.d+'d',pd.igcCls.color,pd.igcCls.bg):'')
+    +(pd.peso?chip(pd.peso+'g','#9AE6B4','rgba(154,230,180,.25)'):'')
+    +(pd.sexo?chip(pd.sexo==='M'?'Masc':'Fem','#90CDF4','rgba(144,205,244,.15)'):'');
+}
+function patchPacForm(){
+  const pd=getPD();
+  const gb=document.getElementById('home-gabar');if(gb)gb.innerHTML=pd.igW?svgGA(pd.igW):'';
+  const cp=document.getElementById('home-computed');if(cp)cp.innerHTML=buildComputedSection(pd);
+  const cs=document.getElementById('home-pac-chips');if(cs)cs.innerHTML=pacChips(pd);
+}
+function patchFotoNomo(){
+  const f=S.foto,h=parseFloat(f.hours)||0,b=parseFloat(f.bili)||0;
+  const isPre=f.gaMode==='preterm',pRa=Math.min(f.pRisks.length,2);
+  const tRK=f.tRisks.length===0?'lr':f.tRisks.length<=1?'mr':'hr';
+  const el=document.getElementById('foto-nomo');
+  if(el)el.innerHTML=isPre?svgPre(h,b,f.pGa,pRa):svgTerm(h,b,tRK);
+}
+
+// ════ SCREEN HELPERS ════════════════════════════════════════════════════════
+function shdr(title,sub){
+  const pd=getPD(),has=pd.birthDT||pd.igW||pd.peso;
+  return `<div data-action="nav" data-val="home" style="background:linear-gradient(135deg,#1A202C,#2d3748);color:white;padding:11px 16px;display:flex;align-items:center;gap:10px;cursor:pointer"><div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">👶</div><div style="flex:1;min-width:0"><div style="font-size:9px;opacity:.6;letter-spacing:1px;text-transform:uppercase">Paciente · toque para editar</div>${has?`<div style="display:flex;gap:5px;flex-wrap:wrap">${pacChips(pd)}</div>`:`<div style="font-size:12px;opacity:.7">Sem dados</div>`}</div><div style="font-size:13px;opacity:.4">‹</div></div><div style="background:linear-gradient(135deg,#1a2e4a,#3B6EA5);padding:11px 16px;color:white;display:flex;align-items:center;gap:12px"><button data-action="nav" data-val="home" style="background:rgba(255,255,255,.18);border:none;color:white;width:44px;height:44px;border-radius:12px;font-size:22px;font-weight:700;flex-shrink:0">‹</button><div><div style="font-size:15px;font-weight:700">${title}</div>${sub?`<div style="font-size:11px;opacity:.7">${sub}</div>`:''}</div></div>`;
+}
+function chkRow(label,sub,checked,key,color){
+  return `<button class="chkrow" data-action="toggle" data-key="${key}" style="background:${checked?color+'0d':'#FAFAF8'};border-color:${checked?color+'60':'#E2DDD6'}"><div class="chkbox" style="border-color:${checked?color:'#E2DDD6'};background:${checked?color:'white'}">${checked?ck():''}</div><div><div style="font-size:13px;font-weight:600;color:${checked?'#1A202C':'#4A5568'}">${label}</div>${sub?`<div style="font-size:11px;color:#718096;margin-top:2px;line-height:1.4">${sub}</div>`:''}</div></button>`;
+}
+
+// ════ HOME ════════════════════════════════════════════════════════════════════
+function renderHome(){
+  const pd=getPD(),has=pd.birthDT||pd.igW||pd.peso,pats=loadPats();
+  const sx=(v,l)=>`<button data-action="sex" data-key="pac.sexo" data-val="${v}" style="flex:1;padding:9px;border-radius:9px;font-size:13px;font-weight:600;border:1.5px solid ${S.pac.sexo===v?'#3B6EA5':'#E2DDD6'};background:${S.pac.sexo===v?'#3B6EA5':'transparent'};color:${S.pac.sexo===v?'white':'#4A5568'}">${l}</button>`;
+  const pacForm=S.pacOpen?`<div style="padding:0 18px 18px">
+<div style="margin-bottom:12px">
+<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Nome / identificação <span style="font-weight:400;color:#718096">(opcional)</span></div>
+<input class="inp" data-set="pac.nome" value="${S.pac.nome||''}" placeholder="Ex: RN de Maria Silva, leito 3"/>
+</div>
+<div style="display:flex;gap:10px;margin-bottom:10px">
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Sexo</div><div style="display:flex;gap:6px">${sx('M','Masc')}${sx('F','Fem')}</div></div>
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Peso nasc. (g)</div><input class="inp" data-set="pac.peso" type="number" value="${S.pac.peso}" placeholder="2615" min="200" max="7000" inputmode="numeric"/></div>
+</div>
+<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Data e hora do nascimento</div><input class="inp" data-set="pac.birthDT" data-special="birth" type="datetime-local" value="${S.pac.birthDT}"/></div>
+<div><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">IG ao nascer</div>
+<div style="display:flex;gap:10px">
+<div style="flex:2"><input class="inp" data-set="pac.igW" data-special="gabar" type="number" value="${S.pac.igW}" placeholder="34" min="22" max="44" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:3px">semanas</div></div>
+<div style="flex:1"><input class="inp" data-set="pac.igD" data-special="gabar" type="number" value="${S.pac.igD}" placeholder="0" min="0" max="6" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:3px">dias</div></div>
+</div>
+<div id="home-gabar">${pd.igW?svgGA(pd.igW):''}</div></div>
+<div id="home-computed">${buildComputedSection(pd)}</div>
+<div style="display:flex;gap:8px;margin-top:14px">
+<button class="btnp" data-action="calc" data-val="saveCurrentPat" style="background:linear-gradient(135deg,#2E7D5C,#1a5c35);flex:1">💾 Salvar</button>
+<button class="btng" data-action="calc" data-val="clearPac">Limpar</button>
+</div></div>`:'';
+
+  const patsSection=pats.length>0?`<div style="margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;color:#718096;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px">Pacientes salvos (${pats.length})</div>
+${pats.slice(0,4).map(p=>`<div style="background:white;border-radius:14px;border:1px solid #E2DDD6;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)">
+<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:#1A202C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.label}</div><div style="font-size:11px;color:#718096;margin-top:2px">${relTime(p.savedAt)}</div></div>
+<button data-action="loadpat" data-id="${p.id}" style="padding:6px 12px;background:#EBF2FC;color:#3B6EA5;border:1.5px solid #3B6EA530;border-radius:9px;font-size:12px;font-weight:600;flex-shrink:0">Carregar</button>
+<button data-action="delpat" data-id="${p.id}" style="padding:6px 10px;background:#FDECEA;color:#C0392B;border:1.5px solid #C0392B30;border-radius:9px;font-size:12px;flex-shrink:0">🗑️</button>
+</div>`).join('')}
+${pats.length>4?`<button data-action="nav" data-val="pacientes" style="width:100%;padding:10px;background:transparent;border:1.5px solid #E2DDD6;border-radius:12px;font-size:12px;color:#718096;font-weight:600">Ver todos os ${pats.length} pacientes →</button>`:''}</div>`:'';
+
+  return `<div style="padding:16px">
+<div style="margin-bottom:16px"><div style="font-size:11px;font-weight:700;color:#D4A04A;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px">Neonatologia · UTI HSA</div><div style="font-size:26px;font-weight:800;color:#1A202C;letter-spacing:-.5px">NeoKit</div><div style="font-size:11px;color:#718096;margin-top:2px">Neonatologia · HSA Blumenau</div></div>
+<div style="background:white;border-radius:18px;border:1px solid #E2DDD6;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:14px;overflow:hidden">
+<button data-action="toggle" data-key="pacOpen" style="width:100%;padding:14px 18px;background:transparent;border:none;cursor:pointer;text-align:left;display:flex;align-items:center;gap:10px">
+<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1a2e4a,#3B6EA5);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">👶</div>
+<div style="flex:1;min-width:0">
+<div style="font-size:10px;font-weight:700;color:#D4A04A;letter-spacing:1.5px;text-transform:uppercase">Paciente</div>
+${!S.pacOpen&&has?`<div id="home-pac-chips" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:3px">${pacChips(pd)}</div>`:`<div style="font-size:13px;color:#718096">${S.pacOpen?'Toque para fechar':'Preencha os dados do paciente'}</div>`}
+</div>
+<div style="font-size:18px;color:#718096;transform:rotate(${S.pacOpen?180:0}deg);transition:transform .2s;flex-shrink:0">⌄</div>
+</button>
+${pacForm}
+</div>
+${patsSection}
+<div style="font-size:11px;font-weight:700;color:#718096;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Ferramentas</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+${MODS.map((m,i)=>{const last=i===MODS.length-1&&MODS.length%2!==0;return`<button data-action="nav" data-val="${m.id}" style="background:${m.bg};border:1.5px solid ${m.color}30;border-radius:16px;padding:14px 12px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-height:${last?'60':'90'}px${last?';grid-column:1/-1;flex-direction:row;align-items:center':''}"><div style="font-size:22px">${m.icon}</div><div><div style="font-size:13px;font-weight:700;color:${m.color};line-height:1.2">${m.name}</div><div style="font-size:10px;color:#718096">${m.desc}</div></div></button>`;}).join('')}
+</div>
+<div style="border-top:1px solid #E2DDD6;margin-top:8px;padding:16px 0 4px;text-align:center"><div style="font-size:15px;font-weight:800;color:#1A202C;letter-spacing:-.3px">NeoKit</div><div style="font-size:11px;color:#4A5568;margin-top:6px;line-height:1.8">Idealizado e desenvolvido por <b>Marcus Seco</b><br>Neonatologista · UTI Neonatal · HSA Blumenau<br><span style="font-size:10px;color:#718096">Codificado por <b>Claude</b> · Anthropic · 2026</span></div><div style="font-size:9px;color:#B0A898;margin-top:8px">AAP 2022 · TOP 2020 · PlaNeT-2 2019 · Fenton 2013</div></div>
+</div>`;
+}
+
+// ════ PACIENTES SALVOS ════════════════════════════════════════════════════════
+function renderPacientes(){
+  const pats=loadPats();
+  return shdr('Pacientes Salvos','Carregar ou apagar registros')
+    +`<div style="padding:16px">${pats.length===0?`<div class="card" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:12px">👶</div><div style="color:#718096;font-size:14px">Nenhum paciente salvo ainda</div></div>`
+    :pats.map(p=>`<div class="card" style="padding:14px 16px"><div style="margin-bottom:10px"><div style="font-size:14px;font-weight:700;color:#1A202C">${p.label}</div><div style="font-size:11px;color:#718096;margin-top:2px">Salvo ${relTime(p.savedAt)} · ${new Date(p.savedAt).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</div></div><div style="display:flex;gap:8px"><button data-action="loadpat" data-id="${p.id}" class="btnp" style="flex:1;padding:10px;font-size:13px">Carregar</button><button data-action="delpat" data-id="${p.id}" style="padding:10px 14px;background:#FDECEA;color:#C0392B;border:1.5px solid #C0392B30;border-radius:10px;font-size:13px;font-weight:600">🗑️ Apagar</button></div></div>`).join('')}
+</div>`;
+}
+
+// ════ IG SCREEN ════════════════════════════════════════════════════════════════
+function renderIG(){
+  const ig=S.ig,pd=getPD(),nasc=ig.nasc||pd.birthDT?.split('T')[0]||'';
+  const tabBtn=(v,l)=>`<button data-action="set" data-key="ig.tab" data-val="${v}" style="flex:1;padding:8px;border-radius:8px;font-size:12px;font-weight:600;border:none;background:${ig.tab===v?'white':'transparent'};color:${ig.tab===v?'#1A202C':'#718096'};box-shadow:${ig.tab===v?'0 1px 4px rgba(0,0,0,.1)':'none'}">${l}</button>`;
+  const sx=(v,l)=>`<button data-action="sex" data-key="ig.sexo" data-val="${v}" style="flex:1;padding:9px;border-radius:9px;font-size:12px;font-weight:600;border:1.5px solid ${ig.sexo===v?'#3B6EA5':'#E2DDD6'};background:${ig.sexo===v?'#3B6EA5':'transparent'};color:${ig.sexo===v?'white':'#4A5568'}">${l}</button>`;
+  return shdr('IG ao Nascimento','Fenton 2013 · Classificação ponderal')
+    +`<div style="padding:16px"><div class="card">
+<div class="lbl">Data de Nascimento</div><input class="inp" data-set="ig.nasc" type="date" value="${nasc}" style="margin-bottom:14px"/>
+<div style="display:flex;gap:4px;background:#F7F5F0;border-radius:10px;padding:4px;margin-bottom:14px">${tabBtn('direta','IG direta')}${tabBtn('dum','Pela DUM')}${tabBtn('usg','Por USG')}</div>
+${ig.tab==='direta'?`<div style="display:flex;gap:10px;margin-bottom:14px"><div style="flex:2"><input class="inp" data-set="ig.dirW" type="number" value="${ig.dirW}" placeholder="34" min="22" max="44" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:2px">semanas</div></div><div style="flex:1"><input class="inp" data-set="ig.dirD" type="number" value="${ig.dirD}" placeholder="0" min="0" max="6" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:2px">dias</div></div></div>`:''}
+${ig.tab==='dum'?`<div style="margin-bottom:14px"><div style="font-size:11px;color:#718096;margin-bottom:4px">Data da Última Menstruação</div><input class="inp" data-set="ig.dum" type="date" value="${ig.dum}"/></div>`:''}
+${ig.tab==='usg'?`<div style="margin-bottom:14px"><div style="margin-bottom:10px"><div style="font-size:11px;color:#718096;margin-bottom:4px">Data da USG</div><input class="inp" data-set="ig.usgDate" type="date" value="${ig.usgDate}"/></div><div style="font-size:11px;color:#718096;margin-bottom:4px">IG na USG</div><div style="display:flex;gap:10px"><div style="flex:2"><input class="inp" data-set="ig.usgW" type="number" value="${ig.usgW}" placeholder="28" min="5" max="40" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:2px">sem.</div></div><div style="flex:1"><input class="inp" data-set="ig.usgD" type="number" value="${ig.usgD}" placeholder="0" min="0" max="6" style="text-align:center" inputmode="numeric"/><div style="font-size:10px;color:#718096;text-align:center;margin-top:2px">dias</div></div></div></div>`:''}
+<div style="border-top:1px dashed #E2DDD6;padding-top:14px"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:8px">Peso e sexo (opcional)</div><div style="display:flex;gap:10px"><div style="flex:2"><input class="inp" data-set="ig.peso" type="number" value="${ig.peso||pd.peso||''}" placeholder="gramas" style="text-align:center" inputmode="numeric"/></div><div style="flex:2;display:flex;gap:6px">${sx('M','Masc')}${sx('F','Fem')}</div></div></div>
+${ig.err?`<div style="background:#FDECEA;border-radius:8px;padding:10px;margin-top:10px;font-size:13px;color:#C0392B">${ig.err}</div>`:''}
+<div style="display:flex;gap:10px;margin-top:14px"><button class="btnp" data-action="calc" data-val="calcIG">Calcular</button><button class="btng" data-action="calc" data-val="clearIG">Limpar</button></div>
+</div>${ig.result?igResult(ig.result):''}</div>`;
+}
+function igResult(r){
+  const cls=classGA(r.igW);
+  let h=`<div class="card" style="border:2px solid ${cls.color}30"><div class="lbl">Resultado</div><div style="font-size:28px;font-weight:800;color:${cls.color}">${r.igW}s+${r.igD}d</div><div style="margin:6px 0">${chip(cls.l,cls.color,cls.bg)} <span style="font-size:11px;color:#718096;margin-left:6px">${r.method}</span></div>${svgGA(r.igW)}`;
+  if(r.weight&&r.sex){
+    const tbl=FENTON[r.sex],p10=fentonI(tbl.p10,r.igW,r.igD),p50=fentonI(tbl.p50,r.igW,r.igD),p90=fentonI(tbl.p90,r.igW,r.igD),w=parseFloat(r.weight);
+    const wc=w<p10?{l:'PIG',c:'#C0392B',bg:'#FDECEA'}:w>p90?{l:'GIG',c:'#3B6EA5',bg:'#EBF2FC'}:{l:'AIG',c:'#2E7D5C',bg:'#E8F5EF'};
+    const mV=Math.max(p90*1.2,w*1.1),pW=Math.min(96,(w/mV)*100),p10p=(p10/mV)*100,p50p=(p50/mV)*100,p90p=(p90/mV)*100;
+    h+=`<div style="margin-top:12px"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:8px">Classificação ponderal — Fenton 2013</div><div style="font-size:22px;font-weight:800;color:${wc.c}">${chip(wc.l,wc.c,wc.bg)} ${w}g</div><div style="position:relative;height:12px;background:#F0EDE8;border-radius:6px;border:1px solid #E2DDD6;margin-top:10px"><div style="position:absolute;left:${p10p}%;width:${p90p-p10p}%;height:100%;background:#C8E6C9;border-radius:2px"></div><div style="position:absolute;left:${p10p}%;top:-2px;width:2px;height:16px;background:#E57373"></div><div style="position:absolute;left:${p50p}%;top:-2px;width:2px;height:16px;background:#90A4AE"></div><div style="position:absolute;left:${p90p}%;top:-2px;width:2px;height:16px;background:#42A5F5"></div><div style="position:absolute;left:calc(${pW}% - 4px);top:-3px;width:8px;height:18px;background:${wc.c};border-radius:3px;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3)"></div></div><div style="display:flex;justify-content:space-between;margin-top:3px;font-size:10px"><span style="color:#E57373;font-weight:600">p10 ${p10}g</span><span style="color:#90A4AE">p50 ${p50}g</span><span style="color:#42A5F5;font-weight:600">p90 ${p90}g</span></div></div>`;
+  }
+  return h+'</div>';
+}
+
+// ════ FOTOTERAPIA ══════════════════════════════════════════════════════════════
+function renderFoto(){
+  const f=S.foto,pd=getPD(),isPre=f.gaMode==='preterm';
+  const tRn=f.tRisks.length,pRa=Math.min(f.pRisks.length,2),tRK=tRn===0?'lr':tRn<=1?'mr':'hr';
+  const rLC=isPre?(pRa===0?C.green:pRa===1?C.orange:C.red):(tRn===0?C.green:tRn<=1?C.orange:C.red);
+  const rLL=isPre?(pRa===0?'Sem fatores':pRa===1?'1 fator (−1)':'≥2 fatores (−2)'):(tRn===0?'Baixo Risco':tRn<=1?'Intermediário':'Alto Risco');
+  const h=parseFloat(f.hours)||0,b=parseFloat(f.bili)||0,bInfo=PREBANDS.find(x=>x.ga===f.pGa)||PREBANDS[6];
+  const risks=isPre?RPRE:RTERM,arr=isPre?'foto.pRisks':'foto.tRisks',ac=isPre?C.purple:C.amber,selR=isPre?f.pRisks:f.tRisks;
+  return shdr('Fototerapia Neonatal','Bhutani · AAP 2022')
+    +`<div style="padding:16px">
+<div class="card" style="padding:14px"><div class="lbl">IG ao Nascer</div>
+<div style="display:flex;gap:8px;margin-bottom:${isPre?'12':'0'}px">
+<button data-action="set" data-key="foto.gaMode" data-val="term" style="flex:1;padding:10px;border-radius:10px;font-size:13px;font-weight:600;border:${f.gaMode==='term'?'2px solid #3B6EA5':'1.5px solid #E2DDD6'};background:${f.gaMode==='term'?'#EBF2FC':'#FAFAF8'};color:${f.gaMode==='term'?'#3B6EA5':'#718096'}">≥ 35 semanas</button>
+<button data-action="set" data-key="foto.gaMode" data-val="preterm" style="flex:1;padding:10px;border-radius:10px;font-size:13px;font-weight:600;border:${isPre?'2px solid #6B4FA0':'1.5px solid #E2DDD6'};background:${isPre?'#F3EFFF':'#FAFAF8'};color:${isPre?'#6B4FA0':'#718096'}">< 35 semanas</button>
+</div>
+${isPre?`<div style="margin-top:4px"><div style="font-size:11px;color:#718096;margin-bottom:6px">Faixa gestacional</div><div style="display:flex;flex-wrap:wrap;gap:5px">${PREBANDS.map(b=>`<button data-action="set" data-key="foto.pGa" data-val="${b.ga}" style="padding:5px 10px;border-radius:20px;font-size:11px;font-weight:600;border:${f.pGa===b.ga?'2px solid #6B4FA0':'1.5px solid #c8b0e0'};background:${f.pGa===b.ga?'#6B4FA0':'#f5f0ff'};color:${f.pGa===b.ga?'white':'#6B4FA0'}">${b.label}</button>`).join('')}</div></div>`:''}
+</div>
+<div class="card"><div class="lbl">Nomograma${isPre?` — ${bInfo.label}`:''}</div>
+<div id="foto-nomo">${isPre?svgPre(h,b,f.pGa,pRa):svgTerm(h,b,tRK)}</div>
+<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">${[{c:'#2a7a4b',l:'Suspensão',d:true},{c:'#e67e00',l:'Fototerapia'},{c:'#dc3545',l:'Exsanguíneo',d:true},{c:'#2c4a8c',l:'Paciente',dot:true}].map(x=>`<div style="display:flex;align-items:center;gap:4px;font-size:10px;color:#718096">${x.dot?`<div style="width:7px;height:7px;border-radius:50%;background:${x.c}"></div>`:`<div style="width:14px;height:2px;${x.d?`border-top:2px dashed ${x.c}`:`background:${x.c}`}"></div>`}${x.l}</div>`).join('')}</div></div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="lbl" style="margin-bottom:0">Fatores de Risco</div>${chip(rLL,rLC,rLC+'20')}</div>
+${isPre?`<div style="font-size:11px;color:#6B4FA0;background:#F3EFFF;border-radius:8px;padding:7px 10px;border:1px solid #d0c0f0;margin-bottom:10px">Cada fator reduz o limiar em 1 mg/dL (máx −2)</div>`:''}
+${risks.map(r=>{const sel=selR.includes(r);return`<button class="chkrow" data-action="arr" data-key="${arr}" data-val="${r}" style="background:${sel?ac+'0d':'#FAFAF8'};border-color:${sel?ac+'80':'#E2DDD6'}"><div class="chkbox" style="border-color:${sel?ac:'#E2DDD6'};background:${sel?ac:'white'}">${sel?ck():''}</div><span style="font-size:13px;color:${sel?'#1A202C':'#4A5568'}">${r}</span></button>`;}).join('')}</div>
+<div class="card"><div class="lbl">Dados do Paciente</div>
+${f.hAuto!==null?`<div style="background:#E8F5EF;border-radius:8px;padding:8px 12px;border:1px solid #a0d0a0;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="font-size:18px">⏱️</span><div><div style="font-size:13px;font-weight:700;color:#1a4a1a">${fmtH(f.hAuto)} de vida</div><div style="font-size:10px;color:#4a7a4a">Calculado do nascimento</div></div></div>`:''}
+<div style="display:flex;gap:10px;margin-bottom:14px">
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Horas de vida</div><div style="position:relative"><input class="inp" data-set="foto.hours" data-special="fotoH" type="number" value="${f.hours}" placeholder="0" min="0" max="336" style="padding-right:44px;font-size:17px" inputmode="decimal"/><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;color:#718096">horas</span></div></div>
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Bilirrubina Total</div><div style="position:relative"><input class="inp" data-set="foto.bili" type="number" value="${f.bili}" placeholder="0.0" step="0.1" min="0" style="padding-right:50px;font-size:17px" inputmode="decimal"/><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;color:#718096">mg/dL</span></div></div>
+</div>
+<div style="display:flex;gap:10px"><button class="btnp" data-action="calc" data-val="calcFoto">Avaliar</button><button class="btng" data-action="calc" data-val="clearFoto">Limpar</button></div></div>
+${f.result?fotoResult(f.result):''}
+</div>`;
+}
+function fotoResult(r){
+  return `<div style="background:${r.cBg};border:2px solid ${r.cCol}40;border-radius:16px;padding:16px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${r.cCol};text-transform:uppercase;margin-bottom:8px;opacity:.8">Resultado</div>
+${r.hAuto!=null?`<div style="font-size:11px;color:#6a7a6a;margin-bottom:6px;background:rgba(0,0,0,.05);border-radius:5px;padding:3px 8px;display:inline-block">⏱ ${fmtH(r.hAuto)} (${r.h.toFixed(1)}h)</div>`:''}
+<div style="font-size:16px;font-weight:800;color:${r.cCol};line-height:1.5;margin-bottom:${r.intv?8:14}px">${r.cond.replace('\n','<br>')}</div>
+${r.intv?`<div style="background:#fff0d0;border:1.5px solid #e0a000;border-radius:10px;padding:8px 12px;margin-bottom:12px;font-size:12px;color:#7a4000;font-weight:700">⚡ Considerar FOTOTERAPIA INTENSIVA — múltiplas fontes de luz</div>`:''}
+${[r.bLbl&&{l:'IG/Faixa',v:r.bLbl,c:C.purple},{l:'Stop (−2)',v:r.st.toFixed(1)+' mg/dL',c:'#2a7a4b'},{l:'Fototerapia',v:r.ph.toFixed(1)+' mg/dL',c:'#e67e00'},{l:'Exsanguíneo',v:r.ex.toFixed(1)+' mg/dL',c:'#dc3545'},{l:'Bili atual',v:r.b.toFixed(1)+' mg/dL',c:C.blue},{l:'Risco',v:r.rLbl,c:r.rCol}].filter(Boolean).map(x=>`<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.7);border-radius:8px;padding:7px 11px;margin-bottom:6px"><span style="font-size:12px;color:#6a5040">${x.l}</span><span style="font-size:13px;font-weight:700;color:${x.c}">${x.v}</span></div>`).join('')}
+<div style="margin-top:10px"><div style="background:rgba(0,0,0,.1);border-radius:7px;height:9px;position:relative;overflow:hidden">${[{v:r.st,c:'#2a7a4b'},{v:r.ph,c:'#e67e00'},{v:r.ex,c:'#dc3545'}].map(x=>`<div style="position:absolute;left:${Math.min(x.v/26*100,100)}%;top:0;bottom:0;width:2px;background:${x.c}"></div>`).join('')}<div style="position:absolute;left:0;top:0;bottom:0;width:${Math.min(r.b/26*100,100)}%;background:${r.b>=r.ex?'#dc3545':r.b>=r.ph?'#e67e00':r.b<=r.st?'#2a7a4b':'#5aaa70'};border-radius:7px"></div></div></div></div>`;
+}
+
+// ════ HÍDRICA ══════════════════════════════════════════════════════════════════
+function renderHidrica(){
+  const h=S.hid,pd=getPD();
+  const igW=pd.igW||(h.igM?parseInt(h.igM):null),dol=pd.age?pd.age.dol:(h.dolM?parseInt(h.dolM):null),peso=parseFloat(pd.peso||h.pesoM)||null;
+  const base=igW&&dol?getFluid(igW,dol):null,adj=(h.ftAdj?h.ftVal:0)+(h.crAdj?h.crVal:0)+(h.tubAdj?h.tubVal:0);
+  const fMin=base?Math.round(base[0]+adj):null,fMax=base?Math.round(base[1]+adj):null;
+  const vMinD=fMin&&peso?Math.round(fMin*peso/1000):null,vMaxD=fMax&&peso?Math.round(fMax*peso/1000):null;
+  const tog=(aK,icon,label,sub,vK,min,max,step,unit,color)=>{const active=h[aK],val=h[vK];return`<div style="border-radius:12px;border:1.5px solid ${active?color+'60':'#E2DDD6'};background:${active?color+'0a':'#FAFAF8'};padding:10px 12px;margin-bottom:8px"><div style="display:flex;align-items:center;gap:10px"><button data-action="toggle" data-key="hid.${aK}" style="width:36px;height:20px;border-radius:10px;border:none;background:${active?color:'#C0BDB8'};position:relative;flex-shrink:0"><div style="position:absolute;top:2px;left:${active?18:2}px;width:16px;height:16px;border-radius:50%;background:white;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .2s"></div></button><div style="flex:1"><div style="font-size:13px;font-weight:600;color:${active?'#1A202C':'#718096'}">${icon} ${label}</div>${sub?`<div style="font-size:10px;color:#718096">${sub}</div>`:''}</div>${active?`<div style="display:flex;align-items:center;gap:6px"><button data-action="step" data-key="hid.${vK}" data-step="-${step}" data-min="${min}" data-max="${max}" style="width:28px;height:28px;border-radius:8px;border:1.5px solid #E2DDD6;background:white;font-size:16px;color:#4A5568">−</button><div style="min-width:52px;text-align:center;font-size:14px;font-weight:700;color:#1A202C">${val>0?'+':''}${val}${unit}</div><button data-action="step" data-key="hid.${vK}" data-step="${step}" data-min="${min}" data-max="${max}" style="width:28px;height:28px;border-radius:8px;border:1.5px solid #E2DDD6;background:white;font-size:16px;color:#4A5568">+</button></div>`:`<span style="font-size:12px;color:#718096">inativo</span>`}</div></div>`;};
+  const needsIG=!pd.igW,needsDOL=!pd.age,needsPeso=!pd.peso;
+  return shdr('Oferta Hídrica','Cloherty 8ª ed. · ml/kg/dia')
+    +`<div style="padding:16px">
+${needsIG||needsDOL||needsPeso?`<div class="card" style="background:#FDF3E0;border-color:#e0c070"><div style="font-size:11px;color:#9A7000;margin-bottom:10px">ℹ️ Preencha a ficha do paciente ou informe:</div><div style="display:flex;gap:10px;flex-wrap:wrap">${needsIG?`<div style="flex:1;min-width:80px"><div style="font-size:11px;color:#718096;margin-bottom:4px">IG (sem.)</div><input class="inp inp-sm" data-set="hid.igM" type="number" value="${h.igM}" placeholder="34" style="text-align:center" inputmode="numeric"/></div>`:''} ${needsDOL?`<div style="flex:1;min-width:80px"><div style="font-size:11px;color:#718096;margin-bottom:4px">Dia de vida</div><input class="inp inp-sm" data-set="hid.dolM" type="number" value="${h.dolM}" placeholder="1" style="text-align:center" inputmode="numeric"/></div>`:''} ${needsPeso?`<div style="flex:1;min-width:80px"><div style="font-size:11px;color:#718096;margin-bottom:4px">Peso (g)</div><input class="inp inp-sm" data-set="hid.pesoM" type="number" value="${h.pesoM}" placeholder="2615" style="text-align:center" inputmode="numeric"/></div>`:''}</div></div>`:''}
+${igW?`<div class="card"><div class="lbl">Tabela Cloherty</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px">${[{l:'Dia 1',dols:[1]},{l:'Dia 2',dols:[2]},{l:'Dia 3–7',dols:[3,4,5,6,7]},{l:'>7 dias',dols:[]}].map((col,ci)=>{const isA=dol&&(col.dols.includes(dol)||(ci===3&&dol>7));const row=CLOHERTY.find(r=>igW>=r.min&&igW<=r.max);const rng=row?[row.d1,row.d2,row.d37,row.d7p][ci]:null;return`<div style="border-radius:9px;padding:8px 5px;text-align:center;background:${isA?'#3B6EA5':'#F7F5F0'};border:1.5px solid ${isA?'#3B6EA5':'#E2DDD6'}"><div style="font-size:9px;color:${isA?'rgba(255,255,255,.8)':'#718096'};margin-bottom:3px">${col.l}</div>${rng?`<div style="font-size:12px;font-weight:700;color:${isA?'white':'#1A202C'}">${rng[0]}–${rng[1]}</div>`:''}</div>`;}).join('')}</div></div>`:''}
+<div class="card"><div class="lbl">Ajustes situacionais</div>
+${tog('ftAdj','💡','Fototerapia','LED: +0 · Conv: +10 a +20','ftVal',0,30,5,' ml/kg',C.amber)}
+${tog('crAdj','🌡️','Calor radiante','Perda insensível aumentada','crVal',10,40,5,' ml/kg',C.orange)}
+${tog('tubAdj','🫁','Intubado / CPAP','Redução por umidificação','tubVal',-30,0,5,' ml/kg',C.purple)}</div>
+${base?`<div class="card" style="border:2px solid #3B6EA540;background:#EBF2FC"><div class="lbl" style="color:#3B6EA5">Resultado — ${dol}º dia</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:white;border-radius:10px;padding:12px;text-align:center"><div style="font-size:10px;color:#718096;margin-bottom:4px">ml/kg/dia</div><div style="font-size:26px;font-weight:800;color:#3B6EA5;line-height:1">${fMin}${fMin!==fMax?'–'+fMax:''}</div></div>${peso?`<div style="background:white;border-radius:10px;padding:12px;text-align:center"><div style="font-size:10px;color:#718096;margin-bottom:4px">Volume total</div><div style="font-size:20px;font-weight:800;color:#2E7D5C;line-height:1">${vMinD}${vMinD!==vMaxD?'–'+vMaxD:''} <span style="font-size:11px;font-weight:400">ml/dia</span></div><div style="font-size:11px;color:#718096;margin-top:4px">${(vMinD/24).toFixed(1)}–${(vMaxD/24).toFixed(1)} ml/h</div></div>`:`<div style="background:#F7F5F0;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center"><div style="font-size:11px;color:#718096;text-align:center">Informe o peso<br>para volume total</div></div>`}</div>${adj!==0?`<div style="font-size:11px;color:#718096;margin-top:10px;line-height:1.8">${h.ftAdj?'💡 Foto: +'+(h.ftVal)+' ml/kg'+(h.ftVal===0?' (LED)':'')+'<br>':''}${h.crAdj?'🌡️ Calor: +'+h.crVal+' ml/kg<br>':''}${h.tubAdj?'🫁 Intubado: '+h.tubVal+' ml/kg':''}</div>`:''}<div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">Cloherty JP et al. Manual of Neonatal Care, 8ª ed.</div></div>`:''}
+</div>`;
+}
+
+// ════ EHI ══════════════════════════════════════════════════════════════════════
+function renderEHI(){
+  const e=S.ehi,sc=e.sc,cA=e.cA,cB=e.cB,grade=sarnatGrade(sc),gi=gradeInfo(grade);
+  const critC=grade>=2,A=cA.ig36&&cA.peso1800&&cA.idade6h,B1=cB.b1_ph||cB.b1_be,B2=cB.b2_event&&cB.b2_ph&&(cB.b2_apgar||cB.b2_vpp),B=B1||B2,eligible=A&&B&&critC;
+  const filled=SARNAT.filter(c=>!c.opt).filter(c=>sc[c.id]!==null).length,total=SARNAT.filter(c=>!c.opt).length;
+  const circ=(l,done,pend)=>`<div style="width:30px;height:30px;border-radius:50%;border:2px solid ${done?'#2E7D5C':pend?'#B84A00':'#E2DDD6'};background:${done?'#2E7D5C':pend?'#FEF3E2':'#F7F5F0'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:${done?'white':pend?'#B84A00':'#718096'}">${l}</div>`;
+  return shdr('EHI + Hipotermia','Sarnat-Sarnat · Elegibilidade AAP/NICHD 2014')
+    +`<div style="padding:16px">
+<div style="background:#FDECEA;border:1.5px solid #C0392B40;border-radius:12px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px"><span style="font-size:20px">⏰</span><div><div style="font-size:13px;font-weight:700;color:#C0392B">Janela terapêutica &lt; 6 horas de vida</div><div style="font-size:11px;color:#718096">Cada hora de atraso reduz a neuroproteção</div></div></div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="lbl" style="margin-bottom:0">Escore de Sarnat-Sarnat</div>${gi?chip(gi.l.split('—')[1]?.trim()||gi.l,gi.c,gi.bg):''}</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><div style="flex:1;height:6px;background:#F7F5F0;border-radius:3px;overflow:hidden;border:1px solid #E2DDD6"><div style="height:100%;border-radius:3px;background:#3B6EA5;width:${(filled/total*100)}%;transition:width .3s"></div></div><div style="font-size:11px;color:#718096;flex-shrink:0">${filled}/${total}</div></div>
+${SARNAT.map(crit=>`<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:6px">${crit.icon} ${crit.label}${crit.opt?'<span style="font-size:10px;color:#718096;font-weight:400"> (opcional)</span>':''}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px">${crit.opts.map(opt=>{const sel=sc[crit.id]===opt.s;const col=opt.s===1?'#9A7000':opt.s===2?'#B84A00':'#C0392B';const bg=opt.s===1?'#FFFBEA':opt.s===2?'#FEF3E2':'#FDECEA';return`<button data-action="sarnat" data-key="${crit.id}" data-val="${sel?'null':opt.s}" style="padding:7px 5px;border-radius:9px;cursor:pointer;border:1.5px solid ${sel?col:'#E2DDD6'};background:${sel?bg:'#FAFAF8'};text-align:center"><div style="font-size:9px;font-weight:700;color:${sel?col:'#718096'};letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">${opt.s===1?'LEVE':opt.s===2?'MOD.':'GRAVE'}</div><div style="font-size:10px;color:${sel?'#1A202C':'#718096'};line-height:1.3">${opt.l}</div></button>`;}).join('')}</div></div>`).join('')}
+${gi?`<div style="background:${gi.bg};border:2px solid ${gi.c}40;border-radius:12px;padding:12px;margin-top:4px"><div style="font-size:14px;font-weight:800;color:${gi.c}">${gi.l}</div><div style="font-size:12px;color:#718096;margin-top:4px">${grade===1?'EHI leve — monitorar.':grade===2?'EHI moderada — avaliar hipotermia.':'EHI grave — avaliar hipotermia com urgência.'}</div></div>`:''}
+</div>
+<div class="card"><div class="lbl" style="color:#0077B6">Hipotermia Terapêutica</div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">${circ('A',A,cA.ig36||cA.peso1800||cA.idade6h)}<div style="font-size:13px;font-weight:700;color:#1A202C">Critério A — Elegibilidade básica</div>${A?chip('✓ Completo','#2E7D5C','#E8F5EF'):''}</div>
+${chkRow('IG ≥ 36 semanas','Contraindicado em prematuros < 36s',cA.ig36,'ehi.cA.ig36','#3B6EA5')}
+${chkRow('Peso ≥ 1800 g','Viabilidade técnica do equipamento',cA.peso1800,'ehi.cA.peso1800','#3B6EA5')}
+${chkRow('Idade < 6 horas de vida','Janela terapêutica',cA.idade6h,'ehi.cA.idade6h','#3B6EA5')}
+<div style="border-top:1px dashed #E2DDD6;margin:14px 0"></div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">${circ('B',B,Object.values(cB).some(v=>v))}<div style="font-size:13px;font-weight:700;color:#1A202C">Critério B — Sinais de asfixia (B1 ou B2)</div>${B?chip('✓','#2E7D5C','#E8F5EF'):''}</div>
+<div style="background:#F7F5F0;border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:#3B6EA5;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">B1 — Gasometria cordão / 1ª hora${B1?' ✓':''}</div>
+${chkRow('pH < 7,0','Sangue arterial de cordão ou 1ª hora',cB.b1_ph,'ehi.cB.b1_ph','#3B6EA5')}
+${chkRow('Déficit de base ≥ 16 mEq/L','Sangue arterial de cordão ou 1ª hora',cB.b1_be,'ehi.cB.b1_be','#3B6EA5')}</div>
+<div style="background:#F7F5F0;border-radius:10px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:#B84A00;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">B2 — Evento agudo + pH/BE intermediário + sinal adicional${B2?' ✓':''}</div><div style="font-size:11px;color:#718096;margin-bottom:8px;line-height:1.4">Evento agudo <b>+</b> pH/BE intermediário <b>+</b> Apgar ≤5 ou VPP ≥10min</div>
+${chkRow('Evento agudo perinatal','DPPNI, prolapso de cordão, ruptura uterina, bradicardia',cB.b2_event,'ehi.cB.b2_event','#B84A00')}
+${chkRow('pH 7,01–7,15 ou BE 10–15,9','Em contexto de evento agudo',cB.b2_ph,'ehi.cB.b2_ph','#B84A00')}
+${chkRow('Apgar ≤ 5 no 10º minuto','Critério adicional B2',cB.b2_apgar,'ehi.cB.b2_apgar','#B84A00')}
+${chkRow('VPP ≥ 10 minutos','Critério adicional B2',cB.b2_vpp,'ehi.cB.b2_vpp','#B84A00')}</div>
+<div style="border-top:1px dashed #E2DDD6;margin:14px 0"></div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">${circ('C',critC,!!grade)}<div style="font-size:13px;font-weight:700;color:#1A202C">Critério C — Encefalopatia (Sarnat ≥ 2)</div>${critC?chip('✓ Sarnat '+(grade===2?'II':'III'),'#2E7D5C','#E8F5EF'):chip(grade===1?'Sarnat I — leve':'Não avaliado','#718096','#F7F5F0')}</div>
+<div style="border-radius:10px;padding:10px 12px;background:${critC?'#E8F5EF':'#F7F5F0'};border:1.5px solid ${critC?'#2E7D5C50':'#E2DDD6'};font-size:12px;color:${critC?'#2E7D5C':'#718096'}">${critC?'EHI grau '+(grade===2?'II (moderada)':'III (grave)')+' — confirmado pelo Sarnat acima':'Preencha o Sarnat acima para avaliação automática'}</div>
+${eligible?`<div style="background:#E0F4FF;border:2px solid #0077B6;border-radius:14px;padding:16px;margin-top:16px"><div style="font-size:16px;font-weight:800;color:#0077B6;margin-bottom:8px">🧊 ELEGÍVEL PARA HIPOTERMIA TERAPÊUTICA</div><div style="background:white;border-radius:10px;padding:12px;font-size:12px;color:#1A202C;line-height:1.8"><div style="font-weight:700;color:#0077B6;margin-bottom:6px">Protocolo imediato:</div>${['Suspender aquecimento externo','Meta: T° retal/esofágica 33–34°C','Monitorização contínua: T°, FC, SatO₂, glicemia','Manter oferta hídrica 60–80 ml/kg/dia','Acesso venoso central (preferencialmente CUV)','Contato com centro de referência para hipotermia ativa'].map(x=>'• '+x).join('<br>')}<div style="margin-top:8px;color:#C0392B;font-weight:600">⚠️ Janela &lt; 6h — cada hora conta</div></div></div>`
+:`<div style="background:#F7F5F0;border:2px solid #E2DDD6;border-radius:14px;padding:14px;margin-top:16px"><div style="font-size:13px;font-weight:700;color:${Object.values(cA).some(v=>v)||Object.values(cB).some(v=>v)?'#B84A00':'#718096'};margin-bottom:6px">${Object.values(cA).some(v=>v)||Object.values(cB).some(v=>v)?'⏳ Em andamento':'📋 Preencha os critérios'}</div><div style="display:flex;gap:8px;align-items:center;margin-top:10px">${[{l:'A',done:A,pend:Object.values(cA).some(v=>v)},{l:'B',done:B,pend:Object.values(cB).some(v=>v)},{l:'C',done:critC,pend:!!grade}].map(x=>circ(x.l,x.done,x.pend)).join('')}<div style="font-size:12px;color:#718096">${[A,B,critC].filter(Boolean).length}/3 critérios</div></div></div>`}
+</div>
+<button class="btng" data-action="calc" data-val="clearEHI" style="width:100%;margin-bottom:4px">Limpar avaliação</button>
+<div style="font-size:10px;color:#718096;text-align:center;margin-top:8px">Shankaran NEJM 2005 · Gluckman Lancet 2005 · NICHD/AAP 2014</div>
+</div>`;
+}
+
+// ════ BELL ══════════════════════════════════════════════════════════════════════
+function renderBell(){
+  const b=S.bell,f=b.f,autoS=bellAuto(f),stage=b.manual!==null?b.manual:autoS,sd=stage!==null?BSTAGES[stage]:null;
+  const chk=(item,color)=>`<button class="chkrow" data-action="toggle" data-key="bell.f.${item.id}" style="background:${f[item.id]?color+'0d':'#FAFAF8'};border-color:${f[item.id]?color+'60':'#E2DDD6'}"><div class="chkbox" style="border-color:${f[item.id]?color:'#E2DDD6'};background:${f[item.id]?color:'white'}">${f[item.id]?ck():''}</div><span style="font-size:13px;color:${f[item.id]?'#1A202C':'#4A5568'}">${item.l}</span></button>`;
+  return shdr('Enterocolite Necrosante','Bell Modificado · Walsh & Kliegman 1986')
+    +`<div style="padding:16px">
+${sd?`<div style="display:inline-flex;align-items:center;gap:8px;background:${sd.bg};border-radius:14px;padding:10px 16px;border:1.5px solid ${sd.color}40;margin-bottom:14px"><div style="width:32px;height:32px;border-radius:50%;background:${sd.color};color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0">${sd.sh}</div><div><div style="font-size:14px;font-weight:700;color:${sd.color}">${sd.label}</div><div style="font-size:11px;color:#718096">${sd.desc}</div></div></div>`:''}
+<div class="card"><div class="lbl">🩺 Achados Sistêmicos</div>${BSYS.map(x=>chk(x,['dic','oliguria','shock','neutro'].includes(x.id)?'#C0392B':'#B84A00')).join('')}</div>
+<div class="card"><div class="lbl">🫃 Achados Abdominais</div>${BABD.map(x=>chk(x,['periton','perforat','erythema'].includes(x.id)?'#C0392B':['mass','norha','tender'].includes(x.id)?'#B84A00':'#3B6EA5')).join('')}</div>
+<div class="card"><div class="lbl">📸 Radiologia</div>${BRAD.map(x=>chk(x,['pneumoperiton','fixloop'].includes(x.id)?'#C0392B':['pneumat','portalgas'].includes(x.id)?'#B84A00':'#3B6EA5')).join('')}</div>
+<div class="card"><button data-action="toggle" data-key="bell.showM" style="width:100%;background:transparent;border:none;display:flex;justify-content:space-between;align-items:center;padding:0;cursor:pointer"><div style="font-size:11px;font-weight:700;color:#4A5568;letter-spacing:1.5px;text-transform:uppercase">Estadiamento manual</div><div style="font-size:16px;color:#718096;transform:rotate(${b.showM?180:0}deg)">⌄</div></button>
+${b.showM?`<div style="margin-top:10px"><div style="font-size:12px;color:#718096;margin-bottom:8px">Toque para sobrepor o estadiamento automático</div><div style="display:flex;flex-wrap:wrap;gap:6px">${BSTAGES.map((s,i)=>`<button data-action="set" data-key="bell.manual" data-val="${b.manual===i?'null':i}" style="padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;border:1.5px solid ${b.manual===i?s.color:'#E2DDD6'};background:${b.manual===i?s.bg:'#FAFAF8'};color:${b.manual===i?s.color:'#718096'}">${s.sh}</button>`).join('')}${b.manual!==null?`<button data-action="set" data-key="bell.manual" data-val="null" style="padding:6px 14px;border-radius:20px;font-size:12px;color:#718096;border:1.5px solid #E2DDD6;background:transparent">× Limpar</button>`:''}</div></div>`:''}
+</div>
+${sd?`<div class="card" style="border:2px solid ${sd.color}40"><div class="lbl" style="color:${sd.color}">Conduta — ${sd.sh}</div>${sd.mgmt.map((m,i)=>`<div style="display:flex;gap:10px;margin-bottom:8px;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;flex-shrink:0;background:${sd.bg};border:1.5px solid ${sd.color}40;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:${sd.color}">${i+1}</div><div style="font-size:13px;color:#1A202C;line-height:1.5;padding-top:2px">${m}</div></div>`).join('')}${stage>=4?`<div style="background:#FDECEA;border-radius:10px;padding:10px 12px;border:1.5px solid #C0392B40;font-size:12px;color:#C0392B;font-weight:600;margin-top:4px">🔴 CIRURGIA — Acionar equipe cirúrgica imediatamente${stage===5?'<br>⚠️ Pneumoperitônio — indicação cirúrgica de emergência':''}</div>`:''}</div>`:''}
+<button class="btng" data-action="calc" data-val="clearBell" style="width:100%;margin-bottom:4px">Limpar achados</button>
+<div style="font-size:10px;color:#718096;text-align:center;margin-top:4px">Bell MJ 1978 · Walsh MC & Kliegman RM 1986</div>
+</div>`;
+}
+
+// ════ CATETERES ════════════════════════════════════════════════════════════════
+function renderCateteres(){
+  const c=S.cath,pd=getPD(),pesoN=parseFloat(c.peso||pd.peso),douN=parseFloat(c.dou);
+  const dR=!isNaN(pesoN)&&pesoN>0?dunn(pesoN):null,sR=!isNaN(douN)&&douN>0?shuklaFn(douN):null,nR=!isNaN(douN)&&douN>=8&&douN<=18?interpN(douN):null;
+  const rb=(title,src,cv,ca,cb,color)=>`<div class="card" style="border:1.5px solid ${color}30"><div style="margin-bottom:12px"><div class="lbl" style="color:${color}">${title}</div><div style="font-size:11px;color:#718096">${src}</div></div>${[{l:'CUV',v:cv,c:'#3B6EA5',icon:'🔵',tip:'Ponta na JVC/AD (T8–T10)'},{l:'CAU alto',v:ca,c:'#C0392B',icon:'🔴',tip:'T6–T9 — acima das artérias renais'},{l:'CAU baixo',v:cb,c:'#B84A00',icon:'🟠',tip:'L3–L4 — abaixo das artérias renais'}].map(x=>`<div style="display:flex;align-items:center;gap:12px;background:${x.c}0a;border:1.5px solid ${x.c}30;border-radius:12px;padding:11px 13px;margin-bottom:8px"><div style="flex:1"><div style="font-size:11px;color:#718096;margin-bottom:2px">${x.icon} ${x.l}</div><div style="font-size:10px;color:#718096;line-height:1.3">${x.tip}</div></div><div style="text-align:right;flex-shrink:0"><div style="font-size:28px;font-weight:800;color:${x.c};line-height:1">${x.v}</div><div style="font-size:11px;color:#718096">cm</div></div></div>`).join('')}</div>`;
+  return shdr('Cateteres Umbilicais','CUV · CAU alto · CAU baixo')
+    +`<div style="padding:16px">
+<div class="card"><div class="lbl">Medidas</div>
+<div style="display:flex;gap:12px;margin-bottom:14px">
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Peso ao nascer</div><div style="position:relative"><input class="inp" data-set="cath.peso" type="number" value="${c.peso||pd.peso||''}" placeholder="2615" min="400" max="6000" style="padding-right:20px;font-size:17px" inputmode="numeric"/><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;color:#718096">g</span></div><div style="font-size:10px;color:#718096;margin-top:3px">Para fórmula de Dunn</div></div>
+<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">Dist. ombro-umbigo</div><div style="position:relative"><input class="inp" data-set="cath.dou" type="number" value="${c.dou}" placeholder="12.5" step="0.5" min="6" max="20" style="padding-right:24px;font-size:17px" inputmode="decimal"/><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;color:#718096">cm</span></div><div style="font-size:10px;color:#718096;margin-top:3px">Para nomograma de Shukla</div></div>
+</div>
+<div style="background:#FDF3E0;border-radius:10px;padding:10px 12px;border:1px solid #D4A04A40;font-size:12px;color:#7a5000"><b>📏 DOU:</b> borda superior do acrômio até a base do coto umbilical, RN em decúbito dorsal.</div></div>
+${douN>=8?`<div class="card"><div class="lbl" style="color:#6B4FA0">Nomograma — Shukla & Ferrara 1986</div>${svgCath(douN)}</div>`:''}
+${dR?rb('Fórmula de Dunn (1966)','Peso: '+pesoN+'g ('+(pesoN/1000).toFixed(3)+'kg)',dR.cuv,dR.cauA,dR.cauB,'#3B6EA5'):''}
+${sR?rb('Nomograma de Shukla (1986)','DOU: '+douN+' cm',nR?nR.cuv:sR.cuv,nR?nR.cauA:sR.cauA,nR?nR.cauB:sR.cauB,'#6B4FA0'):''}
+${dR&&sR?`<div class="card"><div class="lbl">Comparação</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">${[{l:'CUV',d:dR.cuv,s:nR?nR.cuv:sR.cuv,c:'#3B6EA5'},{l:'CAU alto',d:dR.cauA,s:nR?nR.cauA:sR.cauA,c:'#C0392B'},{l:'CAU baixo',d:dR.cauB,s:nR?nR.cauB:sR.cauB,c:'#B84A00'}].map(x=>`<div style="border-radius:12px;border:1.5px solid ${x.c}30;padding:10px 7px;text-align:center"><div style="font-size:10px;color:#718096;margin-bottom:5px">${x.l}</div><div style="font-size:14px;font-weight:700;color:${x.c}">${x.d} <span style="font-size:9px;font-weight:400;color:#718096">Dunn</span></div><div style="font-size:14px;font-weight:700;color:${x.c};margin-top:4px">${x.s} <span style="font-size:9px;font-weight:400;color:#718096">Shukla</span></div>${Math.abs(x.d-x.s)>1?`<div style="font-size:9px;color:#B84A00;margin-top:3px">Δ ${Math.abs(x.d-x.s).toFixed(1)} cm</div>`:''}</div>`).join('')}</div><div style="font-size:11px;color:#718096;margin-top:10px;line-height:1.5">Posição final sempre confirmada por radiografia.</div></div>`:''}
+<div class="card"><div class="lbl">Referência Anatômica</div>${[{icon:'🔵',l:'CUV',c:'#3B6EA5',t:'Ponta entre T8–T10, junção cava-atrial. Confirmar no RX — acima do diafragma.'},{icon:'🔴',l:'CAU alto',c:'#C0392B',t:'Ponta entre T6–T9, acima das artérias renais (L1). Preferido para drogas vasoativas.'},{icon:'🟠',l:'CAU baixo',c:'#B84A00',t:'Ponta entre L3–L4, abaixo das artérias renais. Evitar posição intermediária T10–L2.'}].map((x,i)=>`<div style="display:flex;gap:10px;padding:10px 0;${i<2?'border-bottom:1px solid #E2DDD6':''}"><div style="font-size:20px;flex-shrink:0">${x.icon}</div><div><div style="font-size:13px;font-weight:700;color:${x.c};margin-bottom:3px">${x.l}</div><div style="font-size:12px;color:#718096;line-height:1.5">${x.t}</div></div></div>`).join('')}
+<div style="background:#FDECEA;border-radius:10px;padding:9px 12px;border:1px solid #C0392B30;font-size:12px;color:#C0392B;font-weight:600;margin-top:8px">⚠️ Toda profundidade calculada é estimativa — posição final confirmada por RX</div></div>
+<div style="font-size:10px;color:#718096;text-align:center;margin-top:4px">Dunn PM. Arch Dis Child 1966 · Shukla HK & Ferrara A. Am J Dis Child 1986</div>
+</div>`;
+}
+
+// ════ TRANSFUSÃO ══════════════════════════════════════════════════════════════
+function renderTransfusao(){
+  const tr=S.tr,pd=getPD();
+  if(!tr.gaGroupSet&&pd.igW){const g=pd.igW;tr.gaGroup=g<28?'lt28':g<32?'28-31':g<37?'32-36':'ge37';tr.gaGroupSet=true;}
+  const tabBtn=(v,l,icon)=>`<button data-action="set" data-key="tr.tab" data-val="${v}" style="flex:1;padding:11px 8px;border-radius:10px;font-size:13px;font-weight:${tr.tab===v?700:600};border:${tr.tab===v?'2px solid #C0392B':'1.5px solid #E2DDD6'};background:${tr.tab===v?'#FDECEA':'#FAFAF8'};color:${tr.tab===v?'#C0392B':'#718096'}">${icon} ${l}</button>`;
+  let content='';
+  if(tr.tab==='hemacias'){
+    content=`
+<div class="card"><div class="lbl">Idade Gestacional</div>
+${GA_GROUPS.map(g=>`<button data-action="set" data-key="tr.gaGroup" data-val="${g.id}" style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:10px 14px;border-radius:12px;cursor:pointer;border:1.5px solid ${tr.gaGroup===g.id?C.blue:'#E2DDD6'};background:${tr.gaGroup===g.id?C.blueL:'#FAFAF8'};margin-bottom:8px"><div style="text-align:left"><div style="font-size:13px;font-weight:700;color:${tr.gaGroup===g.id?C.blue:C.text}">${g.label}</div><div style="font-size:10px;color:#718096;margin-top:2px">${g.sub}</div></div>${tr.gaGroup===g.id?`<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="${C.blue}"/><path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`:''}</button>`).join('')}
+</div>
+<div class="card"><div class="lbl">Status Clínico</div>
+${STATUS_OPT.map(s=>`<button data-action="set" data-key="tr.status" data-val="${s.id}" style="display:flex;align-items:flex-start;gap:12px;width:100%;padding:11px 14px;border-radius:12px;cursor:pointer;text-align:left;border:1.5px solid ${tr.status===s.id?(s.id==='critico'?C.red:s.id==='moderado'?C.yellow:C.green)+'80':'#E2DDD6'};background:${tr.status===s.id?(s.id==='critico'?C.redL:s.id==='moderado'?C.yellowL:C.greenL):'#FAFAF8'};margin-bottom:8px"><span style="font-size:20px;margin-top:1px;flex-shrink:0">${s.icon}</span><div><div style="font-size:13px;font-weight:700;color:#1A202C;margin-bottom:3px">${s.label}</div><div style="font-size:11px;color:#718096;line-height:1.4">${s.desc}</div></div></button>`).join('')}
+</div>
+<div class="card"><div class="lbl">Hemoglobina Atual</div>
+<div style="position:relative;margin-bottom:16px"><input class="inp" data-set="tr.hb" type="number" value="${tr.hb}" placeholder="ex: 9.5" step="0.1" min="3" max="22" style="font-size:22px;padding-right:58px;font-weight:700" inputmode="decimal"/><span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:#718096">g/dL</span></div>
+<div style="font-size:11px;font-weight:700;color:#4A5568;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Ajustes (+1 g/dL no limiar)</div>
+${[{k:'adjHemo',label:'Doença hemolítica ativa',sub:'DHRh, incompatibilidade ABO, G6PD — hemólise contínua justifica limiar mais alto',color:C.orange},{k:'adjSurg',label:'Pré-cirúrgico',sub:'Usar limiar liberal como mínimo aceitável antes de procedimentos',color:C.purple}].map(a=>`<button data-action="toggle" data-key="tr.${a.k}" style="display:flex;align-items:flex-start;gap:10px;width:100%;background:${tr[a.k]?a.color+'0d':'#FAFAF8'};border:1.5px solid ${tr[a.k]?a.color+'60':'#E2DDD6'};border-radius:10px;padding:10px 12px;cursor:pointer;text-align:left;margin-bottom:8px"><div style="width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:1px;border:2px solid ${tr[a.k]?a.color:'#E2DDD6'};background:${tr[a.k]?a.color:'white'};display:flex;align-items:center;justify-content:center">${tr[a.k]?ck():''}</div><div><div style="font-size:13px;font-weight:600;color:${tr[a.k]?'#1A202C':C.slate}">${a.label}</div><div style="font-size:11px;color:#718096;margin-top:2px;line-height:1.4">${a.sub}</div></div></button>`).join('')}
+<div style="display:flex;gap:10px;margin-top:8px"><button class="btnp" data-action="calc" data-val="calcTrHb">Avaliar</button><button class="btng" data-action="calc" data-val="clearTr">Limpar</button></div></div>
+${tr.result&&tr.result.computed?trHbResult(tr.result):''}
+<div class="card"><div class="lbl">Referência — ${GA_GROUPS.find(g=>g.id===tr.gaGroup)?.label}</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:10px">
+<div style="padding:8px;font-size:10px;font-weight:700;color:#718096">Status</div><div style="padding:8px;font-size:10px;font-weight:700;color:${C.blue};text-align:center;background:${C.blueL};border-radius:6px">Restritivo</div><div style="padding:8px;font-size:10px;font-weight:700;color:#718096;text-align:center;background:#F7F5F0;border-radius:6px">Liberal</div>
+${STATUS_OPT.map(s=>{const b=HB_THR[tr.gaGroup]?.[s.id];return b?`<div style="padding:8px 6px;font-size:12px;color:${C.text};display:flex;align-items:center;gap:4px">${s.icon} ${s.label}</div><div style="padding:8px;text-align:center;font-size:14px;font-weight:800;color:${C.slate};border-radius:8px;background:${C.blueL}">${b.r}</div><div style="padding:8px;text-align:center;font-size:14px;font-weight:600;color:#718096;border-radius:8px;background:#F7F5F0">${b.l}</div>`:'';}).join('')}
+</div>
+<div style="font-size:10px;color:#718096;line-height:1.5">Valores em g/dL · Transfundir quando Hb <b>abaixo</b> do limiar restritivo · Pós-TOP/ETTNO 2020</div></div>`;
+  } else {
+    const p=PLT_THR.find(x=>x.id===tr.pltSit),pltN=parseInt(tr.plt);
+    const hasRes=p&&!isNaN(pltN)&&pltN>0,ind=hasRes&&pltN<p.threshold,bord=hasRes&&!ind&&pltN<p.threshold*1.2;
+    content=`
+<div style="background:#F3EFFF;border:1.5px solid #6B4FA040;border-radius:14px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:flex-start;gap:12px"><span style="font-size:22px;flex-shrink:0">🔬</span><div><div style="font-size:13px;font-weight:700;color:#6B4FA0;margin-bottom:4px">PlaNeT-2 (NEJM 2019) — paradigma invertido</div><div style="font-size:12px;color:#4A5568;line-height:1.5">Limiar liberal (&lt;50k) causou <b>mais sangramento</b> que restritivo (&lt;25k) em prematuros.</div></div></div>
+<div class="card"><div class="lbl">Situação Clínica</div>
+${PLT_THR.map(p=>`<button data-action="set" data-key="tr.pltSit" data-val="${p.id}" style="display:flex;align-items:flex-start;gap:12px;width:100%;padding:11px 14px;border-radius:12px;cursor:pointer;text-align:left;border:1.5px solid ${tr.pltSit===p.id?p.color+'80':'#E2DDD6'};background:${tr.pltSit===p.id?p.bg:'#FAFAF8'};margin-bottom:8px"><span style="font-size:20px;flex-shrink:0;margin-top:1px">${p.icon}</span><div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-size:13px;font-weight:700;color:#1A202C">${p.label}</span><span style="display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;background:${p.bg};color:${p.color};border:1px solid ${p.color}30">&lt; ${(p.threshold/1000).toFixed(0)}k</span></div><div style="font-size:11px;color:#718096;margin-top:3px;line-height:1.4">${p.sub}</div></div></button>`).join('')}
+</div>
+<div class="card"><div class="lbl">Contagem de Plaquetas</div>
+<div style="position:relative;margin-bottom:8px"><input class="inp" data-set="tr.plt" type="number" value="${tr.plt}" placeholder="ex: 28000" min="0" max="999999" style="font-size:22px;padding-right:42px;font-weight:700" inputmode="numeric"/><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:10px;color:#718096">/µL</span></div>
+${pltN>0?`<div style="font-size:12px;color:#718096">= ${(pltN/1000).toFixed(0)}.000/µL</div>`:''}</div>
+${hasRes?`<div style="background:${ind?C.redL:bord?C.orangeL:C.greenL};border:2px solid ${ind?C.red:bord?C.orange:C.green}40;border-radius:16px;padding:16px;margin-bottom:14px"><div style="font-size:16px;font-weight:800;color:${ind?C.red:bord?C.orange:C.green};margin-bottom:14px">${ind?'🔴 TRANSFUSÃO DE PLAQUETAS INDICADA':bord?'🟡 BORDERLINE — monitorar, reavaliar em 6–12h':'🟢 TRANSFUSÃO NÃO INDICADA'}</div>${[{l:'Plaquetas atuais',v:(pltN/1000).toFixed(0)+'.000/µL',c:ind?C.red:C.blue,b:true},{l:'Limiar de transfusão',v:'< '+(p.threshold/1000).toFixed(0)+'.000/µL',c:C.slate},{l:'Situação',v:p.label,c:C.muted}].map(x=>`<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.7);border-radius:8px;padding:7px 11px;margin-bottom:6px"><span style="font-size:12px;color:#6a5040">${x.l}</span><span style="font-size:13px;font-weight:${x.b?800:700};color:${x.c}">${x.v}</span></div>`).join('')}${p.note?`<div style="margin-top:8px;background:rgba(255,255,255,.7);border-radius:8px;padding:8px 12px;font-size:11px;color:#4A5568;font-style:italic">ℹ️ ${p.note}</div>`:''}${ind?`<div style="margin-top:12px;background:rgba(255,255,255,.8);border-radius:10px;padding:10px 12px;font-size:12px;color:#1A202C;line-height:1.7"><div style="font-weight:700;color:${C.red};margin-bottom:6px">Conduta sugerida:</div>${['Volume: <b>10–15 ml/kg</b> de concentrado de plaquetas','Administrar em 1–2 horas','Repetir contagem 1h após transfusão','Investigar refratariedade se resposta inadequada'].map(x=>'• '+x).join('<br>')}</div>`:''}</div>`:''}
+<div class="card"><div class="lbl">Referência Rápida — PlaNeT-2</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${PLT_THR.map(p=>`<div style="background:${p.bg};border-radius:10px;padding:10px 12px;border:1px solid ${p.color}30"><div style="font-size:10px;color:${p.color};font-weight:700;margin-bottom:4px">${p.icon} ${p.label.split(',')[0]}</div><div style="font-size:18px;font-weight:800;color:${p.color}">&lt; ${(p.threshold/1000).toFixed(0)}k</div></div>`).join('')}</div></div>`;
+  }
+  return shdr('Hemoterapia Neonatal','TOP 2020 · ETTNO 2020 · PlaNeT-2 2019')
+    +`<div style="padding:16px"><div style="display:flex;gap:8px;margin-bottom:16px">${tabBtn('hemacias','Hemácias','🩸')}${tabBtn('plaquetas','Plaquetas','🟣')}</div>${content}<div style="text-align:center;margin-top:4px;font-size:10px;color:#718096">TOP (NEJM 2020) · ETTNO (JAMA 2020) · PlaNeT-2 (NEJM 2019) · AAP 2021</div></div>`;
+}
+function trHbResult(r){
+  const condBg=r.ind?C.redL:r.bord?C.orangeL:C.greenL,condCol=r.ind?C.red:r.bord?C.orange:C.green;
+  return `<div style="background:${condBg};border:2px solid ${condCol}40;border-radius:16px;padding:16px;margin-bottom:14px"><div style="font-size:11px;letter-spacing:2px;color:${condCol};text-transform:uppercase;margin-bottom:10px;opacity:.8">Resultado</div><div style="font-size:17px;font-weight:800;color:${condCol};margin-bottom:14px">${r.ind?'🔴 TRANSFUSÃO INDICADA':r.bord?'🟡 BORDERLINE — avaliar contexto clínico':'🟢 TRANSFUSÃO NÃO INDICADA'}</div>${[{l:'Hb atual',v:r.hb.toFixed(1)+' g/dL',c:r.ind?C.red:C.blue,b:true},{l:'Limiar restritivo',v:r.r.toFixed(1)+' g/dL',c:C.slate},{l:'Limiar liberal',v:r.l.toFixed(1)+' g/dL',c:C.muted},(r.adjHemo||r.adjSurg)&&{l:'Ajuste',v:(r.adjHemo?'+1 DHN':'')+(r.adjSurg?' +1 pré-cirúrg.':''),c:C.orange}].filter(Boolean).map(x=>`<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.75);border-radius:8px;padding:8px 12px;margin-bottom:6px"><span style="font-size:12px;color:#718096">${x.l}</span><span style="font-size:13px;font-weight:${x.b?800:700};color:${x.c}">${x.v}</span></div>`).join('')}<div style="margin-top:12px"><div style="background:rgba(0,0,0,.1);border-radius:8px;height:10px;position:relative;overflow:hidden"><div style="position:absolute;left:${Math.min(r.r/16*100,100)}%;top:0;bottom:0;width:2px;background:${C.slate}"></div><div style="position:absolute;left:${Math.min(r.l/16*100,100)}%;top:0;bottom:0;width:2px;background:${C.muted}"></div><div style="position:absolute;left:0;top:0;bottom:0;width:${Math.min(r.hb/16*100,100)}%;background:${condCol};border-radius:8px"></div></div></div>${r.ind?`<div style="margin-top:12px;background:rgba(255,255,255,.8);border-radius:10px;padding:10px 12px;font-size:12px;color:#1A202C;line-height:1.7"><div style="font-weight:700;color:${C.red};margin-bottom:6px">Conduta sugerida:</div>${['Volume: <b>15–20 ml/kg</b> de CHAD 0 negativo ou compatível','Infundir em 2–4 horas (4–6h se instabilidade cardíaca)','Repetir Hb/Ht 4–6h após transfusão','Reavaliar limiar após estabilização clínica'].map(x=>'• '+x).join('<br>')}</div>`:''}<div style="margin-top:10px;font-size:10px;color:${condCol};opacity:.7;font-style:italic">${GA_GROUPS.find(g=>g.id===S.tr.gaGroup)?.sub} · Limiar restritivo preferido pós-TOP/ETTNO 2020</div></div>`;
+}
+
+// ════ RENDER + NAV + CALC + EVENTS ════════════════════════════════════════════
+function render(){
+  const screens={home:renderHome,ig:renderIG,foto:renderFoto,hidrica:renderHidrica,ehi:renderEHI,bell:renderBell,cateteres:renderCateteres,transfusao:renderTransfusao,pacientes:renderPacientes,capurro:renderCapurro,ballard:renderBallard,io:renderIO,renal:renderRenal,pressao:renderPressao};
+  document.getElementById('app').innerHTML=(screens[S.screen]||renderHome)();
+}
+function nav(screen){
+  S.screen=screen;
+  if(screen==='ig'){const pd=getPD();if(pd.igW&&!S.ig.dirW){S.ig.dirW=String(pd.igW);S.ig.dirD=String(pd.igD||0);}if(pd.birthDT&&!S.ig.nasc){S.ig.nasc=pd.birthDT.split('T')[0];}if(pd.peso&&!S.ig.peso){S.ig.peso=S.pac.peso;}if(pd.sexo&&!S.ig.sexo){S.ig.sexo=S.pac.sexo;}}
+  if(screen==='renal'){const pd=getPD();if(pd.igW&&!S.renal.ig)S.renal.ig=String(pd.igW);if(pd.age&&!S.renal.dol)S.renal.dol=String(pd.age.dol);}
+  if(screen==='pressao'){const pd=getPD();if(pd.igW&&!S.pressao.ig)S.pressao.ig=String(pd.igW);if(pd.peso&&!S.pressao.peso)S.pressao.peso=S.pac.peso;if(pd.age&&!S.pressao.dol)S.pressao.dol=String(pd.age.dol);}
+  if(screen==='foto'){const pd=getPD();if(pd.birthDT){const age=calcAge(pd.birthDT);if(age){S.foto.hAuto=age.tH;S.foto.hours=age.tH.toFixed(1);}}if(pd.igW){const g=pd.igW;S.foto.gaMode=g<35?'preterm':'term';if(g<35){const ga=g<24?'22-23':g<26?'24-25':g<28?'26-27':g<30?'28-29':g<32?'30-31':g<34?'32-33':'34';S.foto.pGa=ga;}}}
+  if(screen==='transfusao'&&!S.tr.gaGroupSet&&getPD().igW){const g=getPD().igW;S.tr.gaGroup=g<28?'lt28':g<32?'28-31':g<37?'32-36':'ge37';S.tr.gaGroupSet=true;}
+  render();window.scrollTo(0,0);
+}
+function calcIG(){
+  const ig=S.ig,pd=getPD(),nasc=ig.nasc||pd.birthDT?.split('T')[0];
+  if(!nasc){S.ig.err='Informe a data de nascimento';render();return;}
+  let igW,igD,method;
+  if(ig.tab==='direta'){igW=parseInt(ig.dirW);igD=parseInt(ig.dirD)||0;method='IG direta';if(isNaN(igW)||igW<22||igW>44){S.ig.err='IG inválida (22–44 semanas)';render();return;}}
+  else if(ig.tab==='dum'){if(!ig.dum){S.ig.err='Informe a DUM';render();return;}const days=Math.round((new Date(nasc+'T12:00:00')-new Date(ig.dum+'T12:00:00'))/86400000);igW=Math.floor(days/7);igD=days%7;method='Pela DUM';if(igW<22||igW>44){S.ig.err='IG fora do intervalo';render();return;}}
+  else{if(!ig.usgDate||!ig.usgW){S.ig.err='Informe data e IG da USG';render();return;}const days=Math.round((new Date(nasc+'T12:00:00')-new Date(ig.usgDate+'T12:00:00'))/86400000);const tot=parseInt(ig.usgW)*7+(parseInt(ig.usgD)||0)+days;igW=Math.floor(tot/7);igD=tot%7;method='Por USG';if(igW<22||igW>44){S.ig.err='IG fora do intervalo';render();return;}}
+  const age=calcAge(pd.birthDT||(nasc+'T00:00'));
+  S.ig.err='';S.ig.result={igW,igD,method,weight:ig.peso||pd.peso||null,sex:ig.sexo||pd.sexo||null,age};
+  if(!S.pac.igW){S.pac.igW=String(igW);S.pac.igD=String(igD);}
+  render();
+}
+function clearIG(){S.ig={tab:'direta',nasc:'',dum:'',usgDate:'',usgW:'',usgD:'',dirW:'',dirD:'',peso:'',sexo:'',result:null,err:''};render();}
+function clearPac(){S.pac={nome:'',sexo:'',birthDT:'',igW:'',igD:'',peso:''};render();}
+function calcFoto(){
+  const f=S.foto,b=parseFloat(f.bili),h=parseFloat(f.hours);
+  if(isNaN(b)||b<0||isNaN(h)||h<0)return;
+  const isPre=f.gaMode==='preterm',tRn=f.tRisks.length,pRa=Math.min(f.pRisks.length,2),tRK=tRn===0?'lr':tRn<=1?'mr':'hr';
+  const rLbl=isPre?(pRa===0?'Sem fatores':pRa===1?'1 fator':'≥2 fatores'):(tRn===0?'Baixo Risco':tRn<=1?'Intermediário':'Alto Risco');
+  const rCol=isPre?(pRa===0?C.green:pRa===1?C.orange:C.red):(tRn===0?C.green:tRn<=1?C.orange:C.red);
+  let ph,ex,st;
+  if(!isPre){ph=iT(PTH,h,tRK);ex=iT(ETH,h,tRK);st=Math.max(ph-2,0);}
+  else{ph=Math.max(i1(PPH[f.pGa],h)-pRa,1);ex=Math.max(i1(PPE[f.pGa],h)-pRa,1);st=Math.max(ph-2,0);}
+  let cond,cCol,cBg,intv=false;
+  if(b>=ex){cond='⚠️ EXSANGUINEOTRANSFUSÃO';cCol='#7a0000';cBg='#fff0f0';}
+  else if(b>=ph){cond='💡 INICIAR FOTOTERAPIA';cCol='#7a4800';cBg='#fffbf0';if(b>=ph+2||(isPre&&pRa>0))intv=true;}
+  else if(b<=st){cond='🛑 SUSPENDER FOTOTERAPIA\n(BTS ≤ limiar de suspensão)';cCol='#1a5c35';cBg='#f0fff5';}
+  else{cond='✅ CONDUTA EXPECTANTE\n('+(ph-b).toFixed(1)+' mg/dL abaixo do limiar)';cCol='#1a5c35';cBg='#f0fff5';}
+  const bInfo=isPre?PREBANDS.find(x=>x.ga===f.pGa):null;
+  S.foto.result={b,h,ph,ex,st,cond,cCol,cBg,intv,rLbl,rCol,bLbl:bInfo?.label||null,hAuto:f.hAuto,gaMode:f.gaMode,pRA:pRa};
+  render();
+}
+function clearFoto(){S.foto={gaMode:'term',pGa:'34',hours:'',hAuto:null,bili:'',tRisks:[],pRisks:[],result:null};render();}
+function clearEHI(){S.ehi={sc:{consciencia:null,tono:null,postura:null,moro:null,succao:null,resp:null,pupila:null,conv:null,eeg:null},cA:{ig36:false,peso1800:false,idade6h:false},cB:{b1_ph:false,b1_be:false,b2_event:false,b2_ph:false,b2_apgar:false,b2_vpp:false}};render();}
+function clearBell(){S.bell={f:Object.fromEntries([...BSYS,...BABD,...BRAD].map(x=>[x.id,false])),manual:null,showM:false};render();}
+function clearTr(){S.tr={tab:S.tr.tab,gaGroup:'lt28',gaGroupSet:false,status:null,hb:'',adjHemo:false,adjSurg:false,result:null,pltSit:null,plt:''};render();}
+function calcTrHb(){
+  const tr=S.tr,hb=parseFloat(tr.hb);
+  if(!tr.status||isNaN(hb)||hb<0)return;
+  const base=HB_THR[tr.gaGroup]?.[tr.status];if(!base)return;
+  let r=base.r,l=base.l;
+  if(tr.adjHemo){r+=1;l+=1;}if(tr.adjSurg){r=Math.max(r,base.l);l+=1;}
+  S.tr.result={computed:true,hb,r,l,ind:hb<=r,bord:hb>r&&hb<=r+1,adjHemo:tr.adjHemo,adjSurg:tr.adjSurg};
+  render();
+}
+
+// ════ EVENT HANDLERS ══════════════════════════════════════════════════════════
+document.addEventListener('click',function(e){
+  const el=e.target.closest('[data-action]');if(!el)return;
+  const action=el.dataset.action,val=el.dataset.val,key=el.dataset.key;
+  if(action==='nav'){nav(val);return;}
+  if(action==='set'){setState(key,val==='null'?null:isNaN(Number(val))||val===''?val:val);return;}
+  if(action==='toggle'){toggleBool(key);return;}
+  if(action==='arr'){toggleArr(key,val);return;}
+  if(action==='sex'){const cur=getS(key);setState(key,cur===val?'':val);return;}
+  if(action==='sarnat'){setS('ehi.sc.'+el.dataset.key,el.dataset.val==='null'?null:parseInt(el.dataset.val));render();return;}
+  if(action==='step'){const cur=parseFloat(getS(key)),step=parseFloat(el.dataset.step),min=parseFloat(el.dataset.min),max=parseFloat(el.dataset.max);setState(key,Math.max(min,Math.min(max,cur+step)));return;}
+  if(action==='calc'){window[val]&&window[val]();return;}
+  if(action==='scoreSet'){const mod=el.dataset.mod,field=el.dataset.field,val=el.dataset.val==='null'?null:parseInt(el.dataset.val);setScore(mod,field,val);return;}
+  if(action==='loadpat'){loadPat(el.dataset.id);return;}
+  if(action==='delpat'){delPat(el.dataset.id);return;}
+});
+
+// KEY FIX: Smart input handler — patch DOM surgically, never rebuild active input
+document.addEventListener('input',function(e){
+  const el=e.target;if(!el.dataset.set)return;
+  setS(el.dataset.set,el.value);
+  const key=el.dataset.set,sp=el.dataset.special;
+  // Home patient form: patch only GA bar + computed, NEVER rebuild inputs
+  if(S.screen==='home'&&key.startsWith('pac.')){
+    if(sp==='birth'&&el.value){const age=calcAge(el.value);if(age&&S.foto.hAuto!==null){S.foto.hAuto=age.tH;S.foto.hours=age.tH.toFixed(1);}}
+    patchPacForm();return;
+  }
+  // Foto nomogram: patch only the SVG
+  if(S.screen==='foto'&&(key==='foto.hours'||key==='foto.bili')){
+    if(sp==='fotoH'){S.foto.hAuto=null;S.foto.result=null;}
+    patchFotoNomo();return;
+  }
+  // IG date fields: need full render for DUM/USG calcs
+  // IG fields: no live render needed — 'Calcular' button drives results
+  // (keeping only dum/usg date fields for live calculation feedback)
+  if(['ig.dum','ig.usgDate','ig.usgW','ig.usgD'].includes(key)){render();return;}
+  // All other fields: NO render on input — render on blur (change) below
+  // This prevents keyboard closing on Android for peso, cath, hid, tr fields
+});
+
+// Render on blur — safe for all number/text fields
+document.addEventListener('change',function(e){
+  const el=e.target;if(!el.dataset.set)return;
+  setS(el.dataset.set,el.value);
+  const skipRender=['pac.birthDT','pac.igW','pac.igD','foto.hours','foto.bili','ig.nasc','ig.dirW','ig.dirD','ig.dum','ig.usgDate','ig.usgW','ig.usgD'];
+  if(!skipRender.includes(el.dataset.set))render();
+});
+
+// Update age display every minute
+setInterval(()=>{if(S.pac.birthDT)patchPacForm();},60000);
+history.pushState({neokit:true},'','');
+window.addEventListener('popstate',function(){
+  if(S.screen!=='home'){S.screen='home';render();window.scrollTo(0,0);history.pushState({neokit:true},'','');}
+});
+render();
+
+// ════ DADOS — MÓDULOS NOVOS ═══════════════════════════════════════════════════
+const CR_EXP={"lt28":[0.90,1.10,1.05,0.95,0.85,0.65,0.50],"28-31":[0.80,0.95,0.90,0.80,0.70,0.55,0.40],"32-34":[0.70,0.80,0.75,0.65,0.55,0.42,0.32],"35-36":[0.65,0.72,0.68,0.58,0.50,0.38,0.28],"term":[0.55,0.65,0.62,0.52,0.45,0.35,0.25]};
+const CR_DAYS=[1,2,3,5,7,14,28];
+const HTN_TBL=[{p:[24,27],p50s:64,p95s:72,p99s:76,p50d:41,p95d:50,p99d:54},{p:[28,30],p50s:68,p95s:76,p99s:80,p50d:43,p95d:52,p99d:56},{p:[31,33],p50s:71,p95s:79,p99s:83,p50d:45,p95d:54,p99d:58},{p:[34,36],p50s:74,p95s:82,p99s:86,p50d:47,p95d:56,p99d:60},{p:[37,38],p50s:77,p95s:85,p99s:89,p50d:50,p95d:59,p99d:64},{p:[39,40],p50s:80,p95s:88,p99s:92,p50d:52,p95d:62,p99d:67},{p:[41,42],p50s:82,p95s:90,p99s:95,p50d:54,p95d:64,p99d:69},{p:[43,44],p50s:84,p95s:92,p99s:98,p50d:56,p95d:66,p99d:72}];
+const HYPO_W=[{label:"< 1000 g",wMin:0,wMax:999,d1:27,d3:29,d7:31},{label:"1000–1499 g",wMin:1000,wMax:1499,d1:29,d3:31,d7:33},{label:"1500–2499 g",wMin:1500,wMax:2499,d1:31,d3:34,d7:37},{label:"≥ 2500 g",wMin:2500,wMax:9999,d1:38,d3:40,d7:42}];
+const CAPURRO_C=[{id:"pele",label:"Textura da pele",icon:"🫳",opts:[{s:0,l:"Muito fina, gelatinosa"},{s:1,l:"Fina e lisa"},{s:2,l:"Levemente espessada, descamação superficial"},{s:3,l:"Espessada, sulcos superficiais"},{s:4,l:"Muito espessa, apergaminhada"}]},{id:"orelha",label:"Forma da orelha",icon:"👂",opts:[{s:0,l:"Informe, plana, sem curvatura"},{s:1,l:"Curvatura incipiente da cúpula"},{s:2,l:"Curvatura parcial de toda a cúpula"},{s:3,l:"Curvatura bem definida"},{s:4,l:"Cartilagem firme, cúpula rígida"}]},{id:"mama",label:"Glândula mamária",icon:"⚪",opts:[{s:0,l:"Não palpável"},{s:1,l:"Palpável, < 5 mm"},{s:2,l:"Diâmetro 5–10 mm"},{s:3,l:"Diâmetro > 10 mm"}]},{id:"mamilo",label:"Formação do mamilo",icon:"🔵",opts:[{s:0,l:"Apenas esboçado, sem aréola"},{s:1,l:"Aréola pontilhada, sem elevação"},{s:2,l:"Aréola elevada < 0,75 cm"},{s:3,l:"Aréola elevada ≥ 0,75 cm"}]},{id:"planta",label:"Pregas plantares",icon:"🦶",opts:[{s:0,l:"Sem pregas"},{s:1,l:"Marcas mal definidas no 1/3 anterior"},{s:2,l:"Marcas bem definidas no 1/3 anterior"},{s:3,l:"Sulcos no 1/3 anterior"},{s:4,l:"Sulcos em mais da metade anterior"}]}];
+const BALLARD_N=[{id:"postura",label:"Postura",icon:"🤸",opts:[{s:-1,l:"Intraútero"},{s:0,l:"Flácida, sem flexão"},{s:1,l:"Leve flexão MMII"},{s:2,l:"Flexão moderada MMII"},{s:3,l:"Flexão acentuada MMII"},{s:4,l:"Flexão plena MMSS e MMII"}]},{id:"janela",label:"Janela quadrada (pulso)",icon:"✋",opts:[{s:-1,l:"> 90°"},{s:0,l:"= 90°"},{s:1,l:"60°"},{s:2,l:"45°"},{s:3,l:"30°"},{s:4,l:"0°"}]},{id:"recolhimento",label:"Recolhimento do braço",icon:"💪",opts:[{s:-1,l:"Ausente"},{s:0,l:"180°"},{s:1,l:"140°–180°"},{s:2,l:"110°–140°"},{s:3,l:"90°–110°"},{s:4,l:"< 90°"}]},{id:"popliteo",label:"Ângulo poplíteo",icon:"🦵",opts:[{s:-1,l:"180°"},{s:0,l:"160°"},{s:1,l:"140°"},{s:2,l:"120°"},{s:3,l:"100°"},{s:4,l:"90°"},{s:5,l:"< 90°"}]},{id:"lenco",label:"Sinal do lenço",icon:"🎀",opts:[{s:-1,l:"Além da axila oposta"},{s:0,l:"Ultrapassa linha médea"},{s:1,l:"Na linha médea"},{s:2,l:"Linha médea anterior"},{s:3,l:"Não atinge linha médea"},{s:4,l:"Não atinge axila ipsilateral"}]},{id:"calcaneo",label:"Calcanhar-orelha",icon:"👂",opts:[{s:-1,l:"Toca a orelha"},{s:0,l:"Muito próximo"},{s:1,l:"Próximo"},{s:2,l:"Moderada distância"},{s:3,l:"Afastado"},{s:4,l:"Sem alcançar joelho"}]}];
+const BALLARD_F=[{id:"pelef",label:"Pele",icon:"🫳",opts:[{s:-1,l:"Aderente, friável"},{s:0,l:"Gelatinosa, translúcida"},{s:1,l:"Lisa, rosa, veias visíveis"},{s:2,l:"Descamação superficial"},{s:3,l:"Áreas pálidas, poucas veias"},{s:4,l:"Apergaminhada, sulcos"},{s:5,l:"Coriácea, sulcos profundos"}]},{id:"lanugem",label:"Lanugem",icon:"🌿",opts:[{s:-1,l:"Ausente"},{s:0,l:"Esparsa"},{s:1,l:"Abundante"},{s:2,l:"Raleando"},{s:3,l:"Áreas sem lanugem"},{s:4,l:"Ausente"}]},{id:"plantaf",label:"Superfície plantar",icon:"🦶",opts:[{s:-1,l:"Calcanhar–dedo < 40mm; sem pregas"},{s:0,l:"Calcanhar–dedo 40–50mm; sem pregas"},{s:1,l:"Marcas tênues no 1/3 anterior"},{s:2,l:"Pregas no 1/3 anterior"},{s:3,l:"Pregas em 2/3 anteriores"},{s:4,l:"Pregas em todo o pé"}]},{id:"mamaf",label:"Mama",icon:"⚪",opts:[{s:-1,l:"Imperceptível"},{s:0,l:"Apenas esboçada"},{s:1,l:"Aréola plana, sem tecido"},{s:2,l:"Aréola puntiforme, tecido < 3mm"},{s:3,l:"Aréola elevada, tecido 3–4mm"},{s:4,l:"Aréola completa, tecido > 5mm"}]},{id:"olhoorelha",label:"Olho / Orelha",icon:"👁️",opts:[{s:-2,l:"Pálpebras fundidas frouxamente"},{s:-1,l:"Pálpebras fundidas firmemente"},{s:0,l:"Pálpebras abertas; orelha plana"},{s:1,l:"Pavilhão incurvado; retifica lento"},{s:2,l:"Curvatura parcial; retifica pronto"},{s:3,l:"Curvatura completa; retifica imediato"},{s:4,l:"Cartilagem espessa; rígida"}]},{id:"genital",label:"Genitália",icon:"⚥",optsM:[{s:0,l:"♂ Escroto plano, liso"},{s:1,l:"♂ Escroto vazio, rugosidade incipiente"},{s:2,l:"♂ Testículo canal superior, poucas rugas"},{s:3,l:"♂ Testículo descendo, rugas moderadas"},{s:4,l:"♂ Testículo descido, rugas boas"}],optsF:[{s:0,l:"♀ Clitóris proeminente, lábios planos"},{s:1,l:"♀ Clitóris proeminente, grandes lábios pequenos"},{s:2,l:"♀ Clitóris proeminente, grandes lábios aumentados"},{s:3,l:"♀ Grandes e pequenos lábios igualmente proeminentes"},{s:4,l:"♀ Grandes lábios recobrem clitóris e pequenos lábios"}]}];
+const SHOCK_S=[{id:"tachy",l:"Taquicardia (FC > 180)",icon:"💓"},{id:"perf",l:"Perfusão periférica ↓ / TEC > 3s",icon:"🖐️"},{id:"pulso",l:"Pulsos periféricos fracos",icon:"〰️"},{id:"diurese",l:"Oligúria (DU < 1 ml/kg/h)",icon:"💧"},{id:"acidose",l:"Acidose metabólica / lactato ↑",icon:"🧪"},{id:"nivel",l:"Nível de consciência ↓ / hipotonia",icon:"🧠"},{id:"pele",l:"Mottling / cianose periférica",icon:"🩵"}];
+
+// ════ UTILS — MÓDULOS NOVOS ═══════════════════════════════════════════════════
+function getCrExp(igW,dol){
+  const k=igW<28?"lt28":igW<32?"28-31":igW<35?"32-34":igW<37?"35-36":"term";
+  const arr=CR_EXP[k],d=Math.min(Math.max(dol,1),28);
+  let lo=0,hi=CR_DAYS.length-1;
+  for(let i=0;i<CR_DAYS.length-1;i++){if(d>=CR_DAYS[i]&&d<=CR_DAYS[i+1]){lo=i;hi=i+1;break;}}
+  if(lo===hi)return arr[lo];
+  return+(arr[lo]+(arr[hi]-arr[lo])*(d-CR_DAYS[lo])/(CR_DAYS[hi]-CR_DAYS[lo])).toFixed(2);
+}
+function getHTNPerc(pma){return HTN_TBL.find(r=>pma>=r.p[0]&&pma<=r.p[1])||(pma<24?HTN_TBL[0]:HTN_TBL[HTN_TBL.length-1]);}
+function getHypoMAP(peso,dol){
+  const r=HYPO_W.find(x=>peso>=x.wMin&&peso<=x.wMax);if(!r)return null;
+  if(dol<=1)return r.d1;if(dol<=3)return+(r.d1+(r.d3-r.d1)*(dol-1)/2).toFixed(0);
+  if(dol<=7)return+(r.d3+(r.d7-r.d3)*(dol-3)/4).toFixed(0);return r.d7;
+}
+function capurroScore(){return CAPURRO_C.reduce((a,c)=>S.capurro[c.id]!==null?a+S.capurro[c.id]:a,0);}
+function capurroFilled(){return CAPURRO_C.filter(c=>S.capurro[c.id]!==null).length;}
+function ballardScore(){
+  const all=[...BALLARD_N,...BALLARD_F];
+  return all.reduce((a,c)=>{
+    const id=c.id,v=S.ballard[id];
+    return v!==null&&v!==undefined?a+v:a;
+  },0);
+}
+function ballardFilled(){
+  const all=[...BALLARD_N,...BALLARD_F];
+  return all.filter(c=>S.ballard[c.id]!==null&&S.ballard[c.id]!==undefined).length;
+}
+function setScore(mod,field,val){
+  const cur=S[mod][field];
+  S[mod][field]=(cur===val)?null:val;
+  render();
+}
+function clearCapurro(){S.capurro={pele:null,orelha:null,mama:null,mamilo:null,planta:null};render();}
+function clearBallard(){S.ballard={sexo:S.ballard.sexo,postura:null,janela:null,recolhimento:null,popliteo:null,lenco:null,calcaneo:null,pelef:null,lanugem:null,plantaf:null,mamaf:null,olhoorelha:null,genital:null};render();}
+function clearIO(){S.io={fio2:"",map:"",pao2:"",spo2:""};render();}
+function clearRenal(){S.renal={tab:S.renal.tab,ig:"",comp:"",crS:"",crAt:"",crBas:"",du:"",dol:""};render();}
+function clearPressao(){S.pressao={tab:S.pressao.tab,ig:"",peso:"",dol:"",map:"",sbpH:"",dbpH:"",signs:{},shockType:null,pma:"",sbp:"",dbp:""};render();}
+
+// ════ RENDER — CAPURRO ════════════════════════════════════════════════════════
+function renderCapurro(){
+  const sc=S.capurro,filled=capurroFilled(),total=capurroScore(),allDone=filled===5;
+  const igD=allDone?total+204:null,igW_f=igD?igD/7:null;
+  const igW=igW_f?Math.floor(igW_f):null,igDay=igW_f?Math.round((igW_f-igW)*7):null;
+  const cls=igW?classGA(igW):null;
+  return shdr('Capurro Somático','Capurro B · 5 critérios · Pediatrics 1978')
+    +`<div style="padding:16px">
+<div style="background:#FDF3E0;border:1.5px solid #D4A04A40;border-radius:14px;padding:10px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:18px;flex-shrink:0">ℹ️</span>
+<div style="font-size:12px;color:#7a5000;line-height:1.5">Aplicar nas primeiras <b>24–48h de vida</b>. Não usar em EHI, SDR grave ou edema generalizado. Válido: 29–43s.</div>
+</div>
+${CAPURRO_C.map(crit=>`<div class="card">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+<span style="font-size:20px">${crit.icon}</span>
+<div><div style="font-size:13px;font-weight:700;color:#1A202C">${crit.label}</div>
+${sc[crit.id]!==null?`<div style="font-size:11px;color:#3B6EA5;margin-top:2px">Escore: ${sc[crit.id]} ✓</div>`:''}
+</div></div>
+${crit.opts.map(op=>{const sel=sc[crit.id]===op.s;return`<button data-action="scoreSet" data-mod="capurro" data-field="${crit.id}" data-val="${op.s}" style="display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px;border-radius:12px;cursor:pointer;text-align:left;border:1.5px solid ${sel?'#3B6EA580':'#E2DDD6'};background:${sel?'#EBF2FC':'#FAFAF8'};margin-bottom:7px;transition:all .15s">
+<div style="width:32px;height:32px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:${sel?'#3B6EA5':'#F0EDE8'};color:${sel?'white':'#718096'};border:2px solid ${sel?'#3B6EA5':'#E2DDD6'}">${op.s}</div>
+<span style="font-size:13px;color:${sel?'#1A202C':'#4A5568'};font-weight:${sel?600:400};line-height:1.4">${op.l}</span>
+</button>`;}).join('')}
+</div>`).join('')}
+<div class="card">
+<div class="lbl">Progresso</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+<div style="flex:1;height:8px;background:#F0EDE8;border-radius:4px;overflow:hidden">
+<div style="height:100%;border-radius:4px;background:${allDone?'#2E7D5C':'#3B6EA5'};width:${(filled/5)*100}%;transition:width .3s"></div></div>
+<div style="font-size:12px;color:#718096;flex-shrink:0">${filled}/5</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#F7F5F0;border-radius:12px;padding:12px;text-align:center">
+<div style="font-size:10px;color:#718096;margin-bottom:3px">Σ escores</div>
+<div style="font-size:28px;font-weight:800;color:#1A202C">${total}</div>
+<div style="font-size:10px;color:#718096">${allDone?"(+204)/7":"faltam "+(5-filled)}</div></div>
+<div style="background:${allDone?cls.bg:'#F7F5F0'};border-radius:12px;padding:12px;text-align:center;border:${allDone?`2px solid ${cls.color}40`:`1px solid #E2DDD6`}">
+<div style="font-size:10px;color:${allDone?cls.color:'#718096'};margin-bottom:3px">IG estimada</div>
+${allDone?`<div style="font-size:24px;font-weight:800;color:${cls.color}">${igW}s+${igDay}d</div><div style="font-size:10px;color:${cls.color};margin-top:2px">= ${igW_f?.toFixed(1)}s</div>`
+:`<div style="font-size:22px;font-weight:800;color:#C8C0B8;margin-top:8px">—</div>`}
+</div></div></div>
+${allDone&&cls?`<div style="background:${cls.bg};border:2px solid ${cls.color}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${cls.color};text-transform:uppercase;margin-bottom:10px;opacity:.8">Resultado — Capurro Somático B</div>
+<div style="font-size:32px;font-weight:800;color:${cls.color};margin-bottom:6px">${igW}s + ${igDay}d</div>
+<div style="margin-bottom:12px">${chip(cls.l,cls.color,'rgba(255,255,255,.7)')} <span style="font-size:11px;color:${cls.color};margin-left:8px;opacity:.8">${igW_f?.toFixed(1)} semanas</span></div>
+${svgGA(igW_f)}
+<div style="margin-top:12px;background:rgba(255,255,255,.5);border-radius:10px;padding:8px 12px;font-size:11px;color:${cls.color};text-align:center;font-style:italic">
+IG = (${total} + 204) / 7 = ${igW_f?.toFixed(2)} semanas</div></div>`:''}
+<button class="btng" data-action="calc" data-val="clearCapurro" style="width:100%;margin-bottom:14px">Limpar avaliação</button>
+<div class="card" style="padding:14px"><div class="lbl">Referência</div>
+<div style="font-size:11px;color:#718096;line-height:1.7"><b>Capurro H</b> et al. A simplified method for diagnosis of gestational age in the newborn infant. <i>J Pediatrics</i>, 1978;93(1):120-2.<br/>Fórmula: IG (semanas) = (Σ escores + 204) / 7 · Válido: 29–43 semanas.</div>
+</div></div>`;
+}
+
+// ════ RENDER — BALLARD ════════════════════════════════════════════════════════
+function renderBallard(){
+  const b=S.ballard,filled=ballardFilled(),score=ballardScore(),allDone=filled===12;
+  const igW_f=allDone?score*0.4+24:null,igW=igW_f?Math.floor(igW_f):null,igDay=igW_f?Math.round((igW_f-igW)*7):null;
+  const cls=igW?classGA(igW):null;
+  const nFilled=BALLARD_N.filter(c=>b[c.id]!==null&&b[c.id]!==undefined).length;
+  const fFilled=BALLARD_F.filter(c=>b[c.id]!==null&&b[c.id]!==undefined).length;
+  const nScore=BALLARD_N.reduce((a,c)=>b[c.id]!=null?a+b[c.id]:a,0);
+  const fScore=BALLARD_F.reduce((a,c)=>b[c.id]!=null?a+b[c.id]:a,0);
+  const tabBtn=(v,l,col)=>`<button data-action="set" data-key="ballard.sexo" data-val="${v}" style="flex:1;padding:10px;border-radius:10px;font-size:13px;font-weight:600;border:${b.sexo===v?`2px solid ${col}`:'1.5px solid #E2DDD6'};background:${b.sexo===v?col+'22':'#FAFAF8'};color:${b.sexo===v?col:'#718096'}">${l}</button>`;
+  const scoreCard=(crit)=>{
+    const opts=crit.optsM?( b.sexo==='F'?crit.optsF:crit.optsM):crit.opts;
+    const sel=b[crit.id];
+    return`<div class="card" style="padding:16px;margin-bottom:10px">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+<div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">${crit.icon}</span><div style="font-size:13px;font-weight:700;color:#1A202C">${crit.label}</div></div>
+${sel!==null&&sel!==undefined?`<div style="background:#EBF2FC;color:#3B6EA5;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700">${sel>=0?'+':''}${sel}</div>`:''}
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+${opts.map(op=>{const s=sel===op.s;return`<button data-action="scoreSet" data-mod="ballard" data-field="${crit.id}" data-val="${op.s}" style="padding:8px 10px;border-radius:10px;cursor:pointer;text-align:left;border:1.5px solid ${s?'#3B6EA5':'#E2DDD6'};background:${s?'#EBF2FC':'#FAFAF8'};transition:all .15s">
+<div style="font-size:11px;font-weight:700;color:${s?'#3B6EA5':'#718096'};margin-bottom:2px">${op.s>=0?'+':''}${op.s}</div>
+<div style="font-size:10px;color:${s?'#1A202C':'#4A5568'};line-height:1.3">${op.l}</div>
+</button>`;}).join('')}</div></div>`;};
+  return shdr('New Ballard Score','Ballard JL et al. · J Pediatrics 1991')
+    +`<div style="padding:16px">
+<div style="background:#FDF3E0;border:1.5px solid #D4A04A40;border-radius:14px;padding:10px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:18px;flex-shrink:0">ℹ️</span>
+<div style="font-size:12px;color:#7a5000;line-height:1.5">Aplicar preferencialmente nas <b>primeiras 12h de vida</b>. Válido: 20–44 semanas.</div>
+</div>
+<div class="card"><div class="lbl">Sexo (critério de genitália)</div>
+<div style="display:flex;gap:8px">${tabBtn('M','♂ Masculino','#3B6EA5')}${tabBtn('F','♀ Feminino','#6B4FA0')}</div></div>
+<div style="background:white;border-radius:14px;border:1px solid #E2DDD6;padding:14px;margin-bottom:14px">
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+${[{l:"Neuromuscular",v:nFilled+"/"+BALLARD_N.length,sub:nScore,c:"#6B4FA0"},{l:"Física",v:fFilled+"/"+BALLARD_F.length,sub:fScore,c:"#3B6EA5"},{l:"Total",v:allDone?"✓":"—",sub:score,c:allDone?"#2E7D5C":"#718096"}].map(b=>`<div style="text-align:center;background:#F7F5F0;border-radius:10px;padding:10px 6px">
+<div style="font-size:9px;color:#718096;margin-bottom:3px">${b.l}</div>
+<div style="font-size:12px;font-weight:700;color:${b.c}">${b.v}</div>
+<div style="font-size:18px;font-weight:800;color:${b.c}">${b.sub}</div></div>`).join('')}
+</div></div>
+<div style="font-size:12px;font-weight:700;color:#6B4FA0;letter-spacing:1px;text-transform:uppercase;margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+<span style="width:20px;height:20px;border-radius:6px;background:#6B4FA0;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white">N</span>Maturidade Neuromuscular</div>
+${BALLARD_N.map(scoreCard).join('')}
+<div style="font-size:12px;font-weight:700;color:#3B6EA5;letter-spacing:1px;text-transform:uppercase;margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+<span style="width:20px;height:20px;border-radius:6px;background:#3B6EA5;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white">F</span>Maturidade Física</div>
+${BALLARD_F.map(scoreCard).join('')}
+${allDone&&cls?`<div style="background:${cls.bg};border:2px solid ${cls.color}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${cls.color};text-transform:uppercase;margin-bottom:10px;opacity:.8">Resultado — New Ballard</div>
+<div style="font-size:32px;font-weight:800;color:${cls.color};margin-bottom:6px">${igW}s + ${igDay}d</div>
+<div style="margin-bottom:14px">${chip(cls.l,cls.color,'rgba(255,255,255,.7)')} ${chip('Score '+score,cls.color,'rgba(255,255,255,.5)')}</div>
+${svgGA(igW_f)}
+<div style="margin-top:12px;background:rgba(255,255,255,.5);border-radius:10px;padding:8px 12px;font-size:11px;color:${cls.color};text-align:center;font-style:italic">IG = (${score} × 0,4) + 24 = ${igW_f?.toFixed(2)} semanas</div>
+</div>`:''}
+<div style="background:white;border-radius:14px;border:1px solid #E2DDD6;padding:14px;margin-bottom:14px">
+<div class="lbl">Tabela de Conversão</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px">
+${[[-10,20],[-5,22],[0,24],[5,26],[10,28],[15,30],[20,32],[25,34],[30,36],[35,38],[40,40],[45,42]].map(([s,w])=>{const c=classGA(w);return`<div style="text-align:center;padding:6px 4px;border-radius:8px;background:${c.bg};border:1px solid ${c.color}30">
+<div style="font-size:9px;color:${c.color};font-weight:700">${s>=0?'+':''}${s}</div>
+<div style="font-size:11px;font-weight:800;color:${c.color}">${w}s</div></div>`;}).join('')}
+</div></div>
+<button class="btng" data-action="calc" data-val="clearBallard" style="width:100%;margin-bottom:4px">Limpar avaliação</button>
+</div>`;
+}
+
+// ════ RENDER — IO ════════════════════════════════════════════════════════════
+function renderIO(){
+  const io=S.io;
+  const fio2N=parseFloat(io.fio2),mapN=parseFloat(io.map),pao2N=parseFloat(io.pao2),spo2N=parseFloat(io.spo2);
+  const fio2d=fio2N>1?fio2N/100:fio2N;
+  const oi=(fio2d>0&&mapN>0&&pao2N>0)?+(fio2d*mapN*100/pao2N).toFixed(1):null;
+  const osi=(fio2d>0&&mapN>0&&spo2N>0)?+(fio2d*mapN*100/spo2N).toFixed(1):null;
+  const pf=(fio2d>0&&pao2N>0)?+(pao2N/fio2d).toFixed(0):null;
+  function oiClass(v){
+    if(v<4)return{l:"Normal",c:"#2E7D5C",bg:"#E8F5EF"};
+    if(v<8)return{l:"IR leve",c:"#2E7D5C",bg:"#D4EDDA"};
+    if(v<16)return{l:"IR moderada",c:"#9A7000",bg:"#FFFBEA"};
+    if(v<25)return{l:"IR grave",c:"#B84A00",bg:"#FEF3E2"};
+    if(v<40)return{l:"IR muito grave",c:"#C0392B",bg:"#FDECEA"};
+    return{l:"ECMO indicado (OI > 40)",c:"#7a0000",bg:"#fff0f0"};
+  }
+  function resultBlock(label,val,cls){
+    if(!val)return'';
+    const pct=Math.min((val/50)*100,100);
+    return`<div style="background:${cls.bg};border:2px solid ${cls.c}40;border-radius:18px;padding:18px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${cls.c};text-transform:uppercase;margin-bottom:8px;opacity:.8">${label}</div>
+<div style="font-size:36px;font-weight:800;color:${cls.c};line-height:1;margin-bottom:6px">${val}</div>
+<div style="font-size:16px;font-weight:700;color:${cls.c};margin-bottom:14px">${cls.l}</div>
+<div style="background:rgba(0,0,0,.1);border-radius:8px;height:12px;position:relative;overflow:hidden;margin-bottom:6px">
+${[4,8,16,25,40].map(v=>`<div style="position:absolute;left:${Math.min((v/50)*100,100)}%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.5)"></div>`).join('')}
+<div style="position:absolute;left:0;top:0;bottom:0;width:${pct}%;background:${cls.c};border-radius:8px;transition:width .5s"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:9px;color:${cls.c};opacity:.8"><span>0</span><span>4</span><span>8</span><span>16</span><span>25</span><span>40</span><span>50+</span></div>
+${val>=40?`<div style="margin-top:14px;background:rgba(255,255,255,.85);border-radius:12px;padding:12px 14px;border:2px solid ${cls.c}40">
+<div style="font-size:14px;font-weight:800;color:${cls.c};margin-bottom:8px">⚠️ Critério de ECMO — OI > 40</div>
+<div style="font-size:12px;color:#1A202C;line-height:1.7">${["Confirmar reversibilidade da causa de base","Contraind.: IG < 34s, peso < 1,8 kg, hemorragia intracraniana","OI > 40 por ≥ 4h ou refratário a tratamento máximo","Contactar centro de ECMO neonatal com urgência"].map(t=>`• ${t}`).join('<br>')}</div>
+</div>`:''}
+</div>`;
+  }
+  const inpField=(label,key,unit,placeholder,hint)=>`<div style="margin-bottom:12px">
+<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">${label}</div>
+<div style="position:relative"><input class="inp" data-set="io.${key}" type="number" value="${io[key]}" placeholder="${placeholder}" inputmode="decimal" style="font-size:17px;padding-right:52px"/>
+<span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#718096">${unit}</span></div>
+${hint?`<div style="font-size:10px;color:#718096;margin-top:3px">${hint}</div>`:''}</div>`;
+  return shdr('Índice de Oxigenação','OI · OSI · razão P/F')
+    +`<div style="padding:16px">
+<div class="card">
+<div class="lbl">Fórmulas</div>
+${[{l:"OI (com gasometria)",f:"(FiO₂ × MAP × 100) / PaO₂",c:"#3B6EA5"},{l:"OSI (sem gasometria)",f:"(FiO₂ × MAP × 100) / SpO₂",c:"#6B4FA0"},{l:"Razão P/F",f:"PaO₂ / FiO₂",c:"#2E7D5C"}].map(r=>`<div style="display:flex;justify-content:space-between;align-items:center;background:#F7F5F0;border-radius:10px;padding:10px 14px;margin-bottom:8px">
+<span style="font-size:12px;color:#718096">${r.l}</span><span style="font-size:12px;font-weight:700;color:${r.c};font-family:monospace">${r.f}</span></div>`).join('')}
+</div>
+<div class="card">
+<div class="lbl">Parâmetros</div>
+${inpField("FiO₂","fio2","%","60","Informar em % (21–100) ou decimal (0.21–1.0)")}
+${inpField("MAP — Pressão Média de Vias Aéreas","map","cmH₂O","12","MAP do ventilador ou CPAP")}
+<div style="border-top:1px dashed #E2DDD6;margin:14px 0"></div>
+<div style="font-size:11px;font-weight:700;color:#3B6EA5;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Para OI — gasometria arterial</div>
+${inpField("PaO₂","pao2","mmHg","55","")}
+<div style="font-size:11px;font-weight:700;color:#6B4FA0;letter-spacing:1px;text-transform:uppercase;margin:14px 0 10px">Para OSI — oximetria de pulso</div>
+${inpField("SpO₂","spo2","%","88","SpO₂ deve ser ≤ 97% para OSI ser válido")}
+${spo2N>97?`<div style="background:#FDF3E0;border-radius:8px;padding:8px 12px;font-size:11px;color:#7a5000">⚠️ SpO₂ > 97%: OSI não é confiável</div>`:''}
+<button class="btng" data-action="calc" data-val="clearIO" style="width:100%;margin-top:14px">Limpar</button>
+</div>
+${oi!==null?resultBlock("OI — Índice de Oxigenação",oi,oiClass(oi)):''}
+${osi!==null?resultBlock("OSI — Índice de Saturação de O₂",osi,oiClass(osi)):''}
+${pf!==null?`<div class="card"><div class="lbl">Razão P/F</div>
+<div style="font-size:28px;font-weight:800;color:${pf<100?'#C0392B':pf<200?'#B84A00':'#2E7D5C'}">${pf}</div>
+<div style="font-size:12px;color:#718096;margin-top:4px">${pf>=300?"Normal (≥300)":pf>=200?"IR leve (200–299)":pf>=100?"IR moderada (100–199)":"IR grave (<100)"}</div></div>`:''}
+<div class="card" style="padding:14px"><div class="lbl">Classificação OI Neonatal</div>
+${[[0,4,"Normal","#2E7D5C","#E8F5EF"],[4,8,"IR leve","#2E7D5C","#D4EDDA"],[8,16,"IR moderada","#9A7000","#FFFBEA"],[16,25,"IR grave","#B84A00","#FEF3E2"],[25,40,"IR muito grave","#C0392B","#FDECEA"],[40,999,"ECMO indicado (>40)","#7a0000","#fff0f0"]].map(([a,b2,l,c,bg])=>`<div style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:10px;background:${bg};margin-bottom:6px;border:1px solid ${c}30">
+<div style="width:48px;font-size:12px;font-weight:800;color:${c};flex-shrink:0">${b2===999?"> 40":`${a}–${b2}`}</div>
+<div style="font-size:13px;font-weight:700;color:${c}">${l}</div></div>`).join('')}
+<div style="font-size:10px;color:#718096;margin-top:6px;font-style:italic">Khemani RG et al. Crit Care Med 2012</div>
+</div></div>`;
+}
+
+// ════ RENDER — RENAL ══════════════════════════════════════════════════════════
+function renderRenal(){
+  const r=S.renal,igN=parseInt(r.ig)||0,dolN=parseInt(r.dol)||0;
+  const k=igN<37?0.33:0.45,compN=parseFloat(r.comp),crSN=parseFloat(r.crS);
+  const clcr=(compN>0&&crSN>0)?+(k*compN/crSN).toFixed(1):null;
+  const crAtN=parseFloat(r.crAt),crBasN=parseFloat(r.crBas);
+  const crExp=(igN>0&&dolN>0)?getCrExp(igN,dolN):null;
+  const crRatio=(crAtN>0&&crBasN>0)?+(crAtN/crBasN).toFixed(2):null;
+  const crDelta=(crAtN>0&&crBasN>0)?+(crAtN-crBasN).toFixed(2):null;
+  function kdigoStage(){
+    let sc=0,sd=0;
+    if(crBasN>0&&crAtN>0){const ratio=crAtN/crBasN,delta=crAtN-crBasN;
+      if(crAtN>=2.5||ratio>=3)sc=3;else if(ratio>=2)sc=2;else if(ratio>=1.5||delta>=0.3)sc=1;}
+    const du=parseFloat(r.du);
+    if(!isNaN(du)&&du>0){if(du<0.3)sd=3;else if(du<0.5)sd=2;else if(du<1.0)sd=1;}
+    return Math.max(sc,sd);
+  }
+  const stage=(crAtN>0&&crBasN>0)?kdigoStage():null;
+  const KDIGO_INFO=[
+    {label:"Sem IRA",color:"#2E7D5C",bg:"#E8F5EF",desc:"Função renal preservada",mgmt:[]},
+    {label:"IRA Estágio 1",color:"#9A7000",bg:"#FFFBEA",desc:"Cr: +0,3 mg/dL (48h) ou ×1,5–1,9 · DU < 1,0 ml/kg/h por 24h",mgmt:["Revisar medicamentos nefrotóxicos","Garantir volemia adequada","Monitorar Cr e DU a cada 12–24h","Investigar causa (sépsis, hipóxia, hipovolemia)"]},
+    {label:"IRA Estágio 2",color:"#B84A00",bg:"#FEF3E2",desc:"Cr: ×2,0–2,9 basal · DU < 0,5 ml/kg/h por 24h",mgmt:["Suspender aminoglicosídeos e AINE","Otimizar perfusão renal","Avaliar hemodinâmica com eco","Monitorar eletrólitos 6–12h","Considerar nefropediatria"]},
+    {label:"IRA Estágio 3",color:"#C0392B",bg:"#FDECEA",desc:"Cr ≥ 2,5 mg/dL ou ×3,0 basal · DU < 0,3 ml/kg/h ou anúria",mgmt:["Suporte intensivo máximo","Avaliar diálise peritoneal","Restringir fluidos se oligúria estabelecida","Monitorar K⁺, HCO₃⁻, fósforo","Nefropediatria urgente"]},
+  ];
+  const ki=stage!==null?KDIGO_INFO[stage]:null;
+  const tabBtn=(v,l)=>`<button data-action="set" data-key="renal.tab" data-val="${v}" style="flex:1;padding:11px 8px;border-radius:10px;font-size:13px;font-weight:${r.tab===v?700:600};border:${r.tab===v?`2px solid #3B6EA5`:'1.5px solid #E2DDD6'};background:${r.tab===v?'#EBF2FC':'#FAFAF8'};color:${r.tab===v?'#3B6EA5':'#718096'};cursor:pointer">${l}</button>`;
+  const inp=(label,key,unit,placeholder,hint)=>`<div style="margin-bottom:12px">
+<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">${label}</div>
+<div style="position:relative"><input class="inp" data-set="renal.${key}" type="number" value="${r[key]}" placeholder="${placeholder}" inputmode="decimal" style="font-size:16px;font-weight:700;padding-right:${unit?52:12}px"/>
+${unit?`<span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#718096">${unit}</span>`:''}
+</div>${hint?`<div style="font-size:10px;color:#718096;margin-top:3px">${hint}</div>`:''}</div>`;
+  function gfrNormal(ig){return ig<26?"5–12":ig<30?"10–20":ig<34?"15–25":ig<37?"20–35":"25–45";}
+  function clcrStatus(v,ig){const lo=ig<26?5:ig<30?10:ig<34?15:ig<37?20:25,hi=ig<26?12:ig<30?20:ig<34?25:ig<37?35:45;if(v>=lo&&v<=hi)return{l:"Dentro do esperado",c:"#2E7D5C",bg:"#E8F5EF"};if(v<lo)return{l:"Abaixo do esperado",c:"#B84A00",bg:"#FEF3E2"};return{l:"Acima do esperado",c:"#3B6EA5",bg:"#EBF2FC"};}
+  return shdr('Função Renal Neonatal','Schwartz · KDIGO AWAKEN 2017')
+    +`<div style="padding:16px">
+<div style="display:flex;gap:8px;margin-bottom:16px">${tabBtn("clcr","🧮 ClCr / GFR")}${tabBtn("kdigo","📊 IRA / KDIGO")}</div>
+${r.tab==="clcr"?`
+<div style="background:#FDF3E0;border:1.5px solid #D4A04A40;border-radius:14px;padding:10px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:18px;flex-shrink:0">ℹ️</span><div style="font-size:12px;color:#7a5000;line-height:1.5"><b>Schwartz:</b> k = 0,33 (PT) · k = 0,45 (termo). Usar após 72h de vida para maior acurácia.</div></div>
+<div class="card"><div class="lbl">Dados</div>
+${inp("IG ao nascer","ig","s","34","Define constante k do Schwartz")}
+${inp("Comprimento","comp","cm","42","")}
+${inp("Creatinina sérica","crS","mg/dL","0.6","Usar valor após 72h de vida")}
+${igN>0?`<div style="background:#F7F5F0;border-radius:10px;padding:10px 14px;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
+<span style="font-size:12px;color:#718096">Constante k (${igN<37?"prematuro":"termo"})</span>
+<span style="font-size:16px;font-weight:800;color:#3B6EA5">${k}</span></div>`:''}
+</div>
+${clcr!==null&&igN>0?`<div style="background:${clcrStatus(clcr,igN).bg};border:2px solid ${clcrStatus(clcr,igN).c}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${clcrStatus(clcr,igN).c};text-transform:uppercase;margin-bottom:10px;opacity:.8">Resultado</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+<div style="background:rgba(255,255,255,.8);border-radius:12px;padding:14px;text-align:center">
+<div style="font-size:10px;color:#718096;margin-bottom:3px">ClCr estimado</div>
+<div style="font-size:30px;font-weight:800;color:${clcrStatus(clcr,igN).c};line-height:1">${clcr}</div>
+<div style="font-size:11px;color:#718096">mL/min/1,73m²</div></div>
+<div style="background:rgba(255,255,255,.8);border-radius:12px;padding:14px;text-align:center">
+<div style="font-size:10px;color:#718096;margin-bottom:3px">Esperado (IG ${igN}s)</div>
+<div style="font-size:20px;font-weight:800;color:#4A5568;line-height:1">${gfrNormal(igN)}</div>
+<div style="font-size:11px;color:#718096">mL/min/1,73m²</div></div></div>
+<div style="font-size:14px;font-weight:700;color:${clcrStatus(clcr,igN).c}">${clcrStatus(clcr,igN).l}</div>
+<div style="background:rgba(255,255,255,.6);border-radius:10px;padding:8px 12px;margin-top:8px;font-size:11px;color:#718096;font-style:italic">ClCr = ${k} × ${compN} / ${crSN} = <b>${clcr} mL/min/1,73m²</b></div>
+</div>`:''}
+<div class="card"><div class="lbl">GFR Esperado por IG</div>
+${[["< 26s","5–12","0,33"],["26–29s","10–20","0,33"],["30–33s","15–25","0,33"],["34–36s","20–35","0,33"],["≥ 37s","25–45","0,45"]].map(([ga,gfr,k2])=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#F7F5F0;border-radius:10px;margin-bottom:6px">
+<span style="font-size:13px;color:#1A202C;font-weight:600">${ga}</span>
+<span style="font-size:12px;color:#718096">k = ${k2}</span>
+<span style="font-size:13px;font-weight:700;color:#3B6EA5">${gfr} mL/min/1,73m²</span></div>`).join('')}
+<div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">GFR aumenta ~1–2 mL/min/1,73m²/semana nas primeiras semanas de vida</div>
+</div>`
+:`<div style="background:#F3EFFF;border:1.5px solid #6B4FA040;border-radius:14px;padding:10px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:18px;flex-shrink:0">📋</span>
+<div style="font-size:12px;color:#4a3080;line-height:1.5"><b>KDIGO neonatal modificado (AWAKEN 2017)</b><br/>Basal = menor Cr das últimas 48h · Se &lt; 48h: usar Cr materna como basal.</div></div>
+<div class="card"><div class="lbl">Dados</div>
+${inp("IG ao nascer","ig","s","30","")}
+${inp("Dia de vida","dol","dv","3","")}
+${crExp!==null?`<div style="background:#EBF2FC;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-size:11px;font-weight:600;color:#3B6EA5">Cr esperada — IG ${igN}s · D${dolN}</div>
+<div style="font-size:10px;color:#3B6EA5;opacity:.8">Referência: Miall 1999 / Askenazi 2011</div></div>
+<div style="font-size:24px;font-weight:800;color:#3B6EA5">~${crExp}<span style="font-size:11px;font-weight:400"> mg/dL</span></div></div>`:''}
+${inp("Creatinina basal","crBas","mg/dL","0.8","Menor das últimas 48h · ou creatinina materna se < 48h de vida")}
+${inp("Creatinina atual","crAt","mg/dL","1.2","")}
+${inp("Débito urinário","du","ml/kg/h","0.8","Média das últimas 6–24h · opcional")}
+</div>
+${crRatio!==null?`<div class="card"><div class="lbl">Análise</div>
+${[{l:"Cr basal",v:`${crBasN} mg/dL`,c:"#4A5568"},{l:"Cr atual",v:`${crAtN} mg/dL`,c:crAtN>crBasN?"#B84A00":"#2E7D5C"},{l:"Δ Cr",v:`+${crDelta} mg/dL`,c:crDelta>=0.3?"#C0392B":"#2E7D5C"},{l:"Razão Cr",v:`×${crRatio}`,c:crRatio>=1.5?"#B84A00":"#2E7D5C"}].map(rx=>`<div style="display:flex;justify-content:space-between;align-items:center;background:#F7F5F0;border-radius:10px;padding:9px 12px;margin-bottom:6px">
+<span style="font-size:12px;color:#718096">${rx.l}</span><span style="font-size:14px;font-weight:700;color:${rx.c}">${rx.v}</span></div>`).join('')}</div>`:''}
+${ki?`<div style="background:${ki.bg};border:2px solid ${ki.color}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${ki.color};text-transform:uppercase;margin-bottom:10px;opacity:.8">Estadiamento KDIGO Neonatal</div>
+<div style="font-size:22px;font-weight:800;color:${ki.color};margin-bottom:6px">${ki.label}</div>
+<div style="font-size:12px;color:${ki.color};opacity:.85;margin-bottom:${ki.mgmt.length?14:0}px">${ki.desc}</div>
+${ki.mgmt.length?`<div style="background:rgba(255,255,255,.75);border-radius:12px;padding:12px 14px">
+<div style="font-size:11px;font-weight:700;color:${ki.color};margin-bottom:8px">Conduta</div>
+${ki.mgmt.map((m,i)=>`<div style="display:flex;gap:8px;margin-bottom:6px;align-items:flex-start">
+<div style="width:20px;height:20px;border-radius:6px;flex-shrink:0;background:${ki.bg};border:1.5px solid ${ki.color}40;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:${ki.color}">${i+1}</div>
+<div style="font-size:12px;color:#1A202C;line-height:1.5;padding-top:2px">${m}</div></div>`).join('')}</div>`:''}
+</div>`:''}
+<div class="card" style="padding:14px"><div class="lbl">Critérios KDIGO Neonatal</div>
+${[[1,"↑ ≥ 0,3 mg/dL (48h) ou ×1,5–1,9","< 1,0 ml/kg/h > 24h","#9A7000","#FFFBEA"],[2,"×2,0–2,9 do basal","< 0,5 ml/kg/h > 24h","#B84A00","#FEF3E2"],[3,"≥ 2,5 mg/dL ou ×3,0 ou diálise","< 0,3 ml/kg/h > 24h / anúria","#C0392B","#FDECEA"]].map(([s,cr,du2,c,bg])=>`<div style="background:${bg};border-radius:12px;padding:12px;margin-bottom:8px;border:1px solid ${c}30">
+<div style="font-size:12px;font-weight:800;color:${c};margin-bottom:6px">Estágio ${s}</div>
+<div style="font-size:11px;color:${c};margin-bottom:3px">🧪 Cr: ${cr}</div>
+<div style="font-size:11px;color:${c}">💧 DU: ${du2}</div></div>`).join('')}
+<div style="font-size:10px;color:#718096;margin-top:6px;font-style:italic">Jetton JG et al. (AWAKEN) · Lancet Child Adolesc Health 2017</div>
+</div>`}
+<button class="btng" data-action="calc" data-val="clearRenal" style="width:100%;margin-bottom:4px">Limpar</button>
+</div>`;
+}
+
+// ════ RENDER — PRESSÃO ════════════════════════════════════════════════════════
+function renderPressao(){
+  const p=S.pressao,igN=parseInt(p.ig)||0,pesoN=parseFloat(p.peso)||0,dolN=parseInt(p.dol)||0;
+  const mapN=parseFloat(p.map)||0,sbpHN=parseFloat(p.sbpH)||0,dbpHN=parseFloat(p.dbpH)||0;
+  const mapCalc=(sbpHN>0&&dbpHN>0)?Math.round(dbpHN+(sbpHN-dbpHN)/3):null;
+  const mapEf=mapN>0?mapN:mapCalc;
+  const mapGA=igN>0?igN:null;
+  const mapPeso=(pesoN>0&&dolN>0)?getHypoMAP(pesoN,dolN):null;
+  const isHypoGA=mapGA&&mapEf&&mapEf<mapGA,isHypoPeso=mapPeso&&mapEf&&mapEf<mapPeso,isHypo=isHypoGA||isHypoPeso;
+  const nSigns=Object.values(p.signs).filter(Boolean).length;
+  const isShockDecomp=isHypo&&nSigns>=2,isShockComp=!isHypo&&nSigns>=2;
+  const pmaN=parseInt(p.pma)||0,sbpN=parseFloat(p.sbp)||0,dbpN=parseFloat(p.dbp)||0;
+  const mapHTN=(sbpN>0&&dbpN>0)?Math.round(dbpN+(sbpN-dbpN)/3):null;
+  const perc=pmaN>=24?getHTNPerc(pmaN):null;
+  function htnClass(){if(!sbpN||!dbpN||!perc)return null;if(sbpN>=perc.p99s||dbpN>=perc.p99d)return{stage:2,label:"Hipertensão Estágio 2",color:"#C0392B",bg:"#FDECEA",desc:`PAS ≥ p99 (${perc.p99s}) ou PAD ≥ p99 (${perc.p99d})`};if(sbpN>=perc.p95s||dbpN>=perc.p95d)return{stage:1,label:"Hipertensão Estágio 1",color:"#B84A00",bg:"#FEF3E2",desc:`PAS ≥ p95 (${perc.p95s}) ou PAD ≥ p95 (${perc.p95d})`};return{stage:0,label:"Pressão Normal",color:"#2E7D5C",bg:"#E8F5EF",desc:`PAS < p95 (${perc.p95s}) e PAD < p95 (${perc.p95d})`};}
+  const htc=htnClass();
+  const tabBtn=(v,l,col)=>`<button data-action="set" data-key="pressao.tab" data-val="${v}" style="flex:1;padding:11px 8px;border-radius:10px;font-size:12px;font-weight:${p.tab===v?700:600};border:${p.tab===v?`2px solid ${col}`:'1.5px solid #E2DDD6'};background:${p.tab===v?col+'22':'#FAFAF8'};color:${p.tab===v?col:'#718096'};cursor:pointer">${l}</button>`;
+  const inp=(label,key,unit,placeholder,hint)=>`<div style="margin-bottom:12px">
+<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">${label}</div>
+<div style="position:relative"><input class="inp" data-set="pressao.${key}" type="number" value="${p[key]}" placeholder="${placeholder}" inputmode="numeric" style="font-size:16px;font-weight:700;padding-right:${unit?52:12}px"/>
+${unit?`<span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#718096">${unit}</span>`:''}
+</div>${hint?`<div style="font-size:10px;color:#718096;margin-top:3px">${hint}</div>`:''}</div>`;
+  return shdr('Pressão Arterial Neonatal','Hipotensão · Choque · Hipertensão')
+    +`<div style="padding:16px">
+<div style="display:flex;gap:8px;margin-bottom:16px">${tabBtn("hypo","🔴 Hipotensão / Choque","#C0392B")}${tabBtn("htn","🟠 Hipertensão","#B84A00")}</div>
+${p.tab==="hypo"?`
+<div class="card"><div class="lbl">Dados</div>
+<div style="display:flex;gap:10px">${['ig','dol'].map(k=>inp(k==='ig'?"IG ao nascer":"Dia de vida",k,k==='ig'?"s":"dv",k==='ig'?"28":"2",k==='ig'?"Define MAP mínima (regra MAP=IG)":"")).join('')}</div>
+${inp("Peso","peso","g","1200","")}
+<div style="border-top:1px dashed #E2DDD6;margin:12px 0"></div>
+<div style="font-size:11px;font-weight:600;color:#4A5568;margin-bottom:10px">Pressão Arterial medida</div>
+<div style="display:flex;gap:10px">${inp("PAS (sistólica)","sbpH","mmHg","55","")}${inp("PAD (diastólica)","dbpH","mmHg","32","")}</div>
+${inp("PAM (deixe vazio para calcular auto)","map","mmHg","auto",mapCalc?`Calculada: ${mapCalc} mmHg`:"PAD + (PAS−PAD)/3")}
+${mapEf>0?`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+${mapGA?`<div style="flex:1;min-width:140px;background:${isHypoGA?'#FDECEA':'#E8F5EF'};border-radius:10px;padding:10px 14px;border:1.5px solid ${isHypoGA?'#C0392B40':'#2E7D5C40'}">
+<div style="font-size:10px;color:${isHypoGA?'#C0392B':'#2E7D5C'}">Regra MAP = IG</div>
+<div style="font-size:11px;font-weight:600;color:${isHypoGA?'#C0392B':'#2E7D5C'};margin-top:2px">PAM ${mapEf} ${isHypoGA?"<":"≥"} ${mapGA} mmHg</div>
+<div style="font-size:14px;font-weight:800;color:${isHypoGA?'#C0392B':'#2E7D5C'}">${isHypoGA?"⚠️ Hipotensa":"✓ OK"}</div></div>`:''}
+${mapPeso?`<div style="flex:1;min-width:140px;background:${isHypoPeso?'#FDECEA':'#E8F5EF'};border-radius:10px;padding:10px 14px;border:1.5px solid ${isHypoPeso?'#C0392B40':'#2E7D5C40'}">
+<div style="font-size:10px;color:${isHypoPeso?'#C0392B':'#2E7D5C'}">Por peso/DOL</div>
+<div style="font-size:11px;font-weight:600;color:${isHypoPeso?'#C0392B':'#2E7D5C'};margin-top:2px">PAM ${mapEf} ${isHypoPeso?"<":"≥"} ${mapPeso} mmHg</div>
+<div style="font-size:14px;font-weight:800;color:${isHypoPeso?'#C0392B':'#2E7D5C'}">${isHypoPeso?"⚠️ Hipotensa":"✓ OK"}</div></div>`:''}
+</div>`:''}
+</div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<div class="lbl" style="margin-bottom:0">Sinais de Choque</div>
+${nSigns>0?`<span style="background:${nSigns>=3?'#FDECEA':'#FEF3E2'};color:${nSigns>=3?'#C0392B':'#B84A00'};padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700">${nSigns} presente${nSigns>1?"s":""}</span>`:''}
+</div>
+${SHOCK_S.map(s=>{const sel=p.signs[s.id];return`<button data-action="toggle" data-key="pressao.signs.${s.id}" style="display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:10px;cursor:pointer;text-align:left;border:1.5px solid ${sel?'#C0392B60':'#E2DDD6'};background:${sel?'#FDECEA':'#FAFAF8'};margin-bottom:6px;transition:all .15s">
+<div style="width:22px;height:22px;border-radius:6px;flex-shrink:0;border:2px solid ${sel?'#C0392B':'#E2DDD6'};background:${sel?'#C0392B':'white'};display:flex;align-items:center;justify-content:center">${sel?ck():''}</div>
+<span style="font-size:13px;color:${sel?'#1A202C':'#4A5568'};font-weight:${sel?600:400}">${s.icon} ${s.l}</span></button>`;}).join('')}
+</div>
+${(isShockDecomp||isShockComp||isHypo)?`<div style="background:${isShockDecomp?'#FDECEA':isShockComp?'#FEF3E2':'#FFFBEA'};border:2px solid ${isShockDecomp?'#C0392B':isShockComp?'#B84A00':'#9A7000'}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:16px;font-weight:800;color:${isShockDecomp?'#C0392B':isShockComp?'#B84A00':'#9A7000'};margin-bottom:12px">${isShockDecomp?"🔴 CHOQUE DESCOMPENSADO":isShockComp?"🟡 CHOQUE COMPENSADO":"⚠️ HIPOTENSÃO"}</div>
+<div style="background:rgba(255,255,255,.75);border-radius:12px;padding:12px 14px;font-size:12px;color:#1A202C;line-height:1.8">
+${(isShockDecomp||isShockComp?["Acesso venoso urgente (CUV se RN)","SF 0,9% 10 ml/kg em 15–30 min (avaliar ECO antes se suspeita cardiogênico)","Repetir bolus até 30–60 ml/kg se hipovolêmico e sem sobrecarga","Dopamina 5–10 mcg/kg/min ou dobutamina 5–15 mcg/kg/min se sem resposta","Adrenalina 0,05–0,5 mcg/kg/min se refratário","Colher: HC, PCR, coagulograma, lactato","Hidrocortisona 1–2 mg/kg/dose se refratário a catecolaminas"]:["Confirmar medida: manguito adequado","Tratar causa (sépsis, hipovolemia, dor)","Ecocardiograma funcional se disponível","Monitorar sinais de choque a cada 15–30 min"]).map(t=>`• ${t}`).join('<br>')}
+</div></div>`:''}
+<div class="card" style="padding:14px"><div class="lbl">MAP mínima por peso/DOL</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:6px">${["Peso","D1","D3","D7"].map(h=>`<div style="font-size:10px;font-weight:700;color:#718096;text-align:center;padding:4px 0">${h}</div>`).join('')}</div>
+${HYPO_W.map(r=>`<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:4px;background:#F7F5F0;border-radius:8px;padding:8px 10px">
+<div style="font-size:10px;color:#1A202C;font-weight:600">${r.label}</div>
+${[r.d1,r.d3,r.d7].map(v=>`<div style="font-size:13px;font-weight:800;color:#C0392B;text-align:center">${v}</div>`).join('')}</div>`).join('')}
+<div style="font-size:10px;color:#718096;margin-top:4px;font-style:italic">PAM (mmHg) · Nuntnarumit P et al. Clin Perinatol 1999</div></div>
+<button class="btng" data-action="calc" data-val="clearPressao" style="width:100%;margin-bottom:4px">Limpar</button>`
+:`<div style="background:#FDF3E0;border:1.5px solid #D4A04A40;border-radius:14px;padding:10px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:18px;flex-shrink:0">ℹ️</span>
+<div style="font-size:12px;color:#7a5000;line-height:1.5">Hipertensão neonatal: PA > p95 para <b>IGC (PMA)</b>. Confirmar com ≥ 3 medidas, manguito adequado.</div></div>
+<div class="card"><div class="lbl">Dados</div>
+${inp("IGC — Idade Gestacional Corrigida (PMA em semanas)","pma","sem","38","IG ao nascer + semanas de vida = PMA")}
+<div style="display:flex;gap:10px">${inp("PAS (sistólica)","sbp","mmHg","85","")}${inp("PAD (diastólica)","dbp","mmHg","55","")}</div>
+${mapHTN?`<div style="background:#F7F5F0;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
+<span style="font-size:12px;color:#718096">PAM calculada</span><span style="font-size:18px;font-weight:800;color:#4A5568">${mapHTN} mmHg</span></div>`:''}
+</div>
+${perc?`<div class="card" style="padding:14px"><div class="lbl">Percentis para PMA ${pmaN}s</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:4px">
+${[["","p50","p95","p99"],["PAS",perc.p50s,perc.p95s,perc.p99s],["PAD",perc.p50d,perc.p95d,perc.p99d]].map(row=>row.map((cell,ci)=>`<div style="padding:8px 6px;text-align:center;background:${ci===2?'#FEF3E2':ci===3?'#FDECEA':'#F7F5F0'};border-radius:8px;color:${ci===2?'#B84A00':ci===3?'#C0392B':'#4A5568'};font-size:${ci===0&&row[0]!==''?13:ci===0?10:12}px;font-weight:${ci===0?600:800}">${cell}</div>`).join('')).flat().join('')}
+</div></div>`:''}
+${htc?`<div style="background:${htc.bg};border:2px solid ${htc.color}40;border-radius:18px;padding:20px;margin-bottom:14px">
+<div style="font-size:11px;letter-spacing:2px;color:${htc.color};text-transform:uppercase;margin-bottom:10px;opacity:.8">Resultado</div>
+<div style="font-size:22px;font-weight:800;color:${htc.color};margin-bottom:6px">${htc.label}</div>
+<div style="font-size:12px;color:${htc.color};opacity:.85;margin-bottom:12px">${htc.desc}</div>
+${[{l:"PAS medida",v:`${sbpN} mmHg`,c:sbpN>=perc?.p95s?'#C0392B':'#2E7D5C'},{l:"PAD medida",v:`${dbpN} mmHg`,c:dbpN>=perc?.p95d?'#C0392B':'#2E7D5C'},mapHTN?{l:"PAM",v:`${mapHTN} mmHg`,c:'#4A5568'}:null].filter(Boolean).map(rx=>`<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.7);border-radius:8px;padding:8px 12px;margin-bottom:6px"><span style="font-size:12px;color:#718096">${rx.l}</span><span style="font-size:13px;font-weight:700;color:${rx.c}">${rx.v}</span></div>`).join('')}
+${htc.stage>0?`<div style="background:rgba(255,255,255,.75);border-radius:12px;padding:12px 14px;margin-top:10px">
+<div style="font-size:11px;font-weight:700;color:${htc.color};margin-bottom:8px">Conduta</div>
+${(htc.stage===1?["Confirmar com ≥ 3 medidas em dias diferentes","Investigar causa: coarctação (4 membros), doença renal, trombose","Ecocardiograma funcional","Eletrólitos, creatinina, EAS","Considerar anti-hipertensivo se PAS > p99 ou sintomático"]:["Emergência hipertensiva — tratar com urgência","Labetalol EV 0,5–1 mg/kg/dose ou nicardipina 0,5–5 mcg/kg/min","Reduzir PA 25% nas primeiras 8h, 25% nas 24h seguintes","UTI — monitorização PA invasiva se possível","Investigar: coarctação, trombose aórtica/renal"]).map((t,i)=>`<div style="display:flex;gap:8px;margin-bottom:5px;align-items:flex-start">
+<div style="width:20px;height:20px;border-radius:6px;flex-shrink:0;background:${htc.bg};border:1.5px solid ${htc.color}40;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:${htc.color}">${i+1}</div>
+<div style="font-size:12px;color:#1A202C;line-height:1.5;padding-top:2px">${t}</div></div>`).join('')}</div>`:''}
+</div>`:''}
+<div class="card" style="padding:14px"><div class="lbl">Percentis PAS por PMA (Dionne 2012)</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:6px">${["PMA","p50","p95","p99"].map(h=>`<div style="font-size:10px;font-weight:700;color:#718096;text-align:center;padding:4px 0">${h}</div>`).join('')}</div>
+${HTN_TBL.map(r=>`<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:4px">${[`${r.p[0]}–${r.p[1]}s`,r.p50s,r.p95s,r.p99s].map((v,i)=>`<div style="padding:7px 6px;text-align:center;background:${i===0?'#F0EDE8':i===2?'#FEF3E2':i===3?'#FDECEA':'#F7F5F0'};border-radius:7px;color:${i===0?'#4A5568':i===2?'#B84A00':i===3?'#C0392B':'#1A202C'};font-size:${i===0?10:12}px;font-weight:${i===0?600:700}">${v}</div>`).join('')}</div>`).join('')}
+<div style="font-size:9px;color:#718096;margin-top:6px;font-style:italic">PAS (mmHg) · Dionne JM et al. Pediatrics 2012</div></div>
+<button class="btng" data-action="calc" data-val="clearPressao" style="width:100%;margin-bottom:4px">Limpar</button>`}
+</div>`;
+}
+
+</script></body></html>
