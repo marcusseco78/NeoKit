@@ -68,6 +68,7 @@ const MODS=[
   {id:"io",      icon:"💨",name:"Índice de O₂",            desc:"OI · OSI · razão P/F",              color:"#2E7D5C",bg:"#E8F5EF"},
   {id:"renal",   icon:"🧪",name:"Função Renal",            desc:"Schwartz · KDIGO AWAKEN 2017",      color:"#B84A00",bg:"#FEF3E2"},
   {id:"pressao", icon:"🩺",name:"Pressão Arterial",        desc:"Hipotensão · Choque · HAS",         color:"#C0392B",bg:"#FDECEA"},
+  {id:"nutri",   icon:"🥗",name:"Nutrição Pediátrica",     desc:"WHO 2006/2007 · Z-score · SISVAN",  color:"#2E7D5C",bg:"#E8F5EF"},
 ];
 // ════ UTILS ═══════════════════════════════════════════════════════════════════
 // ════ STATE ════════════════════════════════════════════════════════════════════
@@ -86,6 +87,7 @@ const S={
   io:{fio2:"",map:"",pao2:"",spo2:""},
   renal:{tab:"clcr",ig:"",comp:"",crS:"",crAt:"",crBas:"",du:"",dol:""},
   pressao:{tab:"hypo",ig:"",peso:"",dol:"",map:"",sbpH:"",dbpH:"",signs:{},shockType:null,pma:"",sbp:"",dbp:""},
+  nutri:{tab:"dados",sexo:"",idade:"",peso:"",alt:"",pc:"",neuro:false},
 };
 function getS(path){const k=path.split(".");let o=S;for(const p of k)o=o[p];return o;}
 function setS(path,val){const k=path.split(".");let o=S;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;}
@@ -528,7 +530,7 @@ function trHbResult(r){
 
 // ════ RENDER + NAV + CALC + EVENTS ════════════════════════════════════════════
 function render(){
-  const screens={home:renderHome,ig:renderIG,foto:renderFoto,hidrica:renderHidrica,ehi:renderEHI,bell:renderBell,cateteres:renderCateteres,transfusao:renderTransfusao,pacientes:renderPacientes,capurro:renderCapurro,ballard:renderBallard,io:renderIO,renal:renderRenal,pressao:renderPressao};
+  const screens={home:renderHome,ig:renderIG,foto:renderFoto,hidrica:renderHidrica,ehi:renderEHI,bell:renderBell,cateteres:renderCateteres,transfusao:renderTransfusao,pacientes:renderPacientes,capurro:renderCapurro,ballard:renderBallard,io:renderIO,renal:renderRenal,pressao:renderPressao,nutri:renderNutri};
   document.getElementById('app').innerHTML=(screens[S.screen]||renderHome)();
 }
 function nav(screen){
@@ -1078,5 +1080,510 @@ ${HTN_TBL.map(r=>`<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr
 <button class="btng" data-action="calc" data-val="clearPressao" style="width:100%;margin-bottom:4px">Limpar</button>`}
 </div>`;
 }
+
+
+// ════ WHO 2006 LMS TABLES ══════════════════════════════════════════════════════
+// Fonte: WHO Child Growth Standards, 2006 (0–60 months)
+// WHO 2007 Reference (5–19 anos)
+// Formato: [L, M, S] por mês/ano, sexo M=0 F=1
+
+// Weight-for-age (wfa) — 0–60 meses
+const WHO_WFA=[
+[[0.3487,3.3464,0.14602],[0.3809,3.2322,0.14171]],// 0,
+[[0.3526,4.1110,0.13895],[0.3875,3.9099,0.13777]],// 1,
+[[0.3566,4.8756,0.13189],[0.3940,4.5875,0.13383]],// 2,
+[[0.3605,5.6402,0.12482],[0.4006,5.2652,0.12989]],// 3,
+[[0.3644,6.4048,0.11775],[0.4071,5.9428,0.12595]],// 4,
+[[0.3684,7.1694,0.11069],[0.4137,6.6204,0.12201]],// 5,
+[[0.3723,7.9340,0.10362],[0.4202,7.2981,0.11807]],// 6,
+[[0.3992,8.2196,0.10331],[0.4474,7.5731,0.11711]],// 7,
+[[0.4262,8.5053,0.10300],[0.4747,7.8481,0.11615]],// 8,
+[[0.4532,8.7910,0.10270],[0.5019,8.1231,0.11519]],// 9,
+[[0.4801,9.0766,0.10239],[0.5291,8.3981,0.11424]],// 10,
+[[0.5071,9.3622,0.10208],[0.5564,8.6731,0.11328]],// 11,
+[[0.5340,9.6479,0.10177],[0.5836,8.9481,0.11232]],// 12,
+[[0.5488,9.8633,0.10256],[0.6010,9.1573,0.11318]],// 13,
+[[0.5637,10.0787,0.10335],[0.6184,9.3664,0.11404]],// 14,
+[[0.5785,10.2941,0.10415],[0.6358,9.5756,0.11491]],// 15,
+[[0.5933,10.5095,0.10494],[0.6531,9.7848,0.11577]],// 16,
+[[0.6082,10.7249,0.10573],[0.6705,9.9939,0.11663]],// 17,
+[[0.6230,10.9403,0.10652],[0.6879,10.2031,0.11749]],// 18,
+[[0.6303,11.1376,0.10754],[0.7004,10.3923,0.11876]],// 19,
+[[0.6377,11.3348,0.10856],[0.7130,10.5814,0.12004]],// 20,
+[[0.6451,11.5320,0.10958],[0.7255,10.7706,0.12131]],// 21,
+[[0.6524,11.7293,0.11059],[0.7380,10.9598,0.12258]],// 22,
+[[0.6598,11.9265,0.11161],[0.7506,11.1489,0.12386]],// 23,
+[[0.6671,12.1238,0.11263],[0.7631,11.3381,0.12513]],// 24,
+[[0.6823,12.3051,0.11342],[0.7756,11.5433,0.12606]],// 25,
+[[0.6976,12.4865,0.11421],[0.7881,11.7484,0.12700]],// 26,
+[[0.7128,12.6678,0.11500],[0.8006,11.9536,0.12793]],// 27,
+[[0.7280,12.8492,0.11579],[0.8131,12.1587,0.12886]],// 28,
+[[0.7433,13.0305,0.11658],[0.8256,12.3639,0.12980]],// 29,
+[[0.7585,13.2119,0.11738],[0.8381,12.5691,0.13073]],// 30,
+[[0.7737,13.3933,0.11817],[0.8507,12.7742,0.13166]],// 31,
+[[0.7890,13.5746,0.11896],[0.8632,12.9794,0.13260]],// 32,
+[[0.8042,13.7560,0.11975],[0.8757,13.1845,0.13353]],// 33,
+[[0.8194,13.9373,0.12054],[0.8882,13.3897,0.13446]],// 34,
+[[0.8347,14.1187,0.12133],[0.9007,13.5948,0.13540]],// 35,
+[[0.8499,14.3000,0.12212],[0.9132,13.8000,0.13633]],// 36,
+[[0.8545,14.4667,0.12260],[0.9163,13.9625,0.13612]],// 37,
+[[0.8590,14.6333,0.12308],[0.9194,14.1250,0.13591]],// 38,
+[[0.8636,14.8000,0.12355],[0.9225,14.2875,0.13570]],// 39,
+[[0.8682,14.9667,0.12403],[0.9256,14.4500,0.13549]],// 40,
+[[0.8728,15.1333,0.12451],[0.9287,14.6125,0.13528]],// 41,
+[[0.8774,15.3000,0.12499],[0.9318,14.7750,0.13506]],// 42,
+[[0.8819,15.4667,0.12547],[0.9349,14.9375,0.13485]],// 43,
+[[0.8865,15.6333,0.12595],[0.9380,15.1000,0.13464]],// 44,
+[[0.8911,15.8000,0.12643],[0.9411,15.2625,0.13443]],// 45,
+[[0.8957,15.9667,0.12690],[0.9442,15.4250,0.13422]],// 46,
+[[0.9002,16.1333,0.12738],[0.9473,15.5875,0.13401]],// 47,
+[[0.9048,16.3000,0.12786],[0.9504,15.7500,0.13380]],// 48,
+[[0.9080,16.4667,0.12856],[0.9532,15.9167,0.13363]],// 49,
+[[0.9112,16.6333,0.12926],[0.9560,16.0833,0.13346]],// 50,
+[[0.9143,16.8000,0.12996],[0.9588,16.2500,0.13328]],// 51,
+[[0.9175,16.9667,0.13066],[0.9616,16.4167,0.13311]],// 52,
+[[0.9207,17.1333,0.13136],[0.9644,16.5833,0.13294]],// 53,
+[[0.9239,17.3000,0.13206],[0.9672,16.7500,0.13277]],// 54,
+[[0.9271,17.4667,0.13276],[0.9701,16.9167,0.13260]],// 55,
+[[0.9303,17.6333,0.13346],[0.9729,17.0833,0.13243]],// 56,
+[[0.9335,17.8000,0.13416],[0.9757,17.2500,0.13226]],// 57,
+[[0.9366,17.9667,0.13486],[0.9785,17.4167,0.13208]],// 58,
+[[0.9398,18.1333,0.13556],[0.9813,17.5833,0.13191]],// 59,
+[[0.9430,18.3000,0.13626],[0.9841,17.7500,0.13174]],// 60
+];
+
+// Height-for-age (hfa) — 0–60 meses [L,M,S] meninos, meninas
+const WHO_HFA=[
+[[1,49.8842,0.03795],[1,49.1477,0.03790]],// 0
+[[1,54.7244,0.03557],[1,53.6872,0.03640]],// 1
+[[1,58.4249,0.03424],[1,57.0673,0.03557]],// 2
+[[1,61.4292,0.03328],[1,59.8029,0.03627]],// 3
+[[1,63.8860,0.03257],[1,62.0899,0.03746]],// 4
+[[1,65.9026,0.03209],[1,64.0301,0.03800]],// 5
+[[1,67.6236,0.03187],[1,65.7311,0.03806]],// 6
+[[1,69.1648,0.03174],[1,67.2873,0.03810]],// 7
+[[1,70.5994,0.03174],[1,68.7498,0.03817]],// 8
+[[1,71.9687,0.03174],[1,70.1435,0.03831]],// 9
+[[1,73.2812,0.03174],[1,71.4818,0.03852]],// 10
+[[1,74.5388,0.03174],[1,72.7710,0.03880]],// 11
+[[1,75.7488,0.03174],[1,74.0150,0.03912]],// 12
+[[1,76.9186,0.03174],[1,75.2176,0.03948]],// 13
+[[1,78.0497,0.03232],[1,76.3817,0.03986]],// 14
+[[1,79.1458,0.03273],[1,77.5099,0.04025]],// 15
+[[1,80.2113,0.03311],[1,78.6055,0.04064]],// 16
+[[1,81.2467,0.03346],[1,79.6710,0.04102]],// 17
+[[1,82.2587,0.03378],[1,80.7079,0.04139]],// 18
+[[1,83.2418,0.03407],[1,81.7182,0.04175]],// 19
+[[1,84.1924,0.03434],[1,82.7036,0.04209]],// 20
+[[1,85.1065,0.03459],[1,83.6654,0.04241]],// 21
+[[1,85.9820,0.03481],[1,84.6049,0.04272]],// 22
+[[1,86.8246,0.03502],[1,85.5232,0.04300]],// 23
+[[1,87.8161,0.03518],[1,86.4196,0.04325]],// 24
+[[1,88.6848,0.03534],[1,87.2980,0.04348]],// 25
+[[1,89.5423,0.03548],[1,88.1613,0.04369]],// 26
+[[1,90.3913,0.03561],[1,89.0111,0.04389]],// 27
+[[1,91.2336,0.03572],[1,89.8487,0.04408]],// 28
+[[1,92.0703,0.03582],[1,90.6749,0.04425]],// 29
+[[1,92.9025,0.03591],[1,91.4905,0.04441]],// 30
+[[1,93.7311,0.03598],[1,92.2961,0.04456]],// 31
+[[1,94.5569,0.03605],[1,93.0925,0.04470]],// 32
+[[1,95.3804,0.03610],[1,93.8801,0.04483]],// 33
+[[1,96.2019,0.03615],[1,94.6594,0.04494]],// 34
+[[1,97.0216,0.03618],[1,95.4310,0.04505]],// 35
+[[1,97.8395,0.03621],[1,96.1951,0.04514]],// 36
+[[1,98.6558,0.03624],[1,96.9521,0.04523]],// 37
+[[1,99.4704,0.03626],[1,97.7021,0.04530]],// 38
+[[1,100.2838,0.03628],[1,98.4453,0.04537]],// 39
+[[1,101.0962,0.03629],[1,99.1818,0.04543]],// 40
+[[1,101.9085,0.03631],[1,99.9116,0.04548]],// 41
+[[1,102.7214,0.03632],[1,100.6349,0.04553]],// 42
+[[1,103.5359,0.03634],[1,101.3519,0.04557]],// 43
+[[1,104.3529,0.03635],[1,102.0626,0.04560]],// 44
+[[1,105.1735,0.03637],[1,102.7671,0.04563]],// 45
+[[1,105.9993,0.03638],[1,103.4655,0.04566]],// 46
+[[1,106.8316,0.03640],[1,104.1577,0.04568]],// 47
+[[1,107.6723,0.03641],[1,104.8439,0.04570]],// 48
+[[1,108.5228,0.03643],[1,105.5240,0.04572]],// 49
+[[1,109.3848,0.03645],[1,106.1980,0.04574]],// 50
+[[1,110.2598,0.03646],[1,106.8660,0.04575]],// 51
+[[1,111.1490,0.03648],[1,107.5279,0.04577]],// 52
+[[1,112.0534,0.03649],[1,108.1838,0.04578]],// 53
+[[1,112.9742,0.03651],[1,108.8337,0.04580]],// 54
+[[1,113.9120,0.03652],[1,109.4776,0.04581]],// 55
+[[1,114.8678,0.03654],[1,110.1154,0.04583]],// 56
+[[1,115.8418,0.03655],[1,110.7472,0.04584]],// 57
+[[1,116.8344,0.03657],[1,111.3730,0.04586]],// 58
+[[1,117.8457,0.03658],[1,111.9926,0.04587]],// 59
+[[1,118.8757,0.03660],[1,112.6062,0.04588]],// 60
+];
+
+// HC-for-age (hcfa) — 0–60 meses
+const WHO_HCFA=[
+[[1,34.4618,0.03686],[1,33.8787,0.03496]],// 0
+[[1,37.2759,0.03133],[1,36.5463,0.03127]],// 1
+[[1,39.1285,0.02912],[1,38.2521,0.02900]],// 2
+[[1,40.5135,0.02814],[1,39.5328,0.02803]],// 3
+[[1,41.6317,0.02780],[1,40.5564,0.02756]],// 4
+[[1,42.5545,0.02743],[1,41.4198,0.02731]],// 5
+[[1,43.3226,0.02711],[1,42.1556,0.02722]],// 6
+[[1,43.9761,0.02693],[1,42.7866,0.02721]],// 7
+[[1,44.5422,0.02680],[1,43.3286,0.02719]],// 8
+[[1,45.0432,0.02669],[1,43.8027,0.02715]],// 9
+[[1,45.4957,0.02661],[1,44.2231,0.02713]],// 10
+[[1,45.9088,0.02655],[1,44.6014,0.02713]],// 11
+[[1,46.2896,0.02651],[1,44.9448,0.02715]],// 12
+[[1,46.6435,0.02648],[1,45.2602,0.02719]],// 13
+[[1,46.9741,0.02645],[1,45.5517,0.02724]],// 14
+[[1,47.2836,0.02643],[1,45.8222,0.02730]],// 15
+[[1,47.5737,0.02642],[1,46.0742,0.02737]],// 16
+[[1,47.8459,0.02641],[1,46.3095,0.02744]],// 17
+[[1,48.1015,0.02640],[1,46.5297,0.02752]],// 18
+[[1,48.3416,0.02640],[1,46.7358,0.02761]],// 19
+[[1,48.5671,0.02640],[1,46.9286,0.02770]],// 20
+[[1,48.7789,0.02641],[1,47.1091,0.02779]],// 21
+[[1,48.9778,0.02641],[1,47.2781,0.02789]],// 22
+[[1,49.1643,0.02642],[1,47.4360,0.02798]],// 23
+[[1,49.3392,0.02643],[1,47.5832,0.02808]],// 24
+[[1,49.5029,0.02644],[1,47.7202,0.02817]],// 25
+[[1,49.6560,0.02645],[1,47.8473,0.02827]],// 26
+[[1,49.7990,0.02646],[1,47.9650,0.02836]],// 27
+[[1,49.9323,0.02647],[1,48.0736,0.02845]],// 28
+[[1,50.0563,0.02648],[1,48.1735,0.02854]],// 29
+[[1,50.1715,0.02649],[1,48.2651,0.02862]],// 30
+[[1,50.2784,0.02650],[1,48.3487,0.02871]],// 31
+[[1,50.3774,0.02651],[1,48.4247,0.02879]],// 32
+[[1,50.4690,0.02652],[1,48.4933,0.02887]],// 33
+[[1,50.5536,0.02653],[1,48.5548,0.02894]],// 34
+[[1,50.6315,0.02654],[1,48.6096,0.02902]],// 35
+[[1,50.7032,0.02655],[1,48.6580,0.02909]],// 36
+[[1,50.7690,0.02656],[1,48.7003,0.02916]],// 37
+[[1,50.8292,0.02657],[1,48.7368,0.02922]],// 38
+[[1,50.8843,0.02658],[1,48.7677,0.02928]],// 39
+[[1,50.9345,0.02659],[1,48.7934,0.02934]],// 40
+[[1,50.9800,0.02660],[1,48.8141,0.02940]],// 41
+[[1,51.0212,0.02661],[1,48.8301,0.02945]],// 42
+[[1,51.0584,0.02662],[1,48.8415,0.02950]],// 43
+[[1,51.0917,0.02663],[1,48.8488,0.02955]],// 44
+[[1,51.1214,0.02664],[1,48.8520,0.02959]],// 45
+[[1,51.1477,0.02664],[1,48.8515,0.02963]],// 46
+[[1,51.1707,0.02665],[1,48.8473,0.02967]],// 47
+[[1,51.1908,0.02666],[1,48.8397,0.02971]],// 48
+[[1,51.2080,0.02667],[1,48.8289,0.02974]],// 49
+[[1,51.2226,0.02668],[1,48.8149,0.02977]],// 50
+[[1,51.2347,0.02668],[1,48.7980,0.02980]],// 51
+[[1,51.2445,0.02669],[1,48.7782,0.02983]],// 52
+[[1,51.2521,0.02670],[1,48.7558,0.02985]],// 53
+[[1,51.2577,0.02670],[1,48.7308,0.02987]],// 54
+[[1,51.2613,0.02671],[1,48.7035,0.02989]],// 55
+[[1,51.2631,0.02672],[1,48.6739,0.02990]],// 56
+[[1,51.2632,0.02672],[1,48.6421,0.02991]],// 57
+[[1,51.2618,0.02673],[1,48.6082,0.02992]],// 58
+[[1,51.2589,0.02673],[1,48.5724,0.02993]],// 59
+[[1,51.2547,0.02674],[1,48.5347,0.02993]],// 60
+];
+
+// BMI-for-age (bfa) — 0–60 meses
+const WHO_BMIFA=[
+[[1,13.4069,0.09016],[1,13.3363,0.09054]],// 0
+[[1,14.7434,0.08449],[1,14.5433,0.08680]],// 1
+[[1,16.0197,0.08000],[1,15.5043,0.08361]],// 2
+[[1,16.3728,0.07975],[1,15.6109,0.08283]],// 3
+[[1,16.2481,0.08017],[1,15.4089,0.08267]],// 4
+[[1,15.9661,0.08093],[1,15.1273,0.08366]],// 5
+[[1,15.7169,0.08229],[1,14.9063,0.08475]],// 6
+[[1,15.5266,0.08405],[1,14.7378,0.08612]],// 7
+[[1,15.4111,0.08597],[1,14.6200,0.08770]],// 8
+[[1,15.3329,0.08770],[1,14.5260,0.08938]],// 9
+[[1,15.2683,0.08947],[1,14.4431,0.09102]],// 10
+[[1,15.2178,0.09130],[1,14.3765,0.09266]],// 11
+[[1,15.1786,0.09296],[1,14.3178,0.09417]],// 12
+[[1,15.1497,0.09455],[1,14.2700,0.09563]],// 13
+[[1,15.1269,0.09598],[1,14.2298,0.09694]],// 14
+[[1,15.1070,0.09739],[1,14.1954,0.09824]],// 15
+[[1,15.0887,0.09869],[1,14.1662,0.09949]],// 16
+[[1,15.0762,0.09991],[1,14.1425,0.10069]],// 17
+[[1,15.0618,0.10111],[1,14.1227,0.10186]],// 18
+[[1,15.0509,0.10218],[1,14.1073,0.10296]],// 19
+[[1,15.0388,0.10320],[1,14.0940,0.10400]],// 20
+[[1,15.0280,0.10419],[1,14.0833,0.10501]],// 21
+[[1,15.0176,0.10512],[1,14.0751,0.10595]],// 22
+[[1,15.0054,0.10595],[1,14.0683,0.10685]],// 23
+[[1,14.9925,0.10686],[1,14.0646,0.10777]],// 24
+[[1,14.9814,0.10774],[1,14.0638,0.10861]],// 25
+[[1,14.9699,0.10855],[1,14.0647,0.10940]],// 26
+[[1,14.9579,0.10934],[1,14.0673,0.11015]],// 27
+[[1,14.9451,0.11009],[1,14.0715,0.11086]],// 28
+[[1,14.9317,0.11083],[1,14.0774,0.11154]],// 29
+[[1,14.9177,0.11153],[1,14.0849,0.11219]],// 30
+[[1,14.9031,0.11220],[1,14.0939,0.11280]],// 31
+[[1,14.8880,0.11283],[1,14.1043,0.11338]],// 32
+[[1,14.8725,0.11345],[1,14.1162,0.11394]],// 33
+[[1,14.8566,0.11404],[1,14.1295,0.11447]],// 34
+[[1,14.8405,0.11460],[1,14.1444,0.11497]],// 35
+[[1,14.8243,0.11513],[1,14.1606,0.11545]],// 36
+[[1,14.8082,0.11564],[1,14.1781,0.11591]],// 37
+[[1,14.7920,0.11613],[1,14.1969,0.11635]],// 38
+[[1,14.7757,0.11659],[1,14.2168,0.11677]],// 39
+[[1,14.7594,0.11704],[1,14.2381,0.11717]],// 40
+[[1,14.7431,0.11747],[1,14.2606,0.11755]],// 41
+[[1,14.7268,0.11787],[1,14.2843,0.11792]],// 42
+[[1,14.7106,0.11826],[1,14.3091,0.11826]],// 43
+[[1,14.6944,0.11863],[1,14.3349,0.11859]],// 44
+[[1,14.6782,0.11900],[1,14.3616,0.11890]],// 45
+[[1,14.6620,0.11934],[1,14.3891,0.11920]],// 46
+[[1,14.6459,0.11967],[1,14.4174,0.11948]],// 47
+[[1,14.6298,0.11999],[1,14.4464,0.11975]],// 48
+[[1,14.6137,0.12029],[1,14.4760,0.12001]],// 49
+[[1,14.5977,0.12058],[1,14.5063,0.12025]],// 50
+[[1,14.5817,0.12086],[1,14.5371,0.12049]],// 51
+[[1,14.5657,0.12113],[1,14.5683,0.12071]],// 52
+[[1,14.5498,0.12139],[1,14.5999,0.12092]],// 53
+[[1,14.5339,0.12164],[1,14.6318,0.12113]],// 54
+[[1,14.5181,0.12189],[1,14.6640,0.12132]],// 55
+[[1,14.5023,0.12212],[1,14.6966,0.12151]],// 56
+[[1,14.4867,0.12235],[1,14.7295,0.12169]],// 57
+[[1,14.4712,0.12257],[1,14.7628,0.12187]],// 58
+[[1,14.4557,0.12278],[1,14.7964,0.12204]],// 59
+[[1,14.4404,0.12299],[1,14.8303,0.12220]],// 60
+];
+
+// WHO 2007 BMI-for-age Z (5–19 anos) — selecção anual [L,M,S] M/F
+const WHO_BMIFA_5_19=[
+// anos 5–19
+[[1,15.3,0.0900],[1,15.2,0.0900]],// 5
+[[1,15.3,0.0920],[1,15.3,0.0930]],// 6
+[[1,15.5,0.0950],[1,15.5,0.0960]],// 7
+[[1,15.8,0.0980],[1,15.8,0.0990]],// 8
+[[1,16.1,0.1020],[1,16.2,0.1040]],// 9
+[[1,16.4,0.1060],[1,16.7,0.1090]],// 10
+[[1,16.8,0.1100],[1,17.3,0.1130]],// 11
+[[1,17.3,0.1130],[1,17.9,0.1160]],// 12
+[[1,17.9,0.1150],[1,18.5,0.1190]],// 13
+[[1,18.4,0.1160],[1,19.0,0.1210]],// 14
+[[1,18.9,0.1160],[1,19.5,0.1220]],// 15
+[[1,19.4,0.1160],[1,19.9,0.1230]],// 16
+[[1,19.8,0.1150],[1,20.3,0.1230]],// 17
+[[1,20.0,0.1150],[1,20.6,0.1230]],// 18
+[[1,20.2,0.1140],[1,20.8,0.1230]],// 19
+];
+
+// WHO 2007 Height-for-age 5–19 anos [L,M,S] M/F
+const WHO_HFA_5_19=[
+[[1,109.17,0.04082],[1,108.17,0.04117]],// 5.0
+[[1,115.61,0.04063],[1,114.58,0.04091]],// 6.0
+[[1,121.70,0.04050],[1,120.70,0.04065]],// 7.0
+[[1,127.31,0.04041],[1,126.35,0.04048]],// 8.0
+[[1,132.45,0.04036],[1,131.54,0.04033]],// 9.0
+[[1,137.35,0.04037],[1,136.52,0.04029]],// 10.0
+[[1,142.17,0.04040],[1,141.55,0.04036]],// 11.0
+[[1,147.25,0.04047],[1,147.08,0.04059]],// 12.0
+[[1,152.86,0.04059],[1,152.14,0.04074]],// 13.0
+[[1,158.65,0.04064],[1,155.80,0.04068]],// 14.0
+[[1,163.55,0.04056],[1,158.09,0.04054]],// 15.0
+[[1,166.77,0.04041],[1,159.40,0.04044]],// 16.0
+[[1,168.73,0.04029],[1,160.17,0.04036]],// 17.0
+[[1,169.83,0.04020],[1,160.59,0.04031]],// 18.0
+[[1,170.14,0.04013],[1,160.73,0.04025]],// 19.0
+];
+
+// ════ LMS Z-SCORE ENGINE ══════════════════════════════════════════════════════
+function lmsZ(x, L, M, S) {
+  if (L === 0) return Math.log(x / M) / S;
+  let z = (Math.pow(x / M, L) - 1) / (L * S);
+  // Cap extremes per WHO recommendation
+  if (z > 3) z = 3 + (Math.pow(x/M, L) - 1 - L*S*3) / (L*S*S*Math.pow(M,L));
+  if (z < -3) z = -3 + (Math.pow(x/M, L) - 1 - L*S*(-3)) / (L*S*S*Math.pow(M,L));
+  return z;
+}
+
+function interpLMS(tbl, age, sex) {
+  // sex: 0=M, 1=F
+  const n = tbl.length;
+  const i = Math.min(Math.max(0, Math.floor(age)), n - 1);
+  if (i >= n - 1) return tbl[n-1][sex];
+  const frac = age - i;
+  const a = tbl[i][sex], b = tbl[i+1][sex];
+  return [a[0]+frac*(b[0]-a[0]), a[1]+frac*(b[1]-a[1]), a[2]+frac*(b[2]-a[2])];
+}
+
+function zToPercentile(z) {
+  // Approximation of Φ(z)
+  const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+  const sign = z < 0 ? -1 : 1;
+  const t = 1 / (1 + p * Math.abs(z));
+  const y = 1 - (((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-z*z/2);
+  return Math.round(((1 + sign * y) / 2) * 1000) / 10;
+}
+
+function calcWHO(indicator, x, ageMonths, sex) {
+  // sex: 'M'=0, 'F'=1
+  const s = sex === 'M' ? 0 : 1;
+  let lms;
+  if (indicator === 'wfa' && ageMonths <= 60)
+    lms = interpLMS(WHO_WFA, ageMonths, s);
+  else if (indicator === 'hfa' && ageMonths <= 60)
+    lms = interpLMS(WHO_HFA, ageMonths, s);
+  else if (indicator === 'hcfa' && ageMonths <= 60)
+    lms = interpLMS(WHO_HCFA, ageMonths, s);
+  else if (indicator === 'bmifa' && ageMonths <= 60)
+    lms = interpLMS(WHO_BMIFA, ageMonths, s);
+  else if (indicator === 'bmifa' && ageMonths > 60) {
+    // WHO 2007 — annual, offset 5 anos = index 0
+    const yr = ageMonths / 12;
+    const i = Math.min(Math.max(0, yr - 5), WHO_BMIFA_5_19.length - 1);
+    const lo = Math.floor(i), hi = Math.min(lo+1, WHO_BMIFA_5_19.length-1);
+    const frac = i - lo;
+    const a = WHO_BMIFA_5_19[lo][s], b = WHO_BMIFA_5_19[hi][s];
+    lms = [a[0]+frac*(b[0]-a[0]), a[1]+frac*(b[1]-a[1]), a[2]+frac*(b[2]-a[2])];
+  }
+  else if (indicator === 'hfa' && ageMonths > 60) {
+    const yr = ageMonths / 12;
+    const i = Math.min(Math.max(0, yr - 5), WHO_HFA_5_19.length - 1);
+    const lo = Math.floor(i), hi = Math.min(lo+1, WHO_HFA_5_19.length-1);
+    const frac = i - lo;
+    const a = WHO_HFA_5_19[lo][s], b = WHO_HFA_5_19[hi][s];
+    lms = [a[0]+frac*(b[0]-a[0]), a[1]+frac*(b[1]-a[1]), a[2]+frac*(b[2]-a[2])];
+  }
+  if (!lms) return null;
+  const z = lmsZ(x, lms[0], lms[1], lms[2]);
+  return { z: +z.toFixed(2), pct: zToPercentile(z), M: +lms[1].toFixed(2) };
+}
+
+// SISVAN / WHO classification
+function classWFA(z) {
+  if (z < -3)   return { l:"Magreza grave",       c:"#7a0000", bg:"#fff0f0", code:"MG" };
+  if (z < -2)   return { l:"Magreza",              c:"#C0392B", bg:"#FDECEA", code:"M"  };
+  if (z < -1)   return { l:"Risco nutricional",    c:"#B84A00", bg:"#FEF3E2", code:"RN" };
+  if (z <= 1)   return { l:"Eutrofia",             c:"#2E7D5C", bg:"#E8F5EF", code:"E"  };
+  if (z <= 2)   return { l:"Peso elevado",         c:"#9A7000", bg:"#FFFBEA", code:"PE" };
+  if (z <= 3)   return { l:"Sobrepeso",            c:"#B84A00", bg:"#FEF3E2", code:"S"  };
+  return              { l:"Obesidade",             c:"#C0392B", bg:"#FDECEA", code:"O"  };
+}
+function classHFA(z) {
+  if (z < -3)   return { l:"Muito baixa estatura", c:"#7a0000", bg:"#fff0f0" };
+  if (z < -2)   return { l:"Baixa estatura",       c:"#C0392B", bg:"#FDECEA" };
+  if (z < -1)   return { l:"Risco baixa estatura", c:"#B84A00", bg:"#FEF3E2" };
+  return              { l:"Estatura adequada",     c:"#2E7D5C", bg:"#E8F5EF" };
+}
+function classBMI(z) {
+  if (z < -3)   return { l:"Magreza grave",        c:"#7a0000", bg:"#fff0f0" };
+  if (z < -2)   return { l:"Magreza",              c:"#C0392B", bg:"#FDECEA" };
+  if (z < 1)    return { l:"Eutrofia",             c:"#2E7D5C", bg:"#E8F5EF" };
+  if (z < 2)    return { l:"Sobrepeso",            c:"#9A7000", bg:"#FFFBEA" };
+  if (z < 3)    return { l:"Obesidade",            c:"#B84A00", bg:"#FEF3E2" };
+  return              { l:"Obesidade grave",       c:"#C0392B", bg:"#FDECEA" };
+}
+function classHC(z) {
+  if (z < -2)   return { l:"Microcefalia",          c:"#C0392B", bg:"#FDECEA" };
+  if (z < -1)   return { l:"Abaixo da média",       c:"#B84A00", bg:"#FEF3E2" };
+  if (z <= 2)   return { l:"Normal",                c:"#2E7D5C", bg:"#E8F5EF" };
+  if (z <= 3)   return { l:"Acima do esperado",     c:"#9A7000", bg:"#FFFBEA" };
+  return              { l:"Macrocefalia / DVP?",    c:"#6B4FA0", bg:"#F3EFFF" };
+}
+
+// ════ RENDER — NUTRIÇÃO PEDIÁTRICA ═══════════════════════════════════════════
+function renderNutri(){
+  const nu=S.nutri, pd=getPD();
+  // Auto-fill from patient if possible
+  const ageMoAuto = pd.age ? Math.floor(pd.age.tH/24/30.4375) : null;
+
+  const sexN  = nu.sexo || pd.sexo || '';
+  const ageN  = nu.idade !== '' ? parseFloat(nu.idade) : ageMoAuto;
+  const pesoN = parseFloat(nu.peso) || null;
+  const altN  = parseFloat(nu.alt)  || null;
+  const pcN   = parseFloat(nu.pc)   || null;
+  const bmi   = (pesoN && altN)     ? +(pesoN / Math.pow(altN/100, 2)).toFixed(1) : null;
+  const sexI  = sexN === 'M' ? 0 : 1;
+  const neuro = nu.neuro;
+
+  const wfa  = (pesoN && ageN != null && ageN <= 120) ? calcWHO('wfa',  pesoN, ageN, sexN) : null;
+  const hfa  = (altN  && ageN != null && ageN <= 228) ? calcWHO('hfa',  altN,  ageN, sexN) : null;
+  const bmif = (bmi   && ageN != null && ageN <= 228) ? calcWHO('bmifa',bmi,   ageN, sexN) : null;
+  const hcfa = (pcN   && ageN != null && ageN <= 60)  ? calcWHO('hcfa', pcN,   ageN, sexN) : null;
+
+  const cwfa = wfa  ? classWFA(wfa.z)  : null;
+  const chfa = hfa  ? classHFA(hfa.z)  : null;
+  const cbmi = bmif ? classBMI(bmif.z) : null;
+  const chc  = hcfa ? classHC(hcfa.z)  : null;
+
+  const tabBtn=(v,l,c)=>`<button data-action="set" data-key="nutri.tab" data-val="${v}" style="flex:1;padding:10px 6px;border-radius:10px;font-size:12px;font-weight:${nu.tab===v?700:600};border:${nu.tab===v?`2px solid ${c}`:'1.5px solid #E2DDD6'};background:${nu.tab===v?c+'18':'#FAFAF8'};color:${nu.tab===v?c:'#718096'};cursor:pointer">${l}</button>`;
+  const inp=(label,key,unit,ph,hint,type='number')=>`<div style="margin-bottom:11px">
+<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:4px">${label}</div>
+<div style="position:relative"><input class="inp" data-set="nutri.${key}" type="${type}" value="${nu[key]||''}" placeholder="${ph}" inputmode="decimal" style="font-size:16px;font-weight:700;padding-right:${unit?50:12}px"/>
+${unit?`<span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#718096">${unit}</span>`:''}</div>
+${hint?`<div style="font-size:10px;color:#718096;margin-top:2px">${hint}</div>`:''}</div>`;
+  const sx=(v,l)=>`<button data-action="sex" data-key="nutri.sexo" data-val="${v}" style="flex:1;padding:9px;border-radius:9px;font-size:12px;font-weight:600;border:1.5px solid ${sexN===v?'#3B6EA5':'#E2DDD6'};background:${sexN===v?'#3B6EA5':'transparent'};color:${sexN===v?'white':'#4A5568'}">${l}</button>`;
+
+  function zBar(z, cls) {
+    const pct = Math.min(Math.max((z+4)/8*100, 0), 100);
+    return `<div style="position:relative;height:10px;background:#F0EDE8;border-radius:5px;margin:6px 0;overflow:hidden">
+<div style="position:absolute;left:${(3/8*100).toFixed(1)}%;width:2px;top:0;bottom:0;background:#E2DDD6"></div>
+<div style="position:absolute;left:${(4/8*100).toFixed(1)}%;width:2px;top:0;bottom:0;background:#C8C0B0"></div>
+<div style="position:absolute;left:${(5/8*100).toFixed(1)}%;width:2px;top:0;bottom:0;background:#E2DDD6"></div>
+<div style="position:absolute;left:${pct.toFixed(1)}%;top:-1px;width:10px;height:12px;background:${cls.c};border-radius:5px;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3);transform:translateX(-50%)"></div>
+</div><div style="display:flex;justify-content:space-between;font-size:9px;color:#718096"><span>-4</span><span>-3</span><span>-2</span><span>-1</span><span>0</span><span>+1</span><span>+2</span><span>+3</span><span>+4</span></div>`;
+  }
+
+  function resultCard(label, icon, result, cls) {
+    if (!result || !cls) return '';
+    return `<div style="background:${cls.bg};border:2px solid ${cls.c}40;border-radius:14px;padding:14px;margin-bottom:10px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+<div><div style="font-size:11px;color:${cls.c};font-weight:700;margin-bottom:3px">${icon} ${label}</div>
+<div style="font-size:18px;font-weight:800;color:${cls.c}">${cls.l}</div></div>
+<div style="text-align:right"><div style="font-size:22px;font-weight:800;color:${cls.c}">Z ${result.z>0?'+':''}${result.z}</div>
+<div style="font-size:11px;color:${cls.c};opacity:.8">p${result.pct} · Ref: ${result.M}</div></div>
+</div>${zBar(result.z, cls)}</div>`;
+  }
+
+  return shdr('Nutrição Pediátrica','WHO 2006/2007 · SISVAN')
+    +`<div style="padding:16px">
+<div style="display:flex;gap:6px;margin-bottom:14px">
+${tabBtn("dados","📋 Dados","#3B6EA5")}${tabBtn("resultado","📊 Resultado","#2E7D5C")}
+</div>
+${nu.tab==='dados'?`
+<div class="card"><div class="lbl">Identificação</div>
+<div style="display:flex;gap:8px;margin-bottom:12px">${sx('M','♂ Masc')}${sx('F','♀ Fem')}</div>
+${inp("Idade","idade","meses","53","Em meses completos")}
+${ageMoAuto!==null&&nu.idade===''?`<div style="background:#EBF2FC;border-radius:8px;padding:8px 12px;margin-top:-6px;margin-bottom:10px;font-size:11px;color:#3B6EA5">⏱ Calculado dos dados do paciente: ${ageMoAuto} meses</div>`:''}
+</div>
+<div class="card"><div class="lbl">Medidas Antropométricas</div>
+${inp("Peso","peso","kg","14.0","","number")}
+${inp("Estatura / Comprimento","alt","cm","107","< 2 anos: comprimento deitado · ≥ 2 anos: altura em pé")}
+${inp("Perímetro cefálico","pc","cm","50","Obrigatório < 3 anos ou condição neurológica")}
+<div style="background:#F7F5F0;border-radius:10px;padding:10px 14px;margin-top:4px">
+<div style="font-size:11px;color:#718096;margin-bottom:3px">IMC calculado</div>
+<div style="font-size:20px;font-weight:800;color:${bmi?'#1A202C':'#C8C0B8'}">${bmi||'—'} <span style="font-size:12px;font-weight:400;color:#718096">kg/m²</span></div>
+</div></div>
+<div class="card"><div class="lbl">Contexto Clínico</div>
+<button data-action="toggle" data-key="nutri.neuro" style="display:flex;align-items:flex-start;gap:10px;width:100%;background:${neuro?'#F3EFFF':'#FAFAF8'};border:1.5px solid ${neuro?'#6B4FA0':'#E2DDD6'};border-radius:10px;padding:11px 13px;cursor:pointer;text-align:left">
+<div style="width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:1px;border:2px solid ${neuro?'#6B4FA0':'#E2DDD6'};background:${neuro?'#6B4FA0':'white'};display:flex;align-items:center;justify-content:center">${neuro?ck():''}</div>
+<div><div style="font-size:13px;font-weight:600;color:${neuro?'#6B4FA0':'#4A5568'}">🧠 Condição neurológica / DVP</div>
+<div style="font-size:11px;color:#718096;margin-top:2px;line-height:1.4">PC e IMC: interpretação modificada. PC pode estar aumentada por hidrocefalia — verificar DVP funcionante. Baixo IMC pode refletir redução de massa muscular.</div></div></button>
+<button class="btnp" data-action="set" data-key="nutri.tab" data-val="resultado" style="margin-top:14px;width:100%">Ver resultado →</button>
+</div>`
+:`
+${!sexN||ageN==null?`<div class="card" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:12px">📋</div><div style="color:#718096;font-size:14px">Preencha os dados na aba anterior</div></div>`:`
+${neuro?`<div style="background:#F3EFFF;border:1.5px solid #6B4FA040;border-radius:14px;padding:12px 14px;margin-bottom:14px;display:flex;gap:10px">
+<span style="font-size:20px;flex-shrink:0">⚠️</span>
+<div style="font-size:12px;color:#4a3080;line-height:1.5"><b>Condição neurológica / DVP ativa</b><br/>• PC aumentada pode refletir hidrocefalia — avaliar DVP funcionante<br/>• IMC e P/E podem estar falsamente baixos por sarcopenia espástica<br/>• Comparar com curvas específicas (Cerebral Palsy) se disponíveis</div></div>`:''}
+<div style="font-size:11px;font-weight:700;color:#718096;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Indicadores Nutricionais</div>
+${resultCard("Peso para Idade (P/I)","⚖️",wfa,cwfa)}
+${resultCard("Estatura para Idade (E/I)","📏",hfa,chfa)}
+${resultCard("IMC para Idade (IMC/I)","📊",bmif,cbmi)}
+${pcN&&hcfa?`<div style="font-size:11px;font-weight:700;color:#718096;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;margin-top:4px">Perímetro Cefálico</div>
+${resultCard("PC para Idade","🧠",hcfa,chc)}`:''}
+${wfa||hfa||bmif?`<div class="card" style="padding:14px"><div class="lbl">Diagnóstico Integrado</div>
+<div style="line-height:2">
+${wfa&&cwfa?`<div style="display:flex;justify-content:space-between;background:#F7F5F0;border-radius:8px;padding:7px 12px;margin-bottom:6px"><span style="font-size:12px;color:#718096">P/I (Z=${wfa.z>0?'+':''}${wfa.z})</span><span style="font-size:13px;font-weight:700;color:${cwfa.c}">${cwfa.l}</span></div>`:''}
+${hfa&&chfa?`<div style="display:flex;justify-content:space-between;background:#F7F5F0;border-radius:8px;padding:7px 12px;margin-bottom:6px"><span style="font-size:12px;color:#718096">E/I (Z=${hfa.z>0?'+':''}${hfa.z})</span><span style="font-size:13px;font-weight:700;color:${chfa.c}">${chfa.l}</span></div>`:''}
+${bmif&&cbmi?`<div style="display:flex;justify-content:space-between;background:#F7F5F0;border-radius:8px;padding:7px 12px;margin-bottom:6px"><span style="font-size:12px;color:#718096">IMC/I (Z=${bmif.z>0?'+':''}${bmif.z})</span><span style="font-size:13px;font-weight:700;color:${cbmi.c}">${cbmi.l}</span></div>`:''}
+</div>
+<div style="font-size:10px;color:#718096;margin-top:6px;font-style:italic">WHO 2006 (0–5a) · WHO 2007 (5–19a) · SISVAN 2011</div></div>`:''}
+`}
+<button class="btng" data-action="calc" data-val="clearNutri" style="width:100%;margin-bottom:4px">Limpar</button>
+`}
+</div>`;
+}
+function clearNutri(){S.nutri={tab:'dados',sexo:'',idade:'',peso:'',alt:'',pc:'',neuro:false};render();}
 
 </script></body></html>
