@@ -1586,4 +1586,19 @@ ${bmif&&cbmi?`<div style="display:flex;justify-content:space-between;background:
 }
 function clearNutri(){S.nutri={tab:'dados',sexo:'',idade:'',peso:'',alt:'',pc:'',neuro:false};render();}
 
-</script></body></html>
+</script>
+
+<script>
+// Força reload se versão em cache estiver desatualizada
+(function(){
+  const V = '202608152346';
+  const stored = sessionStorage.getItem('nk_v');
+  if(stored && stored !== V) {
+    sessionStorage.setItem('nk_v', V);
+    location.reload(true);
+  } else {
+    sessionStorage.setItem('nk_v', V);
+  }
+})();
+</script>
+</body></html>
