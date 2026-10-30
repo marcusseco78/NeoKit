@@ -76,6 +76,7 @@ const MODS=[
   {id:"renal",   icon:"🧪",name:"Função Renal",            desc:"Schwartz · KDIGO AWAKEN 2017",      color:"#B84A00",bg:"#FEF3E2"},
   {id:"pressao", icon:"🩺",name:"Pressão Arterial",        desc:"Hipotensão · Choque · HAS",         color:"#C0392B",bg:"#FDECEA"},
   {id:"nutri",   icon:"🥗",name:"Nutrição Pediátrica",     desc:"WHO 2006/2007 · Z-score · SISVAN",  color:"#2E7D5C",bg:"#E8F5EF"},
+  {id:"insulina",icon:"💉",name:"Infusão de Insulina",   desc:"Diluição neonatal · UI/kg/h",      color:"#6B4FA0",bg:"#F3EFFF"},
 ];
 // ════ UTILS ═══════════════════════════════════════════════════════════════════
 // ════ STATE ════════════════════════════════════════════════════════════════════
@@ -95,6 +96,7 @@ const S={
   renal:{tab:"clcr",ig:"",comp:"",crS:"",crAt:"",crBas:"",du:"",dol:""},
   pressao:{tab:"hypo",ig:"",peso:"",dol:"",map:"",sbpH:"",dbpH:"",signs:{},shockType:null,pma:"",sbp:"",dbp:""},
   nutri:{tab:"dados",sexo:"",idade:"",peso:"",alt:"",pc:"",neuro:false},
+  insulina:{peso:"",dose:"0.1",veloc:"1"},
 };
 function getS(path){const k=path.split(".");let o=S;for(const p of k)o=o[p];return o;}
 function setS(path,val){const k=path.split(".");let o=S;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;}
@@ -537,7 +539,7 @@ function trHbResult(r){
 
 // ════ RENDER + NAV + CALC + EVENTS ════════════════════════════════════════════
 function render(){
-  const screens={home:renderHome,ig:renderIG,foto:renderFoto,hidrica:renderHidrica,ehi:renderEHI,bell:renderBell,cateteres:renderCateteres,transfusao:renderTransfusao,pacientes:renderPacientes,capurro:renderCapurro,ballard:renderBallard,io:renderIO,renal:renderRenal,pressao:renderPressao,nutri:renderNutri};
+  const screens={home:renderHome,ig:renderIG,foto:renderFoto,hidrica:renderHidrica,ehi:renderEHI,bell:renderBell,cateteres:renderCateteres,transfusao:renderTransfusao,pacientes:renderPacientes,capurro:renderCapurro,ballard:renderBallard,io:renderIO,renal:renderRenal,pressao:renderPressao,nutri:renderNutri,insulina:renderInsulina};
   document.getElementById('app').innerHTML=(screens[S.screen]||renderHome)();
 }
 function nav(screen){
@@ -1607,5 +1609,82 @@ function clearNutri(){S.nutri={tab:'dados',sexo:'',idade:'',peso:'',alt:'',pc:''
     sessionStorage.setItem('nk_v', V);
   }
 })();
+
+function renderInsulina(){
+  var ins=S.insulina,pd=getPD();
+  var pesoN=parseFloat(ins.peso||pd.peso)||0;
+  var doseN=parseFloat(ins.dose)||0;
+  var velocN=parseFloat(ins.veloc)||0;
+  var pesoKg=pesoN/1000;
+  var concAlvo=(pesoN>0&&doseN>0&&velocN>0)?(doseN*pesoKg/velocN):0;
+  var volFinal=concAlvo>0?parseFloat((10/concAlvo).toFixed(1)):0;
+  var redil=volFinal>0?parseFloat((volFinal-1).toFixed(1)):0;
+  function inpF(lbl,key,unit,ph,hint){
+    return '<div style="margin-bottom:12px">'
+      +'<div style="font-size:12px;font-weight:600;color:#4A5568;margin-bottom:5px">'+lbl+'</div>'
+      +'<div style="position:relative">'
+      +'<input class="inp" data-set="insulina.'+key+'" type="number" value="'+(ins[key]||'')+'" placeholder="'+ph+'" inputmode="decimal" style="font-size:17px;font-weight:700;padding-right:52px"/>'
+      +'<span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#718096">'+unit+'</span>'
+      +'</div>'+(hint?'<div style="font-size:10px;color:#718096;margin-top:3px">'+hint+'</div>':'')+'</div>';
+  }
+  var res='';
+  if(pesoN>0&&doseN>0&&velocN>0){
+    var concStr=(concAlvo).toFixed(4);
+    res='<div style="background:#F3EFFF;border:2px solid #6B4FA040;border-radius:18px;padding:20px;margin-bottom:14px">'
+      +'<div style="font-size:11px;letter-spacing:2px;color:#6B4FA0;text-transform:uppercase;margin-bottom:14px;opacity:.8">Diluição calculada</div>'
+      +'<div style="background:rgba(255,255,255,.8);border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #d0c0f0">'
+      +'<div style="font-size:11px;font-weight:700;color:#6B4FA0;margin-bottom:8px;letter-spacing:1px">PASSO 1 — Solução intermediária</div>'
+      +'<div style="font-size:13px;color:#1A202C;line-height:1.9">'
+      +'<b>1 mL</b> de Insulina RH (100 UI/mL)<br>+ <b>9 mL</b> de SF 0,9%<br>= 10 mL a <b>10 UI/mL</b>'
+      +'</div></div>'
+      +'<div style="background:rgba(255,255,255,.8);border-radius:12px;padding:14px;margin-bottom:14px;border:1px solid #d0c0f0">'
+      +'<div style="font-size:11px;font-weight:700;color:#6B4FA0;margin-bottom:8px;letter-spacing:1px">PASSO 2 — Solução final</div>'
+      +'<div style="font-size:13px;color:#1A202C;line-height:1.9">'
+      +'<b>1 mL</b> da solução intermediária (10 UI)<br>'
+      +'+ <b style="color:#6B4FA0;font-size:16px">'+redil+' mL</b> de SF 0,9% <span style="font-size:11px;color:#718096">(rediluente)</span><br>'
+      +'= <b style="color:#6B4FA0;font-size:16px">'+volFinal+' mL</b> totais a <b>'+concStr+' UI/mL</b>'
+      +'</div></div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">'
+      +[{l:'Concentração',v:concStr+' UI/mL',s:'dose × P / vel'},{l:'Dose resultante',v:doseN+' UI/kg/h',s:'a '+velocN+' mL/h'},{l:'Volume final',v:volFinal+' mL',s:'1+'+redil+' mL SF'},{l:'Para peso',v:(pesoN/1000).toFixed(3)+' kg',s:pesoN+'g'}]
+      .map(function(x){return '<div style="background:rgba(255,255,255,.8);border-radius:10px;padding:10px;text-align:center">'
+        +'<div style="font-size:10px;color:#718096;margin-bottom:3px">'+x.l+'</div>'
+        +'<div style="font-size:15px;font-weight:800;color:#6B4FA0;line-height:1.2">'+x.v+'</div>'
+        +'<div style="font-size:10px;color:#718096;margin-top:2px">'+x.s+'</div></div>';}).join('')
+      +'</div>'
+      +'<div style="background:rgba(255,255,255,.7);border-radius:10px;padding:10px 14px;font-size:11px;color:#4a3080;font-style:italic">'
+      +'✓ Vol final = 10 ÷ ('+doseN+' × '+(pesoN/1000).toFixed(3)+') = <b>'+volFinal+' mL</b> &nbsp;| '
+      +'Rediluente = '+volFinal+' − 1 = <b>'+redil+' mL</b>'
+      +'</div>'
+      +'</div>';
+  }
+  return shdr('Infusão de Insulina','Diluição neonatal · método Marcus Seco')
+    +'<div style="padding:16px">'
+    +'<div style="background:#F3EFFF;border:1.5px solid #6B4FA040;border-radius:14px;padding:12px 14px;margin-bottom:14px">'
+    +'<div style="font-size:12px;color:#4a3080;line-height:1.7">'
+    +'<b>Insulina Regular Humana 1000 UI/10mL (100 UI/mL)</b><br>'
+    +'<b>Passo 1:</b> 1 mL insulina + 9 mL SF → <b>10 UI/mL</b><br>'
+    +'<b>Passo 2:</b> 1 mL dessa solução rediluido → volume final pelo peso<br>'
+    +'Infundir a <b>velocidade variável</b> (geralmente 1 mL/h)'
+    +'</div></div>'
+    +'<div class="card"><div class="lbl">Dados</div>'
+    +inpF('Peso (g)','peso','g',pd.peso||'1130','Peso atual do paciente')
+    +inpF('Dose alvo','dose','UI/kg/h','0.1','Dose usual neonatal: 0,05–0,2 UI/kg/h')
+    +inpF('Velocidade de infusão','veloc','mL/h','1','Geralmente 0,1–1 mL/h')
+    +'</div>'
+    +res
+    +'<div class="card"><div class="lbl">Doses de referência</div>'
+    +[['0,05 UI/kg/h','Dose inicial','Hiperglicemia moderada'],['0,1 UI/kg/h','Dose padrão','Hiperglicemia persistente'],['0,2 UI/kg/h','Dose máxima usual','Reavaliar clinicamente']]
+    .map(function(r){return '<div style="display:flex;justify-content:space-between;align-items:center;background:#F7F5F0;border-radius:10px;padding:9px 12px;margin-bottom:6px">'
+      +'<div><div style="font-size:13px;font-weight:700;color:#6B4FA0">'+r[0]+'</div>'
+      +'<div style="font-size:10px;color:#718096">'+r[2]+'</div></div>'
+      +'<div style="font-size:12px;color:#4A5568;text-align:right">'+r[1]+'</div></div>';}).join('')
+    +'<div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">'
+    +'⚠️ Monitorar glicemia 30–60 min após início e a cada 1–2h. Meta: 72–180 mg/dL em prematuros.</div>'
+    +'</div>'
+    +'<button class="btng" data-action="calc" data-val="clearInsulina" style="width:100%;margin-bottom:4px">Limpar</button>'
+    +'</div>';
+}
+
+function clearInsulina(){S.insulina={peso:'',dose:'0.1',veloc:'1'};render();}
 </script>
 </body></html>
